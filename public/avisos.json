@@ -1,0 +1,4 @@
+{
+  "_comentario": "Cambios de última hora durante el festival. Editar este archivo y volver a desplegar es todo lo que hace falta: no toca el código y llega a todo el mundo en el siguiente refresco. nivel: 'info' para cambios, 'alerta' para cancelaciones. sesionId opcional (solo aparece en esa ficha). dia opcional, formato 2026-09-23 (solo se muestra ese día).",
+  "avisos": []
+}

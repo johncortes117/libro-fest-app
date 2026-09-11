@@ -1,0 +1,2519 @@
+{
+  "generado": "2026-09-11T17:55:08.685Z",
+  "fuente": "docs/Agenda_UPEC_Libro_Fest_2026.md",
+  "sesiones": [
+    {
+      "id": "21-0900-avances-en-tecnologia-alimentaria-estudios-y-aplicac",
+      "tipo": "libro",
+      "titulo": "Avances en tecnología alimentaria: estudios y aplicaciones",
+      "personas": [
+        "Francisco Javier Domínguez Rodríguez",
+        "Orlando Meneses Quelal"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-21",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "21-0900-conversatorio-proyectos-que-inspiran-tecnologia-que",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Proyectos que inspiran, tecnología que transforma",
+      "personas": [
+        "Brayan Oñate (Grolab)"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-21",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "21-0900-nuevamente-antitematico",
+      "tipo": "libro",
+      "titulo": "Nuevamente Antitemático",
+      "personas": [
+        "Carlos Adrian Montenegro"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-21",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "21-0900-presentaciones",
+      "tipo": "cultural",
+      "titulo": "Presentaciones",
+      "detalle": "Música, danza, percusión",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-21",
+      "inicio": 540,
+      "fin": 720
+    },
+    {
+      "id": "21-1000-body-paint",
+      "tipo": "cultural",
+      "titulo": "Body Paint",
+      "detalle": "Abigail Zapata",
+      "personas": [],
+      "lugarId": "centro-convenciones",
+      "lugarTexto": "Centro de convenciones (Sala de exposiciones)",
+      "dia": "2026-09-21",
+      "inicio": 600,
+      "fin": 780
+    },
+    {
+      "id": "21-1000-conferencia-etnoeducacion-y-literatura-herramientas",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Etnoeducación y literatura: herramientas para el desarrollo comunitario",
+      "personas": [
+        "Claudia Gordillo"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-21",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "21-1000-las-artes-en-la-politecnica-del-carchi",
+      "tipo": "libro",
+      "titulo": "Las Artes en la Politécnica del Carchi",
+      "personas": [
+        "P. Carrillo Martínez",
+        "A. Minda Lara",
+        "S. Vásquez Castillo",
+        "W. Herrera Peña",
+        "J. Salas Yandún",
+        "J. Peñaherrera Bolaños"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-21",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "21-1000-luciano-coral-una-entrevista-imaginaria-en-la-histor",
+      "tipo": "libro",
+      "titulo": "Luciano Coral una entrevista imaginaria en la historia",
+      "personas": [
+        "Guillermo Cadena Arcos"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-21",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "21-1000-taller-fotografia",
+      "tipo": "taller",
+      "titulo": "Taller: Fotografía",
+      "personas": [
+        "Adrian Garzón Chicaiza"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-21",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "21-1100-conferencia-historia-genealogia-y-etica-politica-qui",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Historia, genealogía y ética política “Quito, Ibarra, Tulcán”",
+      "personas": [
+        "Juan Francisco Morales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-21",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "21-1100-didactica-de-la-literatura-enfoques-y-propuestas-par",
+      "tipo": "libro",
+      "titulo": "Didáctica de la literatura: enfoques y propuestas para el aula",
+      "personas": [
+        "Mónica Esmeralda Vallejo Achinchoy",
+        "Omar Armando Villota Pantoja"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-21",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "21-1100-enfermeria-familiar-y-comunitaria-innovamos-en-los-c",
+      "tipo": "libro",
+      "titulo": "Enfermería familiar y comunitaria: Innovamos en los cuidados",
+      "personas": [
+        "Lennys Beatriz Berutti Suárez"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-21",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "21-1100-taller-la-lectoescritura-y-como-estructurar-un-libro",
+      "tipo": "taller",
+      "titulo": "Taller: La lectoescritura y como estructurar un libro",
+      "personas": [
+        "Alonso Burgos"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-21",
+      "inicio": 660,
+      "fin": 780
+    },
+    {
+      "id": "21-1200-conferencia-virtual-bibliotecas-como-garantes-del-ac",
+      "tipo": "conferencia",
+      "titulo": "Conferencia Virtual: Bibliotecas como garantes del acceso universal e inclusivo en la era digital",
+      "personas": [
+        "Esther Jeria"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-21",
+      "inicio": 720,
+      "fin": 780
+    },
+    {
+      "id": "21-1200-experiencias-de-colaboracion-en-la-investigacion-cie",
+      "tipo": "libro",
+      "titulo": "Experiencias de colaboración en la investigación científica multidisciplinar e inclusiva: Volumen II",
+      "personas": [
+        "I. Pereira da Silva",
+        "G. Lagos Reinoso",
+        "M. Burbano Pulles"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-21",
+      "inicio": 720,
+      "fin": 780
+    },
+    {
+      "id": "21-1400-conferencia-qhapaq-nan-patrimonio-cultural-memoria-e",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Qhapaq Ñan: patrimonio cultural, memoria e identidad de los territorios andinos",
+      "personas": [
+        "Gerardo Sánchez"
+      ],
+      "lugarId": "universidad-narino",
+      "lugarTexto": "Auditorio Gonzalo Bravo Pérez – Universidad de Nariño",
+      "dia": "2026-09-21",
+      "inicio": 840,
+      "fin": 900
+    },
+    {
+      "id": "21-1400-conversatorio-poesia-contemporanea",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Poesía contemporánea",
+      "personas": [
+        "Irene Romo",
+        "Poetas del Carchi",
+        "Flor María Cadena",
+        "Gloria Santacruz"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-21",
+      "inicio": 840,
+      "fin": 900
+    },
+    {
+      "id": "21-1500-cine-foro",
+      "tipo": "taller",
+      "titulo": "Cine foro",
+      "personas": [
+        "Colectivo Mujeres de Asfalto"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-21",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "21-1500-cine-infantil",
+      "tipo": "cultural",
+      "titulo": "Cine infantil",
+      "detalle": "Cine, Cámara... ¡Hablemos!",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-21",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "21-1500-conferencia-el-ornamento-como-memoria-del-cuerpo-rec",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: El ornamento como memoria del cuerpo: reconstrucción de la vestimenta ancestral del pueblo Pasto...",
+      "personas": [
+        "Mayra Cuaspud"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-21",
+      "inicio": 900,
+      "fin": 960,
+      "truncado": true
+    },
+    {
+      "id": "21-1500-entre-montanas-cafe-del-carchi-cafe-de-altura",
+      "tipo": "libro",
+      "titulo": "Entre montañas café del Carchi café de altura",
+      "personas": [
+        "F. Quinde Sari",
+        "C. Herrera Ramírez",
+        "G. Jácome Sarchi",
+        "J. Enríquez"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-21",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "21-1500-espacios-sagrados-del-carchi-y-turismo-religioso",
+      "tipo": "libro",
+      "titulo": "Espacios sagrados del Carchi y turismo religioso",
+      "personas": [
+        "Dennys Andrés Bolaños Tobar",
+        "Pamela Carolina Guerrero Palma"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-21",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "21-1500-presentaciones",
+      "tipo": "cultural",
+      "titulo": "Presentaciones",
+      "detalle": "Música, danza, percusión",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-21",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "21-1600-ganaderia-inteligente-innovacion-tecnologica-para-la",
+      "tipo": "libro",
+      "titulo": "Ganadería inteligente innovación tecnológica para la producción animal sostenible y resiliente",
+      "personas": [
+        "Luis Balarezo Urresta",
+        "Segundo Ramiro Mora Quilismal"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-21",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "21-1600-los-limites-del-otro-mundo-memoria-y-resistencia-en",
+      "tipo": "libro",
+      "titulo": "Los límites del otro mundo. Memoria y resistencia en las comunidades de la frontera colombo-ecuatoriana",
+      "personas": [
+        "Edison Duván Ávalos Florez"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-21",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "21-1600-monologo-payaso",
+      "tipo": "cultural",
+      "titulo": "Monólogo Payaso",
+      "detalle": "Obra: Intermitencia (Juan Sánchez)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-21",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "21-1600-presentacion-protocolo-biocomunitario-del-pueblo-afr",
+      "tipo": "conferencia",
+      "titulo": "Presentación: Protocolo Biocomunitario del pueblo afroecuatoriano: Saberes y sabores ancestrales",
+      "personas": [
+        "FIASA",
+        "Universidad Politécnica del Carchi"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-21",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "21-1600-reconocimiento-a-la-trayectoria-y-aporte-al-patrimon",
+      "tipo": "conferencia",
+      "titulo": "Reconocimiento a la trayectoria y aporte al Patrimonio Cultural",
+      "personas": [
+        "Gerardo Sánchez"
+      ],
+      "lugarId": "universidad-narino",
+      "lugarTexto": "Auditorio Gonzalo Bravo Pérez – Universidad de Nariño",
+      "dia": "2026-09-21",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "21-1600-taller-de-creacion-y-reflexion-poetica-estamos-matan",
+      "tipo": "taller",
+      "titulo": "Taller de creación y reflexión poética: Estamos matando a los poetas",
+      "personas": [
+        "Alfonso Cabrera"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-21",
+      "inicio": 960,
+      "fin": 1080
+    },
+    {
+      "id": "21-1700-conversatorio-proyectos-que-inspiran-tecnologia-que",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Proyectos que inspiran, tecnología que transforma",
+      "personas": [
+        "Brayan Oñate (Grolab)"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-21",
+      "inicio": 1020,
+      "fin": 1110
+    },
+    {
+      "id": "21-1700-facilitacion-del-transporte-y-flujo-vehicular-del-pu",
+      "tipo": "libro",
+      "titulo": "Facilitación del transporte y flujo vehicular del Puente Internacional de Rumichaca...",
+      "personas": [
+        "Jorge Luis Chunés Jácome",
+        "Iván Alirio Realpe Cabrera"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-21",
+      "inicio": 1020,
+      "fin": 1080,
+      "truncado": true
+    },
+    {
+      "id": "21-1700-obra-de-teatro",
+      "tipo": "cultural",
+      "titulo": "Obra de teatro",
+      "detalle": "Yarazupa - enduendada (Fundación Femandi)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-21",
+      "inicio": 1020,
+      "fin": 1080
+    },
+    {
+      "id": "21-1800-largometraje-documental-historico",
+      "tipo": "cultural",
+      "titulo": "Largometraje documental histórico",
+      "detalle": "Carchi más de 100 años de historia (Dir: Danny Oñate)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-21",
+      "inicio": 1080,
+      "fin": 1170
+    },
+    {
+      "id": "22-0900-conferencia-la-inteligencia-artificial-y-la-supercom",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: ¿La Inteligencia Artificial y la Supercomputación vienen a reemplazar al profesional o a convertirlo en un profesional mucho más poderoso?",
+      "personas": [
+        "Fabian Jiménez (CTO & Co-Founder - NF Innovations)"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-22",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "22-0900-la-metodologia-de-investigacion-cientifica-aplicacio",
+      "tipo": "libro",
+      "titulo": "La Metodología de investigación científica aplicación en el bachillerato...",
+      "personas": [
+        "César Armando Enríquez Montenegro"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-22",
+      "inicio": 540,
+      "fin": 600,
+      "truncado": true
+    },
+    {
+      "id": "22-0900-politicas-publicas-para-el-desarrollo-local-analisis",
+      "tipo": "libro",
+      "titulo": "Políticas públicas para el desarrollo local: Análisis de casos en el Ecuador contemporáneo",
+      "personas": [
+        "Iván Bolívar Ruiz González"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-22",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "22-0900-presentaciones",
+      "tipo": "cultural",
+      "titulo": "Presentaciones",
+      "detalle": "Música, danza, percusión",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-22",
+      "inicio": 540,
+      "fin": 720
+    },
+    {
+      "id": "22-0900-taller-ortografia",
+      "tipo": "taller",
+      "titulo": "Taller: Ortografía",
+      "personas": [
+        "Colectivo Mujeres de Asfalto"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-22",
+      "inicio": 540,
+      "fin": 660
+    },
+    {
+      "id": "22-1000-conferencia-academia-sin-fronteras-cooperacion-unive",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Academia sin fronteras: cooperación universitaria e integración desde los territorios fronterizos",
+      "personas": [
+        "Geraldo Bravo Montenegro"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-22",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "22-1000-laboratorio-el-cuerpo-el-territorio-y-los-caminos-de",
+      "tipo": "taller",
+      "titulo": "Laboratorio: El cuerpo, el territorio y los caminos de paz",
+      "personas": [
+        "Nathalie Silva Bonilla"
+      ],
+      "lugarId": "cancha-sintetica",
+      "lugarTexto": "Cancha sintética - Campus universitario",
+      "dia": "2026-09-22",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "22-1000-manglar-educacion-artistica-interculturalidad-y-terr",
+      "tipo": "libro",
+      "titulo": "Manglar. Educación artística, interculturalidad y territorios",
+      "personas": [
+        "Byron David Egas Villota",
+        "Johnny Alex Guerra"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-22",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "22-1000-sustentabilidad-y-optimizacion-de-la-movilidad-y-log",
+      "tipo": "libro",
+      "titulo": "Sustentabilidad y optimización de la movilidad y logística urbanas: Un modelo de evaluación para Tulcán",
+      "personas": [
+        "D. Beltrán Del Hierro",
+        "I. Mafla Bolaños",
+        "E. Mora Chúquer",
+        "C. Morales"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-22",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "22-1100-conversatorio-mediacion-lectora-en-la-era-digital",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Mediación lectora en la Era digital",
+      "personas": [
+        "Alexander Muñoz Garzón"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-22",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "22-1100-economia-circular-en-zona-de-frontera-zona-1-del-ecu",
+      "tipo": "libro",
+      "titulo": "Economía circular en zona de frontera – (zona 1 del Ecuador)...",
+      "personas": [
+        "Gladys Primavera Urgiles Urgiles"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-22",
+      "inicio": 660,
+      "fin": 720,
+      "truncado": true
+    },
+    {
+      "id": "22-1100-la-competitividad-el-uso-de-las-fintech-y-el-proceso",
+      "tipo": "libro",
+      "titulo": "La competitividad, el uso de las FinTech y el proceso de inclusión financiera en la provincia del Carchi",
+      "personas": [
+        "J. Bastidas Guerrón",
+        "G. Cárdenas Fierro",
+        "A. Mora Lucero"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-22",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "22-1100-taller-dibujo",
+      "tipo": "taller",
+      "titulo": "Taller: Dibujo",
+      "personas": [
+        "Fernando Pazmiño Palma"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-22",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "22-1200-charla-programas-academicos-y-oportunidades-de-estud",
+      "tipo": "conferencia",
+      "titulo": "Charla: Programas académicos y oportunidades de estudios en el exterior",
+      "personas": [
+        "International Study Programs"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-22",
+      "inicio": 720,
+      "fin": 780
+    },
+    {
+      "id": "22-1200-gestion-logistica-y-competitividad-en-el-sector-flor",
+      "tipo": "libro",
+      "titulo": "Gestión logística y competitividad en el sector florícola...",
+      "personas": [
+        "Blanca Liliana Montenegro Obando",
+        "Lisbeth Dayanara Enríquez Chuga"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-22",
+      "inicio": 720,
+      "fin": 780,
+      "truncado": true
+    },
+    {
+      "id": "22-1200-modelos-predictivos-de-mortalidad-en-uci",
+      "tipo": "libro",
+      "titulo": "Modelos predictivos de mortalidad en UCI...",
+      "personas": [
+        "A. Rodríguez Morillo",
+        "J. Mora Quendi",
+        "B. Portilla Tirira"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-22",
+      "inicio": 720,
+      "fin": 780,
+      "truncado": true
+    },
+    {
+      "id": "22-1400-conferencia-lectura-y-diversidad-inclusion-a-traves",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Lectura y diversidad: inclusión a través de los libros",
+      "personas": [
+        "Alejandra Pacheco"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-22",
+      "inicio": 840,
+      "fin": 900
+    },
+    {
+      "id": "22-1500-body-paint",
+      "tipo": "cultural",
+      "titulo": "Body Paint",
+      "detalle": "Abigail Zapata",
+      "personas": [],
+      "lugarId": "centro-convenciones",
+      "lugarTexto": "Centro de convenciones (Sala de exposiciones)",
+      "dia": "2026-09-22",
+      "inicio": 900,
+      "fin": 1020
+    },
+    {
+      "id": "22-1500-chamanismo-y-escritura",
+      "tipo": "libro",
+      "titulo": "Chamanismo y Escritura",
+      "personas": [
+        "Alexis Uscátegui",
+        "Edison Duván Avalos Florez"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-22",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "22-1500-cine-foro",
+      "tipo": "cultural",
+      "titulo": "Cine foro",
+      "detalle": "A medio camino (Nantu Mantilla)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-22",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "22-1500-conversatorio-despertar-la-curiosidad-cultura-arte-y",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Despertar la curiosidad: cultura, arte y literatura más allá de la profesión",
+      "personas": [
+        "Fernando Bonilla Pabón"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-22",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "22-1500-presentacion-de-novelas-y-encuentro-con-sus-autores",
+      "tipo": "libro",
+      "titulo": "Presentación de novelas y encuentro con sus autores",
+      "personas": [
+        "Miguel Oviedo Risueño",
+        "Henry A. Manriquez"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-22",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "22-1500-presentaciones",
+      "tipo": "cultural",
+      "titulo": "Presentaciones",
+      "detalle": "Música, danza, percusión",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-22",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "22-1500-taller-dramaturgia-poetica-del-poema-a-la-escena",
+      "tipo": "taller",
+      "titulo": "Taller: Dramaturgia Poética: del poema a la escena",
+      "personas": [
+        "Guadalupe Lezama"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-22",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "22-1600-cine-infantil",
+      "tipo": "cultural",
+      "titulo": "Cine infantil",
+      "detalle": "Cine, Cámara... ¡Hablemos!",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-22",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "22-1600-conferencia-historia-de-la-independencia",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Historia de la independencia",
+      "personas": [
+        "Juan Francisco Morales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-22",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "22-1600-ines-quecivel-poesias-em-tres-idiomas",
+      "tipo": "libro",
+      "titulo": "Ines Quecível: poesías em trés idiomas",
+      "personas": [
+        "Inês Possagnolo"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-22",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "22-1600-latidos-de-la-marca-un-viaje-a-traves-de-la-experien",
+      "tipo": "libro",
+      "titulo": "Latidos de la marca: Un viaje a través de la experiencia del consumidor y las relaciones con la marca...",
+      "personas": [
+        "F. Paguay Chávez",
+        "G. Cuadrado Barreto",
+        "F. Villarreal Salazar"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-22",
+      "inicio": 960,
+      "fin": 1020,
+      "truncado": true
+    },
+    {
+      "id": "22-1600-taller-escritura-creativa",
+      "tipo": "taller",
+      "titulo": "Taller: Escritura creativa",
+      "personas": [
+        "Selvin Pérez",
+        "Osmar Cruz"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-22",
+      "inicio": 960,
+      "fin": 1080
+    },
+    {
+      "id": "22-1700-dias-de-amor-y-desesperanza",
+      "tipo": "libro",
+      "titulo": "Días de amor y desesperanza",
+      "personas": [
+        "Héctor Flores Franco"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-22",
+      "inicio": 1020,
+      "fin": 1080
+    },
+    {
+      "id": "22-1700-huayna-capac-su-corazon-en-tumipamba",
+      "tipo": "libro",
+      "titulo": "Huayna Capac: su corazón en Tumipamba",
+      "personas": [
+        "Aurelio Maldonado Aguilar"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-22",
+      "inicio": 1020,
+      "fin": 1080
+    },
+    {
+      "id": "22-1700-i-encuentro-latinoamericano-de-poetas-y-escritores-v",
+      "tipo": "conferencia",
+      "titulo": "I Encuentro Latinoamericano de Poetas y Escritores “Versos Sin Fronteras”",
+      "personas": [
+        "Poetas binacionales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-22",
+      "inicio": 1020,
+      "fin": 1170
+    },
+    {
+      "id": "22-1700-narracion-oral",
+      "tipo": "cultural",
+      "titulo": "Narración oral",
+      "detalle": "El Diablo de Quito (Javier Cevallos Perugachi)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-22",
+      "inicio": 1020,
+      "fin": 1080
+    },
+    {
+      "id": "22-1800-obra-de-teatro",
+      "tipo": "cultural",
+      "titulo": "Obra de teatro",
+      "detalle": "Trascendencia (Dir: Adriana Figueroa)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-22",
+      "inicio": 1080,
+      "fin": 1140
+    },
+    {
+      "id": "23-0800-conversatorio-literatura-contemporanea",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Literatura contemporánea",
+      "personas": [
+        "Poetas nacionales e internacionales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-23",
+      "inicio": 480,
+      "fin": 540
+    },
+    {
+      "id": "23-0800-conversatorio-voces-del-territorio-poesia-memoria-e",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Voces del territorio: poesía, memoria e identidad de la antigua Provincia de Obando",
+      "personas": [
+        "Poetas nacionales e internacionales"
+      ],
+      "lugarId": "banco-republica-ipiales",
+      "lugarTexto": "Agencia Cultural Banco de la República - Ipiales",
+      "dia": "2026-09-23",
+      "inicio": 480,
+      "fin": 660
+    },
+    {
+      "id": "23-0900-conversatorio-mediacion-lectora-en-los-entornos-con",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Mediación lectora en los entornos con déficit bibliográfico",
+      "personas": [
+        "Alexander Muñoz Garzón"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-23",
+      "inicio": 540,
+      "fin": 660
+    },
+    {
+      "id": "23-0900-finanzas-para-la-vida-real",
+      "tipo": "libro",
+      "titulo": "Finanzas para la vida real",
+      "personas": [
+        "Luis Luna Osorio"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-23",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "23-0900-la-academia-de-las-palabras-propuestas-de-innovacion",
+      "tipo": "libro",
+      "titulo": "La academia de las palabras: Propuestas de innovación didáctica...",
+      "personas": [
+        "Diana Caridad Ruiz Onofre",
+        "Antonieta Alexandra López Ortega"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-23",
+      "inicio": 540,
+      "fin": 600,
+      "truncado": true
+    },
+    {
+      "id": "23-0900-presentaciones",
+      "tipo": "cultural",
+      "titulo": "Presentaciones",
+      "detalle": "Música, danza, percusión",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-23",
+      "inicio": 540,
+      "fin": 720
+    },
+    {
+      "id": "23-1000-body-paint",
+      "tipo": "cultural",
+      "titulo": "Body Paint",
+      "detalle": "Abigail Zapata",
+      "personas": [],
+      "lugarId": "centro-convenciones",
+      "lugarTexto": "Centro de convenciones (Sala de exposiciones)",
+      "dia": "2026-09-23",
+      "inicio": 600,
+      "fin": 720
+    },
+    {
+      "id": "23-1000-charla-virtual-el-uso-del-storytelling-en-la-obra-de",
+      "tipo": "conferencia",
+      "titulo": "Charla virtual: El uso del storytelling en la obra de Andri Snær Magnason para reflexionar sobre el cambio climático y la conservación ambiental.",
+      "personas": [
+        "Julieta Muñoz"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-23",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "23-1000-entre-el-discurso-y-la-practica-necesidades-educativ",
+      "tipo": "libro",
+      "titulo": "Entre el discurso y la práctica: necesidades educativas específicas sensoriales e inclusión escolar",
+      "personas": [
+        "Cinthya Alejandra Vásconez García"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-23",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "23-1000-entre-la-ley-y-la-necesidad-la-economia-informal-tra",
+      "tipo": "libro",
+      "titulo": "Entre la Ley y la necesidad: La economía informal transfronteriza como estrategia de subsistencia en Tulcán",
+      "personas": [
+        "Gladys Primavera Urgiles Urgiles"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-23",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "23-1000-taller-jugando-a-crear-historias-desde-la-palabra",
+      "tipo": "taller",
+      "titulo": "Taller: Jugando a crear historias desde la palabra",
+      "personas": [
+        "Cristian Fraga"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-23",
+      "inicio": 600,
+      "fin": 720
+    },
+    {
+      "id": "23-1100-conferencia-cuando-un-pais-inspira-un-libro-la-obra",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Cuando un país inspira un libro: La obra de Yaron Avitov",
+      "personas": [
+        "Yaron Avitov"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-23",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "23-1100-la-educacion-ambiental-en-el-aula-reflexiones-y-prac",
+      "tipo": "libro",
+      "titulo": "La Educación Ambiental en el aula: Reflexiones y prácticas innovadoras",
+      "personas": [
+        "Johana Milena Morillo Cortez",
+        "María Cristina Silva Cazar"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-23",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "23-1100-merodeadores-de-suenos",
+      "tipo": "libro",
+      "titulo": "Merodeadores de sueños",
+      "personas": [
+        "Eduardo Alfredo Ortiz Montero"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-23",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "23-1200-conferencia-sonidos-del-inconsciente-colectivo",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Sonidos del inconsciente colectivo...",
+      "personas": [
+        "Carlos Pomboza",
+        "Felipe Nájera"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-23",
+      "inicio": 720,
+      "fin": 780,
+      "truncado": true
+    },
+    {
+      "id": "23-1200-inteligencia-artificial-avanzada-en-educacion-superi",
+      "tipo": "libro",
+      "titulo": "Inteligencia Artificial Avanzada en Educación Superior...",
+      "personas": [
+        "J. López Goyez",
+        "G. Arcos Ponce",
+        "A. González Briones"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-23",
+      "inicio": 720,
+      "fin": 780,
+      "truncado": true
+    },
+    {
+      "id": "23-1400-charla-virtual-oportunidades-de-becas-del-daad-para",
+      "tipo": "conferencia",
+      "titulo": "Charla virtual: Oportunidades de becas del DAAD para estudios e investigación en Alemania",
+      "personas": [
+        "Servicio Alemán de Intercambio Académico (DAAD)"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-23",
+      "inicio": 840,
+      "fin": 900
+    },
+    {
+      "id": "23-1400-taller-literatura-brasilena",
+      "tipo": "taller",
+      "titulo": "Taller: Literatura brasileña",
+      "personas": [
+        "Inês Possagnolo"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-23",
+      "inicio": 840,
+      "fin": 900
+    },
+    {
+      "id": "23-1500-cinco-estrategias-para-las-mipymes-analisis-de-estra",
+      "tipo": "libro",
+      "titulo": "Cinco estrategias para las mipymes: Análisis de estrategias de gestión...",
+      "personas": [
+        "J. Bastidas Guerrón",
+        "E. Curiel López",
+        "G. Cárdenas Fierro",
+        "A. Heredia Campaña"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-23",
+      "inicio": 900,
+      "fin": 960,
+      "truncado": true
+    },
+    {
+      "id": "23-1500-conversatorio-internacional-poesia-sin-fronteras-voc",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio Internacional: Poesía sin fronteras: Voces de América Latina",
+      "personas": [
+        "Poetas nacionales e internacionales"
+      ],
+      "lugarId": "banco-republica-ipiales",
+      "lugarTexto": "Agencia Cultural Banco de la República - Ipiales",
+      "dia": "2026-09-23",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "23-1500-conversatorio-cuentos-al-calor-de-la-memoria-laborat",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Cuentos al calor de la memoria: Laboratorio de oralidad del pueblo de los Pastos",
+      "personas": [
+        "Polivio Pinchao Chacua",
+        "Lucerito del Socorro Juajinoy Narváez"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-23",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "23-1500-entretejidos-sociales-inclusion-educacion-genero-jus",
+      "tipo": "libro",
+      "titulo": "Entretejidos Sociales: Inclusión, Educación, Género, Justicia, Seguridad y Ambiente...",
+      "personas": [
+        "Jesús Ramón Aranguren Carrera",
+        "Wladimir Alberto Pérez Parra"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-23",
+      "inicio": 900,
+      "fin": 960,
+      "truncado": true
+    },
+    {
+      "id": "23-1500-narracion-oral",
+      "tipo": "cultural",
+      "titulo": "Narración oral",
+      "detalle": "Historias que vuelan (Fundación Ala de colibrí)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-23",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "23-1500-presentaciones",
+      "tipo": "cultural",
+      "titulo": "Presentaciones",
+      "detalle": "Música, danza, percusión",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-23",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "23-1500-taller-el-arte-de-leer-metodologias-creativas-para-d",
+      "tipo": "taller",
+      "titulo": "Taller: El arte de leer, metodologías creativas para docentes",
+      "personas": [
+        "Peter Rincón"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-23",
+      "inicio": 900,
+      "fin": 1080
+    },
+    {
+      "id": "23-1600-conferencia-historia-genealogia-y-etica-politica-qui",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Historia, genealogía y ética política “Quito, Ibarra, Tulcán”",
+      "personas": [
+        "Juan Francisco Morales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-23",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "23-1600-contrasentidos",
+      "tipo": "libro",
+      "titulo": "Contrasentidos",
+      "personas": [
+        "Héctor Hernán Hurtado Botero"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-23",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "23-1600-fundamentos-teoricos-y-practicos-de-enfermeria-pedia",
+      "tipo": "libro",
+      "titulo": "Fundamentos teóricos y prácticos de enfermería pediátrica: Guías para la atención clínica infantil",
+      "personas": [
+        "Naomi Salomé Flores Santander",
+        "Jacqueline de los Ángeles Realpe Sandoval"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-23",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "23-1600-narracion-oral",
+      "tipo": "cultural",
+      "titulo": "Narración oral",
+      "detalle": "Cuentos Andinos (Javier Cevallos Perugachi)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-23",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "23-1700-cine-foro",
+      "tipo": "cultural",
+      "titulo": "Cine foro",
+      "detalle": "El último rincón (Yaron Avitov)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-23",
+      "inicio": 1020,
+      "fin": 1080
+    },
+    {
+      "id": "23-1700-i-encuentro-latinoamericano-de-poetas-y-escritores-v",
+      "tipo": "conferencia",
+      "titulo": "I Encuentro Latinoamericano de Poetas y Escritores “Versos Sin Fronteras”",
+      "personas": [
+        "Poetas nacionales e internacionales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-23",
+      "inicio": 1020,
+      "fin": 1170
+    },
+    {
+      "id": "23-1800-narracion-oral",
+      "tipo": "cultural",
+      "titulo": "Narración oral",
+      "detalle": "Vida mía (Cristian Fraga)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-23",
+      "inicio": 1080,
+      "fin": 1140
+    },
+    {
+      "id": "23-1900-obra-de-teatro",
+      "tipo": "cultural",
+      "titulo": "Obra de teatro",
+      "detalle": "Los desaparecidos (Dir: Germán Obando)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-23",
+      "inicio": 1140,
+      "fin": 1200
+    },
+    {
+      "id": "24-0900-creatividad-usabilidad-y-narrativas-digitales-en-la",
+      "tipo": "libro",
+      "titulo": "Creatividad, usabilidad y narrativas digitales en la multimedia...",
+      "personas": [
+        "Edgar Fernando Pazmiño Palma"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-24",
+      "inicio": 540,
+      "fin": 600,
+      "truncado": true
+    },
+    {
+      "id": "24-0900-presentacion-de-la-obra-12-retos-ecuador",
+      "tipo": "conferencia",
+      "titulo": "Presentación de la obra: 12 retos Ecuador",
+      "personas": [
+        "César Ulloa Tapia"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-24",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "24-0900-presentaciones",
+      "tipo": "cultural",
+      "titulo": "Presentaciones",
+      "detalle": "Música, danza, percusión",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-24",
+      "inicio": 540,
+      "fin": 720
+    },
+    {
+      "id": "24-0900-taller-la-poesia-desde-la-humanizacion",
+      "tipo": "taller",
+      "titulo": "Taller: La poesía desde la humanización",
+      "personas": [
+        "Genoveva Ponce Naranjo"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-24",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "24-1000-conferencia-identidad-compartida-y-el-intercambio-cu",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Identidad compartida y el intercambio cultural binacional",
+      "personas": [
+        "Javier Cabezas Castillo"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-24",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "24-1000-libros-de-texto-escolar-impreso-y-digital-realidades",
+      "tipo": "libro",
+      "titulo": "Libros de texto escolar impreso y digital: realidades y perspectivas",
+      "personas": [
+        "Roberto Ramírez Bravo"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-24",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "24-1000-mediacion-lectora",
+      "tipo": "cultural",
+      "titulo": "Mediación lectora",
+      "detalle": "Lecturas en voz alta (Yo Amo Leer)",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-24",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "24-1000-rupturas-del-limite-narrativas-identitarias-en-la-fr",
+      "tipo": "libro",
+      "titulo": "Rupturas del límite. Narrativas identitarias en la frontera colombo - ecuatoriana",
+      "personas": [
+        "Alexis Uscátegui",
+        "Edison Duván Avalos Florez"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-24",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "24-1000-taller-escribir-desde-el-territorio-memoria-e-identi",
+      "tipo": "taller",
+      "titulo": "Taller: Escribir desde el territorio: memoria e identidad",
+      "personas": [
+        "Leda Quintana Rondón"
+      ],
+      "lugarId": "universidad-narino",
+      "lugarTexto": "Auditorio Gonzalo Bravo Pérez – Universidad de Nariño",
+      "dia": "2026-09-24",
+      "inicio": 600,
+      "fin": 720
+    },
+    {
+      "id": "24-1000-taller-poesia-y-escritura",
+      "tipo": "taller",
+      "titulo": "Taller: Poesía y escritura",
+      "personas": [
+        "Héctor Flores Franco"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-24",
+      "inicio": 600,
+      "fin": 720
+    },
+    {
+      "id": "24-1100-conferencia-coleccion-poesia",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Colección Poesía",
+      "personas": [
+        "Juan Francisco Morales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-24",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "24-1100-estudio-de-casos-sistemas-de-produccion-agricola-de",
+      "tipo": "libro",
+      "titulo": "Estudio de Casos: Sistemas de Producción Agrícola de Unidades de Producciones Agropecuarias (UPAs) del Carchi",
+      "personas": [
+        "Segundo Ramiro Mora Quilismal",
+        "Emma Teresa Cuaical Galárraga",
+        "Martha Cecilia Ayala Lomas"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-24",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "24-1100-la-victoria-de-patricia",
+      "tipo": "libro",
+      "titulo": "La victoria de Patricia",
+      "personas": [
+        "Yaron Avitov"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-24",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "24-1200-bailar-en-los-andes-rasgos-de-la-danza-en-el-ecuador",
+      "tipo": "libro",
+      "titulo": "“Bailar en los Andes” Rasgos de la danza en el Ecuador",
+      "personas": [
+        "Francisco Salvador"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala",
+      "dia": "2026-09-24",
+      "inicio": 720,
+      "fin": 780
+    },
+    {
+      "id": "24-1200-conversatorio-procesos-de-educacion-no-formal-en-esc",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Procesos de educación no formal en escrituras creativas",
+      "personas": [
+        "Alexander Muñoz Garzón"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-24",
+      "inicio": 720,
+      "fin": 780
+    },
+    {
+      "id": "24-1200-otavalo-magico-historias-que-inspiran-el-turismo",
+      "tipo": "libro",
+      "titulo": "Otavalo Mágico: Historias que inspiran el turismo",
+      "personas": [
+        "Dennys Andrés Bolaños Tobar",
+        "Alisson Gualpa Moran"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-24",
+      "inicio": 720,
+      "fin": 780
+    },
+    {
+      "id": "24-1430-conferencia-pedagogia-territorio-y-cultura-la-modela",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Pedagogía, Territorio y Cultura: la modelación social en la configuración docente rural",
+      "personas": [
+        "William Chamorro"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-24",
+      "inicio": 870,
+      "fin": 930
+    },
+    {
+      "id": "24-1500-body-paint",
+      "tipo": "cultural",
+      "titulo": "Body Paint",
+      "detalle": "Abigail Zapata",
+      "personas": [],
+      "lugarId": "centro-convenciones",
+      "lugarTexto": "Centro de convenciones (Sala de exposiciones)",
+      "dia": "2026-09-24",
+      "inicio": 900,
+      "fin": 1020
+    },
+    {
+      "id": "24-1500-cine-foro",
+      "tipo": "cultural",
+      "titulo": "Cine foro",
+      "detalle": "La sardina (Víctor Melo)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-24",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "24-1500-encuentro-con-lectores-el-poeta-y-su-obra",
+      "tipo": "conferencia",
+      "titulo": "Encuentro con lectores: El poeta y su obra",
+      "personas": [
+        "Poetas nacionales e internacionales"
+      ],
+      "lugarId": "banco-republica-ipiales",
+      "lugarTexto": "Agencia Cultural Banco de la República - Ipiales",
+      "dia": "2026-09-24",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "24-1500-la-ingenieria-de-prompts-en-la-programacion-orientad",
+      "tipo": "libro",
+      "titulo": "La ingeniería de prompts en la programación orientada a objetos: Fundamentos de la POO y desarrollo de software",
+      "personas": [
+        "Georgina Guadalupe Arcos Ponce"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-24",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "24-1500-la-inteligencia-artificial-generativa-como-herramien",
+      "tipo": "libro",
+      "titulo": "La Inteligencia Artificial Generativa como Herramienta para la Innovación en la Educación Superior: Retos y Oportunidades...",
+      "personas": [
+        "Galo Fernando Almeida Casanova"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-24",
+      "inicio": 900,
+      "fin": 960,
+      "truncado": true
+    },
+    {
+      "id": "24-1500-presentaciones",
+      "tipo": "cultural",
+      "titulo": "Presentaciones",
+      "detalle": "Música, danza, percusión",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-24",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "24-1500-taller-mediaciones-las-lecturas-y-escrituras-puentes",
+      "tipo": "taller",
+      "titulo": "Taller: Mediaciones, las lecturas y escrituras, puentes que sujetan la frontera",
+      "personas": [
+        "Lorena Verdugo Miranda"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-24",
+      "inicio": 900,
+      "fin": 1020
+    },
+    {
+      "id": "24-1530-charla",
+      "tipo": "conferencia",
+      "titulo": "Charla",
+      "personas": [
+        "Embajada de la República Islámica de Irán en Ecuador"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-24",
+      "inicio": 930,
+      "fin": 990
+    },
+    {
+      "id": "24-1600-libro-interactivo-fundamentos-de-contabilidad",
+      "tipo": "libro",
+      "titulo": "Libro interactivo: Fundamentos de contabilidad",
+      "personas": [
+        "David Ordoñez",
+        "Anthony Narváez",
+        "Adrián Valverde",
+        "Jorge Miranda"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-24",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "24-1600-narracion-oral",
+      "tipo": "cultural",
+      "titulo": "Narración oral",
+      "detalle": "Cuentos viajeros (Cristian Fraga)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-24",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "24-1600-no-vendra-el-armisticio",
+      "tipo": "libro",
+      "titulo": "No vendrá el armisticio",
+      "personas": [
+        "Guadalupe Lezama"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-24",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "24-1630-conversatorio-mas-alla-de-los-libros",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Más allá de los libros",
+      "personas": [
+        "Abner Becerra"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-24",
+      "inicio": 990,
+      "fin": 1050
+    },
+    {
+      "id": "24-1700-obra-de-teatro",
+      "tipo": "cultural",
+      "titulo": "Obra de teatro",
+      "detalle": "Libertarias (Dir: Rubén Darío Rodríguez)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-24",
+      "inicio": 1020,
+      "fin": 1080
+    },
+    {
+      "id": "24-1700-optimizacion-inteligente-de-inventarios-con-arboles",
+      "tipo": "libro",
+      "titulo": "Optimización inteligente de inventarios con árboles de decisión y redes neuronales : De la teoría a la aplicación",
+      "personas": [
+        "I. Mafla Bolaños",
+        "L. Alpala",
+        "F. Montalvo Márquez",
+        "D. Beltrán Del Hierro"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-24",
+      "inicio": 1020,
+      "fin": 1080
+    },
+    {
+      "id": "24-1700-psicologia-revolucionaria",
+      "tipo": "libro",
+      "titulo": "Psicología Revolucionaria",
+      "personas": [
+        "Samael Aun Weor"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-24",
+      "inicio": 1020,
+      "fin": 1080
+    },
+    {
+      "id": "24-1730-i-encuentro-latinoamericano-de-poetas-y-escritores-v",
+      "tipo": "conferencia",
+      "titulo": "I Encuentro Latinoamericano de Poetas y Escritores “Versos Sin Fronteras”",
+      "personas": [
+        "Poetas nacionales e internacionales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-24",
+      "inicio": 1050,
+      "fin": 1170
+    },
+    {
+      "id": "24-1800-narracion-oral",
+      "tipo": "cultural",
+      "titulo": "Narración oral",
+      "detalle": "Historias para jóvenes que todavía estan buscando su propia voz",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-24",
+      "inicio": 1080,
+      "fin": 1140
+    },
+    {
+      "id": "25-0830-conferencia-la-meditacion-la-mejor-tecnica-de-estudi",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: La meditación, la mejor técnica de estudio",
+      "personas": [
+        "Valentin Marquez"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-25",
+      "inicio": 510,
+      "fin": 570
+    },
+    {
+      "id": "25-0900-contabilidad-y-estadistica-herramientas-estrategicas",
+      "tipo": "libro",
+      "titulo": "Contabilidad y Estadística: Herramientas Estratégicas para la Gestión Financiera",
+      "personas": [
+        "Manuel Mesías Pabón Chalá"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-25",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "25-0900-encuentro-con-jovenes-y-estudiantes-poesia-para-nuev",
+      "tipo": "conferencia",
+      "titulo": "Encuentro con jóvenes y estudiantes: Poesía para nuevas generaciones",
+      "personas": [
+        "Poetas nacionales e internacionales"
+      ],
+      "lugarId": "banco-republica-ipiales",
+      "lugarTexto": "Agencia Cultural Banco de la República - Ipiales",
+      "dia": "2026-09-25",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "25-0900-presentaciones",
+      "tipo": "cultural",
+      "titulo": "Presentaciones",
+      "detalle": "Música, danza, percusión",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-25",
+      "inicio": 540,
+      "fin": 720
+    },
+    {
+      "id": "25-0900-react-en-palabras-simples-desarrollo-de-aplicaciones",
+      "tipo": "libro",
+      "titulo": "React en palabras simples: Desarrollo de Aplicaciones",
+      "personas": [
+        "Edgar Fernando Pazmiño Palma"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-25",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "25-0900-taller-de-creacion-poetica-autobiografia-sinestesica",
+      "tipo": "taller",
+      "titulo": "Taller de creación poética: Autobiografía sinestésica. Identidad , memoria y territorio",
+      "personas": [
+        "Leda Quintana Rondón"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-25",
+      "inicio": 540,
+      "fin": 600
+    },
+    {
+      "id": "25-0930-charla",
+      "tipo": "conferencia",
+      "titulo": "Charla",
+      "personas": [
+        "Embajador Extraordinario y Plenipotenciario de la República de Corea ante la República del Ecuador (Jae Hyun Shim)"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-25",
+      "inicio": 570,
+      "fin": 630
+    },
+    {
+      "id": "25-1000-andina-tours",
+      "tipo": "libro",
+      "titulo": "Andina Tours",
+      "personas": [
+        "Yaron Avitov"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-25",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "25-1000-body-paint",
+      "tipo": "cultural",
+      "titulo": "Body Paint",
+      "detalle": "Abigail Zapata",
+      "personas": [],
+      "lugarId": "centro-convenciones",
+      "lugarTexto": "Centro de convenciones (Sala de exposiciones)",
+      "dia": "2026-09-25",
+      "inicio": 600,
+      "fin": 780
+    },
+    {
+      "id": "25-1000-fundamentos-de-farmacologia-basica-integracion-teori",
+      "tipo": "libro",
+      "titulo": "Fundamentos de Farmacología Básica: Integración Teórica y Clínica – Enfoque Monroy",
+      "personas": [
+        "Luis Javier Monroy Vásquez"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-25",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "25-1000-mediacion-lectora",
+      "tipo": "cultural",
+      "titulo": "Mediación lectora",
+      "detalle": "Lecturas en voz alta (Yo Amo Leer)",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-25",
+      "inicio": 600,
+      "fin": 660
+    },
+    {
+      "id": "25-1030-conferencia-etnoeducacion-y-literatura-herramientas",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Etnoeducación y literatura: herramientas para el desarrollo comunitario",
+      "personas": [
+        "Claudia Gordillo"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-25",
+      "inicio": 630,
+      "fin": 690
+    },
+    {
+      "id": "25-1030-taller-escritura-creativa-del-proyecto-literario-sil",
+      "tipo": "taller",
+      "titulo": "Taller: Escritura creativa del proyecto literario - Silencios Vivos",
+      "personas": [
+        "Arturo Aldás"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-25",
+      "inicio": 630,
+      "fin": 690
+    },
+    {
+      "id": "25-1100-competitividad-regional-sostenible-en-la-zona-de-int",
+      "tipo": "libro",
+      "titulo": "Competitividad regional sostenible en la zona de integración fronteriza Ecuador-Colombia",
+      "personas": [
+        "L. Viveros Almeida",
+        "E. Realpe Cabrera",
+        "Y. Fernández Fernández"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-25",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "25-1100-la-filosofia-y-su-pedagogia-ensayo-sobre-el-pensamie",
+      "tipo": "libro",
+      "titulo": "La filosofía y su pedagogía ensayo sobre el pensamiento filosófico y pedagógico de Michel Foucault y Gilles Deleuze",
+      "personas": [
+        "Hector Rodríguez Rosales"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-25",
+      "inicio": 660,
+      "fin": 720
+    },
+    {
+      "id": "25-1130-conferencia-pueden-las-socio-bioeconomias-apoyar-la",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: ¿Pueden las socio bioeconomías apoyar la conservación de la agro diversidad de la papa? Experiencias con papas nativas y otros tubérculos andinos en Perú, Ecuador y Colombia",
+      "personas": [
+        "Trent Blare"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-25",
+      "inicio": 690,
+      "fin": 750
+    },
+    {
+      "id": "25-1200-el-limite-pactado-instauracion-de-la-linea-limitrofe",
+      "tipo": "libro",
+      "titulo": "El límite pactado. Instauración de la línea limítrofe entre Colombia y Ecuador",
+      "personas": [
+        "Edison Duván Avalos Florez"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-25",
+      "inicio": 720,
+      "fin": 780
+    },
+    {
+      "id": "25-1400-conversatorio-lanzamiento-del-fotolibro-brisa-de-mem",
+      "tipo": "conferencia",
+      "titulo": "Conversatorio: Lanzamiento del fotolibro: Brisa de Memorias Negras",
+      "personas": [
+        "Claudia Gordillo"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-25",
+      "inicio": 840,
+      "fin": 900
+    },
+    {
+      "id": "25-1500-batalla-de-freestyle",
+      "tipo": "cultural",
+      "titulo": "Batalla de freestyle",
+      "detalle": "Tinta y libro",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-25",
+      "inicio": 900,
+      "fin": 1080
+    },
+    {
+      "id": "25-1500-carchi-intercultural-relatos-de-identidad-y-encuentr",
+      "tipo": "libro",
+      "titulo": "Carchi intercultural: Relatos de identidad y encuentro",
+      "personas": [
+        "A. Aldás Flores",
+        "E. Benavides Torres",
+        "E. Pazmiño Palma"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-25",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "25-1500-cine-infantil",
+      "tipo": "cultural",
+      "titulo": "Cine infantil",
+      "detalle": "Cine, Cámara... ¡Hablemos!",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-25",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "25-1500-conferencia-la-etnoinnovacion-como-estrategia-para-e",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: La etnoinnovación como estrategia para el desarrollo del territorio",
+      "personas": [
+        "Juan Carlos Estupiñán"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-25",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "25-1500-vocacion-que-transforma-formacion-humanista-y-accion",
+      "tipo": "libro",
+      "titulo": "Vocación que Transforma: Formación Humanista y Acción Preventiva en Enfermería",
+      "personas": [
+        "Miriam Lucía Villacorte Méndez",
+        "Blanca Nelly Gordón Díaz"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 2",
+      "dia": "2026-09-25",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "25-1600-conferencia-historia-genealogia-y-etica-politica-qui",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: Historia, genealogía y ética política “Quito, Ibarra, Tulcán”",
+      "personas": [
+        "Juan Francisco Morales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-25",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "25-1600-ondulaciones",
+      "tipo": "libro",
+      "titulo": "Ondulaciones",
+      "personas": [
+        "Mireya Avellaneda Gutiérrez"
+      ],
+      "lugarId": "sala-presentaciones",
+      "lugarTexto": "Sala 1",
+      "dia": "2026-09-25",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
+      "id": "25-1600-titeres",
+      "tipo": "cultural",
+      "titulo": "Títeres",
+      "detalle": "Obra: El Sapo Aplastado (Tilintintero - Ecuador)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-25",
+      "inicio": 960,
+      "fin": 1080
+    },
+    {
+      "id": "25-1700-i-encuentro-latinoamericano-de-poetas-y-escritores-e",
+      "tipo": "conferencia",
+      "titulo": "I Encuentro Latinoamericano de Poetas y Escritores Evento especial: “Cuando los versos cantan”",
+      "personas": [
+        "Poetas nacionales e internacionales"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-25",
+      "inicio": 1020,
+      "fin": 1200
+    },
+    {
+      "id": "25-1800-titeres",
+      "tipo": "cultural",
+      "titulo": "Títeres",
+      "detalle": "Obra: El secreto del árbol (Pepito Ron - Perú)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-25",
+      "inicio": 1080,
+      "fin": 1200
+    },
+    {
+      "id": "25-1930-presentacion-musical",
+      "tipo": "cultural",
+      "titulo": "Presentación musical",
+      "detalle": "Grupo Huaya - Nay",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-25",
+      "inicio": 1170,
+      "fin": 1200
+    }
+  ],
+  "permanentes": [
+    {
+      "id": "p-arte-en-neon-guillermo-argoti",
+      "tipo": "permanente",
+      "titulo": "Arte en neón",
+      "detalle": "Guillermo Argotí",
+      "personas": [],
+      "lugarId": "aulas-1",
+      "lugarTexto": "Edificio de Aulas 1 (Planta baja - Sala graduaciones)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-botquiz-upec-exposicion-reto-de-robotica-seguidores",
+      "tipo": "permanente",
+      "titulo": "BotQuiz UPEC",
+      "detalle": "Exposición, Reto de Robótica (Seguidores de Línea), Reto de Conocimiento (“Quién Sabe, Sabe”)",
+      "personas": [],
+      "lugarId": "aulas-4",
+      "lugarTexto": "Edificio de Aulas 4 (Hall de la planta baja)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-deportes-de-combate-muestra-y-practica",
+      "tipo": "permanente",
+      "titulo": "Deportes de combate",
+      "detalle": "Muestra y práctica",
+      "personas": [],
+      "lugarId": "cancha-sintetica",
+      "lugarTexto": "Cancha sintética",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-emprendimientos-oferta-de-productos-y-servicios",
+      "tipo": "permanente",
+      "titulo": "Emprendimientos",
+      "detalle": "Oferta de productos y servicios",
+      "personas": [],
+      "lugarId": "plaza-roja",
+      "lugarTexto": "Plaza roja y Coliseo “5 de abril”",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-exposicion-artistica-jansen-salas",
+      "tipo": "permanente",
+      "titulo": "Exposición artística",
+      "detalle": "Jansen Salas",
+      "personas": [],
+      "lugarId": "centro-convenciones",
+      "lugarTexto": "Centro de convenciones (Sala de exposiciones)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-exposicion-fotografica-carrera-multimedia-y-producci",
+      "tipo": "permanente",
+      "titulo": "Exposición Fotográfica",
+      "detalle": "Carrera Multimedia y Producción Audiovisual",
+      "personas": [],
+      "lugarId": "centro-convenciones",
+      "lugarTexto": "Centro de convenciones (Sala de exposiciones)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-juegos-tradicionales-muestra-y-practica-de-juegos-tr",
+      "tipo": "permanente",
+      "titulo": "Juegos tradicionales",
+      "detalle": "Muestra y práctica de juegos tradicionales",
+      "personas": [],
+      "lugarId": "parqueadero-julio-robles",
+      "lugarTexto": "Parqueadero cancha sintética",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-muestra-editorial-librerias-y-editoriales-nacionales",
+      "tipo": "permanente",
+      "titulo": "Muestra editorial",
+      "detalle": "Librerías y editoriales nacionales e internacionales",
+      "personas": [],
+      "lugarId": "centro-convenciones",
+      "lugarTexto": "Centro de convenciones (Salón Primer piso)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-oferta-academica-carreras-upec",
+      "tipo": "permanente",
+      "titulo": "Oferta académica",
+      "detalle": "Carreras UPEC",
+      "personas": [],
+      "lugarId": "parqueadero-antisana",
+      "lugarTexto": "Parqueaderos campus universitario",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-sala-de-cuentos-aventuras-bajo-el-mar-narracion-de-c",
+      "tipo": "permanente",
+      "titulo": "Sala de cuentos",
+      "detalle": "“Aventuras bajo el mar” (Narración de cuentos, títeres, cuentos gigantes, juegos didácticos y mucho más)",
+      "personas": [],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio de Aulas 2 (Primer piso)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-sala-de-lectura-biblioteca-siempre-contigo",
+      "tipo": "permanente",
+      "titulo": "Sala de lectura",
+      "detalle": "Biblioteca siempre contigo",
+      "personas": [],
+      "lugarId": "posgrados",
+      "lugarTexto": "Edificio Posgrado (Hall primer piso)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-sala-de-lectura-corporalidad-y-narrativa-visual-en-l",
+      "tipo": "permanente",
+      "titulo": "Sala de lectura",
+      "detalle": "“Corporalidad y narrativa visual en la formación lectora”",
+      "personas": [],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio de Aulas 2 (Planta baja)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-sala-inmersiva-1-el-portal-de-la-imaginacion",
+      "tipo": "permanente",
+      "titulo": "Sala inmersiva 1",
+      "detalle": "“El portal de la imaginación”",
+      "personas": [],
+      "lugarId": "aulas-3",
+      "lugarTexto": "Edificio de Aulas 3 (Planta baja - ADUPEC)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-sala-inmersiva-2-el-portal-de-la-imaginacion",
+      "tipo": "permanente",
+      "titulo": "Sala inmersiva 2",
+      "detalle": "“El portal de la imaginación”",
+      "personas": [],
+      "lugarId": "aulas-4",
+      "lugarTexto": "Edificio de Aulas 4 (Planta baja - Aula)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-languages-of-the-world-cultures-that-inspire-t",
+      "tipo": "permanente",
+      "titulo": "Salón",
+      "detalle": "“Languages of the World, Cultures that Inspire” (Teatro y juegos interactivos en inglés, francés y ruso)",
+      "personas": [],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 (Aula 115)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-la-palabra-que-camina-oralidad-y-memorias-de-a",
+      "tipo": "permanente",
+      "titulo": "Salón",
+      "detalle": "La palabra que camina: Oralidad y memorias de América Latina",
+      "personas": [],
+      "lugarId": "aulas-4",
+      "lugarTexto": "Edificio de Aulas 4 (Planta baja - Observatorio de turismo)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-literario-inclusion-360-tecnologia-ingenio-y-a",
+      "tipo": "permanente",
+      "titulo": "Salón literario",
+      "detalle": "“Inclusión 360° Tecnología, ingenio y accesibilidad”",
+      "personas": [],
+      "lugarId": "posgrados",
+      "lugarTexto": "Edificio Posgrado (Hall primer piso)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-literario-trazos-emocionales-cuando-la-literat",
+      "tipo": "permanente",
+      "titulo": "Salón literario",
+      "detalle": "“Trazos emocionales: cuando la literatura se vuelve imagen” - Danza Grupo Raíces del dolor",
+      "personas": [],
+      "lugarId": "posgrados",
+      "lugarTexto": "Edificio Posgrado (Hall primer piso)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-literario-naturarte-museo-vivo-de-ciencia-arte",
+      "tipo": "permanente",
+      "titulo": "Salón literario",
+      "detalle": "“NATURARTE: museo vivo de ciencia, arte y educación”",
+      "personas": [],
+      "lugarId": "aulas-3",
+      "lugarTexto": "Edificio de Aulas 3 (Hall de la planta baja)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-literario-torre-de-babel",
+      "tipo": "permanente",
+      "titulo": "Salón literario",
+      "detalle": "“Torre de Babel”",
+      "personas": [],
+      "lugarId": "aulas-1",
+      "lugarTexto": "Edificio de Aulas 1 (Hall de la planta baja - Audiovisuales)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-literario-magacan-y-kaliman",
+      "tipo": "permanente",
+      "titulo": "Salón literario",
+      "detalle": "“Magacán y Kalimán”",
+      "personas": [],
+      "lugarId": "aulas-3",
+      "lugarTexto": "Edificio de Aulas 3 (Planta baja - Laboratorio de innovación)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-literario-cuentos-silentes-y-pictoricos",
+      "tipo": "permanente",
+      "titulo": "Salón literario",
+      "detalle": "“Cuentos silentes y pictóricos”",
+      "personas": [],
+      "lugarId": "aulas-3",
+      "lugarTexto": "Edificio de Aulas 3 (Hall de la planta baja)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-literario-detectives-de-la-lectura",
+      "tipo": "permanente",
+      "titulo": "Salón literario",
+      "detalle": "“Detectives de la lectura”",
+      "personas": [],
+      "lugarId": "aulas-1",
+      "lugarTexto": "Edificio de Aulas 1 (Planta baja - Laboratorio)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-salon-literario-etnomatematica-geometria-cultura-y-s",
+      "tipo": "permanente",
+      "titulo": "Salón literario",
+      "detalle": "“Etnomatemática: geometría, cultura y saberes ancestrales”",
+      "personas": [],
+      "lugarId": "aulas-3",
+      "lugarTexto": "Edificio de Aulas 3 (Hall de la planta baja)",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-venta-de-garage-moda-circular-y-sostenible",
+      "tipo": "permanente",
+      "titulo": "Venta de Garage",
+      "detalle": "Moda circular y sostenible",
+      "personas": [],
+      "lugarId": "coliseo",
+      "lugarTexto": "Coliseo “5 de abril”",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    }
+  ],
+  "editoriales": [
+    "Grupo Editorial Don Bosco",
+    "Librería Studium",
+    "Dimensión X",
+    "Moon - Arte e Ilustración",
+    "Phoenix Book",
+    "Librería “Cartujo”",
+    "Universidad de Posgrado del Estado - IAEN",
+    "Editorial Magisterio - Colombia",
+    "Karin Libros",
+    "Plaza y Janes Editores Colombia",
+    "Editorial ABYA YALA",
+    "Editorial Universidad Politécnica Salesiana",
+    "Editorial Universidad CESMAG",
+    "Casa de la Cultura Ecuatoriana “Benjamín Carrión” Núcleo del Carchi",
+    "Shakti Maya",
+    "Alquimia taller de Arte",
+    "Editorial Universidad de Nariño",
+    "Nevermore editorial",
+    "Editorial UNACH – Diego Vallejo Samaniego",
+    "Librería “Fuente de Vida”",
+    "Librería Atapuma",
+    "Agencia Cultural del Banco de la República - Ipiales",
+    "Editorial FLACSO",
+    "Fondo de Cultura Económica",
+    "Editorial La Caracola",
+    "Librería Tolomeo",
+    "Editorial de la Pontificia Universidad Católica del Ecuador (PUCE)",
+    "Casa Égüez Centro Cultural",
+    "Megabooks"
+  ],
+  "advertencias": []
+}

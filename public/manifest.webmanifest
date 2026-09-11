@@ -1,0 +1,24 @@
+{
+  "name": "UPEC Libro Fest 2026",
+  "short_name": "Libro Fest",
+  "description": "Qué hay ahora y dónde en el UPEC Libro Fest 2026. Del 21 al 25 de septiembre en Tulcán.",
+  "lang": "es-EC",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f1f4ee",
+  "theme_color": "#1d3a24",
+  "categories": ["education", "books", "events"],
+  "icons": [
+    { "src": "/img/icono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/img/icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/img/icono-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Ahora mismo", "url": "/", "description": "Lo que está pasando en este momento" },
+    { "name": "Mapa del campus", "url": "/mapa/", "description": "Los quince puntos del festival" },
+    { "name": "Mi agenda", "url": "/mi-agenda/", "description": "Las sesiones que guardaste" }
+  ]
+}

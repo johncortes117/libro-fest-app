@@ -1,0 +1,812 @@
+<title>Libro Fest en Vivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#F1F4EE;
+  --surface:#FFFFFF;
+  --surface-2:#E9EEE5;
+  --ink:#14261A;
+  --muted:#64766A;
+  --line:#D8E1D4;
+  --line-soft:#E6ECE2;
+  --green:#2F6238;
+  --green-soft:#E0EBDD;
+  --gold:#9C6A08;
+  --gold-line:#C08F1E;
+  --gold-soft:#F7ECD4;
+  --brick:#9C3B29;
+  --brick-soft:#F6E2DD;
+  --shadow:0 1px 2px rgba(20,38,26,.06),0 8px 24px -16px rgba(20,38,26,.28);
+
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --measure:68ch;
+  --wide:1080px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101A13;
+    --surface:#17231A;
+    --surface-2:#1E2C21;
+    --ink:#E6EEE4;
+    --muted:#94A696;
+    --line:#28382B;
+    --line-soft:#1F2E22;
+    --green:#7DBA89;
+    --green-soft:#1D3123;
+    --gold:#E9B849;
+    --gold-line:#8C6C22;
+    --gold-soft:#2C2616;
+    --brick:#E0876F;
+    --brick-soft:#33201B;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101A13;
+  --surface:#17231A;
+  --surface-2:#1E2C21;
+  --ink:#E6EEE4;
+  --muted:#94A696;
+  --line:#28382B;
+  --line-soft:#1F2E22;
+  --green:#7DBA89;
+  --green-soft:#1D3123;
+  --gold:#E9B849;
+  --gold-line:#8C6C22;
+  --gold-soft:#2C2616;
+  --brick:#E0876F;
+  --brick-soft:#33201B;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--wide);margin:0 auto;padding:0 24px}
+.prose{max-width:var(--measure)}
+
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;font-weight:600;letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,5.6vw,3.6rem);line-height:1.03;font-weight:700;letter-spacing:-.03em}
+h2{font-size:clamp(1.5rem,3.1vw,2rem);line-height:1.14;letter-spacing:-.02em}
+h3{font-size:1.1rem;line-height:1.32;letter-spacing:-.005em}
+h4{font-size:1rem;font-family:var(--body);font-weight:600}
+p{margin:0}
+a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:2px}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.7rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+
+/* ---------- barra superior ---------- */
+.bar{
+  position:sticky;top:0;z-index:40;
+  background:var(--ground);
+  border-bottom:1px solid var(--line);
+}
+.bar-in{
+  max-width:var(--wide);margin:0 auto;padding:9px 24px;
+  display:flex;align-items:center;gap:18px;
+  overflow-x:auto;scrollbar-width:none;
+}
+.bar-in::-webkit-scrollbar{display:none}
+.bar-mark{
+  font-family:var(--display);font-weight:700;font-size:.92rem;
+  white-space:nowrap;letter-spacing:-.01em;
+}
+.bar nav{display:flex;gap:16px;margin-left:auto}
+.bar nav a{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;
+  color:var(--muted);text-decoration:none;white-space:nowrap;
+  padding:3px 0;border-bottom:1px solid transparent;
+}
+.bar nav a:hover{color:var(--ink);border-bottom-color:var(--gold-line)}
+
+/* ---------- cabecera ---------- */
+header.hero{padding:56px 0 44px}
+.hero .kicker{margin-bottom:22px}
+.deck{
+  font-size:1.18rem;line-height:1.52;color:var(--muted);
+  max-width:60ch;margin-top:22px;
+}
+.deck strong{color:var(--ink);font-weight:500}
+
+.countdown{
+  margin-top:32px;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;
+  padding:14px 18px;border:1px solid var(--gold-line);border-left-width:3px;
+  background:var(--gold-soft);border-radius:2px;max-width:64ch;
+}
+.countdown .num{
+  font-family:var(--mono);font-weight:600;font-size:1.05rem;
+  color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.countdown .txt{font-size:.92rem;line-height:1.5;flex:1 1 22ch}
+
+/* ---------- cifras ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);
+  margin-top:44px;border-radius:2px;overflow:hidden;
+}
+.stat{background:var(--surface);padding:16px 18px}
+.stat .v{
+  font-family:var(--mono);font-size:1.5rem;font-weight:600;
+  font-variant-numeric:tabular-nums;letter-spacing:-.03em;display:block;line-height:1.1;
+}
+.stat .l{font-size:.78rem;color:var(--muted);line-height:1.35;margin-top:5px;display:block}
+
+/* ---------- secciones ---------- */
+section{padding:52px 0;border-top:1px solid var(--line)}
+.sec-head{margin-bottom:10px}
+.sec-body{margin-top:28px;display:flex;flex-direction:column;gap:28px}
+.lede{font-size:1.02rem;color:var(--muted);max-width:var(--measure);margin-top:15px}
+.lede strong{color:var(--ink);font-weight:500}
+.lede em{color:var(--ink);font-style:italic}
+
+/* ---------- boceto de la vista Ahora ---------- */
+.mock{
+  border:1px solid var(--line);border-radius:10px;background:var(--surface);
+  box-shadow:var(--shadow);max-width:470px;overflow:hidden;
+}
+.mock-top{
+  padding:13px 16px;border-bottom:1px solid var(--line-soft);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:var(--surface-2);
+}
+.mock-top .t{font-family:var(--display);font-weight:600;font-size:1rem}
+.mock-top .c{font-family:var(--mono);font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.mock-row{padding:12px 16px;border-bottom:1px solid var(--line-soft);display:flex;gap:13px}
+.mock-time{
+  font-family:var(--mono);font-size:.72rem;color:var(--muted);
+  font-variant-numeric:tabular-nums;padding-top:2px;white-space:nowrap;min-width:4.6em;
+}
+.mock-body{min-width:0}
+.mock-body .n{font-weight:500;font-size:.9rem;line-height:1.36;display:block}
+.mock-body .m{font-size:.78rem;color:var(--muted);margin-top:3px;display:block}
+.mock-foot{
+  padding:10px 16px;font-size:.78rem;color:var(--muted);
+  background:var(--surface-2);border-top:1px solid var(--line-soft);
+}
+.dot-live{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--brick);margin-right:6px;vertical-align:middle;
+}
+.tag-warn{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.04em;
+  color:var(--gold);border:1px solid var(--gold-line);padding:0 4px;border-radius:2px;
+  white-space:nowrap;
+}
+.mock-caption{font-size:.87rem;color:var(--muted);max-width:47ch;margin-top:13px}
+
+/* ---------- rejilla del núcleo ---------- */
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.feat{background:var(--surface);padding:20px}
+.feat-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:7px}
+.feat h3{font-size:1.02rem}
+.cost{font-family:var(--mono);font-size:.7rem;color:var(--muted);white-space:nowrap}
+.feat p{font-size:.9rem;color:var(--muted);line-height:1.52}
+.feat p em{color:var(--ink);font-style:normal;font-weight:500}
+
+/* ---------- listas con filete ---------- */
+.rows{border-top:1px solid var(--line)}
+.row{
+  display:grid;grid-template-columns:minmax(190px,1fr) 2.1fr;gap:8px 28px;
+  padding:15px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.row .k{font-weight:600;font-size:.96rem}
+.row .k .sub{display:block;font-family:var(--mono);font-size:.68rem;color:var(--muted);font-weight:400;letter-spacing:.04em;margin-top:4px}
+.row .d{font-size:.92rem;color:var(--muted);line-height:1.55}
+.row .d strong{color:var(--ink);font-weight:500}
+.row.cut .k{color:var(--muted);font-weight:500}
+@media (max-width:620px){.row{grid-template-columns:1fr;gap:5px}}
+
+/* ---------- tabla de datos ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:2px}
+table{border-collapse:collapse;width:100%;min-width:680px;background:var(--surface)}
+th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--line-soft);vertical-align:top;font-size:.88rem;line-height:1.48}
+thead th{
+  font-family:var(--mono);font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);background:var(--surface-2);border-bottom:1px solid var(--line);font-weight:500;
+}
+tbody tr:last-child td{border-bottom:0}
+td.q{font-weight:500;color:var(--ink)}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted);font-size:.8rem}
+td.fix{color:var(--muted)}
+td.fix strong{color:var(--ink);font-weight:500}
+
+.sev{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:2px 6px;border-radius:2px;white-space:nowrap;display:inline-block;font-weight:500;
+}
+.sev-block{background:var(--brick-soft);color:var(--brick);border:1px solid var(--brick)}
+.sev-mid{background:var(--gold-soft);color:var(--gold);border:1px solid var(--gold-line)}
+.sev-low{background:var(--green-soft);color:var(--green);border:1px solid var(--green)}
+
+/* ---------- escalera de días ---------- */
+.ladder{border-top:1px solid var(--line)}
+.step{
+  display:grid;grid-template-columns:142px 1fr;gap:6px 26px;
+  padding:18px 0;border-bottom:1px solid var(--line);
+}
+.step-when .date{
+  font-family:var(--mono);font-size:.82rem;font-weight:500;
+  font-variant-numeric:tabular-nums;color:var(--ink);display:block;
+}
+.step-when .dd{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.08em;display:block;margin-top:2px}
+.step h3{font-size:1rem;margin-bottom:6px}
+.step ul{margin:0;padding-left:1.1em;font-size:.9rem;color:var(--muted);line-height:1.55}
+.step li{margin-bottom:3px}
+.step li strong{color:var(--ink);font-weight:500}
+.step.ship{background:var(--gold-soft);margin:0 -16px;padding-left:16px;padding-right:16px;border-bottom-color:var(--gold-line)}
+.step.live{background:var(--green-soft);margin:0 -16px;padding-left:16px;padding-right:16px}
+@media (max-width:620px){.step{grid-template-columns:1fr;gap:8px}.step.ship,.step.live{margin:0 -12px;padding-left:12px;padding-right:12px}}
+
+/* ---------- stack ---------- */
+.stack-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:24px 32px}
+.stack-item h4{margin-bottom:6px}
+.stack-item p{font-size:.88rem;color:var(--muted);line-height:1.52}
+.stack-item p strong{color:var(--ink);font-weight:500}
+code{
+  font-family:var(--mono);font-size:.85em;background:var(--surface-2);
+  padding:1px 5px;border-radius:2px;color:var(--ink);
+}
+
+/* ---------- preguntas ---------- */
+.qs{border-top:1px solid var(--line)}
+.q-item{padding:17px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:28px 1fr;gap:16px}
+.q-mark{font-family:var(--mono);font-size:.78rem;color:var(--gold);font-weight:600;padding-top:3px}
+.q-item h3{font-size:.99rem;margin-bottom:5px}
+.q-item p{font-size:.9rem;color:var(--muted);line-height:1.55}
+.q-item p strong{color:var(--ink);font-weight:500}
+
+footer{padding:44px 0 64px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer .prose{display:flex;flex-direction:column;gap:9px}
+
+:focus-visible{outline:2px solid var(--gold-line);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-mark">Libro Fest en Vivo</span>
+    <nav>
+      <a href="#problema">Problema</a>
+      <a href="#nucleo">Núcleo</a>
+      <a href="#extras">Extras</a>
+      <a href="#fuera">Fuera</a>
+      <a href="#datos">Datos</a>
+      <a href="#stack">Stack</a>
+      <a href="#plan">Plan</a>
+      <a href="#decisiones">Decisiones</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">
+      <span class="eyebrow">UPEC Libro Fest 2026 · 21–25 sep · Tulcán, Carchi</span>
+    </div>
+    <h1>Una guía en vivo<br>para 188 actividades<br>en 17 lugares.</h1>
+    <p class="deck">
+      La agenda ya existe: 75 páginas dentro de un visor de Adobe que no deja descargar nada.
+      Lo que no existe es la respuesta a la pregunta que de verdad se hace quien está parado
+      en la Plaza Roja a las tres de la tarde: <strong>¿qué hay ahora y dónde queda?</strong>
+      Esto es el análisis de qué construir, qué descartar y en qué orden, con la fecha de
+      publicación como principio ordenador.
+    </p>
+
+    <div class="countdown">
+      <span class="num" id="cd-num">10 días</span>
+      <span class="txt" id="cd-txt">
+        para el arranque del festival. Si quieres códigos QR impresos el lunes 21,
+        el sitio tiene que estar en línea el <strong>jueves 18</strong>: son
+        <strong>siete días de trabajo</strong>, no diez.
+      </span>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="v">163</span><span class="l">sesiones con horario</span></div>
+      <div class="stat"><span class="v">25</span><span class="l">actividades permanentes</span></div>
+      <div class="stat"><span class="v">17</span><span class="l">lugares distintos</span></div>
+      <div class="stat"><span class="v">176</span><span class="l">ponentes, autores y artistas</span></div>
+      <div class="stat"><span class="v">29</span><span class="l">editoriales y librerías</span></div>
+      <div class="stat"><span class="v">5</span><span class="l">días de programación</span></div>
+    </div>
+
+    <p class="countdown" style="margin-top:20px;border-color:var(--green);background:var(--green-soft)">
+      <span class="num" style="color:var(--green)">Ya construido</span>
+      <span class="txt">
+        El parser, las 163 sesiones normalizadas, las coordenadas de los 16 marcadores del mapa y
+        las nueve pantallas de la aplicación. Lo que queda del plan es lo que depende de otras
+        personas: confirmar «Sala 1», imprimir la señalética y difundir el enlace.
+      </span>
+    </p>
+  </header>
+
+  <section id="problema">
+    <div class="sec-head"><span class="eyebrow">01 · El problema</span></div>
+    <h2>En el pico hay 33 cosas pasando a la vez</h2>
+    <p class="lede">
+      El jueves 24 a las 15:00 corren <strong>ocho sesiones en paralelo, en ocho lugares
+      distintos</strong> —uno de ellos en Ipiales, del otro lado de la frontera— mientras
+      siguen abiertas las 25 salas, muestras y exposiciones permanentes. El miércoles a las
+      10:00 pasa lo mismo. Ningún PDF resuelve eso: un PDF se lee en orden, y quien está
+      dentro del campus necesita filtrar por <em>ahora</em> y por <em>cerca</em>.
+    </p>
+
+    <div class="sec-body">
+      <div>
+        <div class="mock" aria-label="Boceto de la pantalla Ahora mismo">
+          <div class="mock-top">
+            <span class="t">Ahora mismo</span>
+            <span class="c">jue 24 · 15:12</span>
+          </div>
+          <div class="mock-row">
+            <span class="mock-time"><span class="dot-live"></span>1 h 48</span>
+            <span class="mock-body">
+              <span class="n">Taller: Mediaciones, las lecturas y escrituras</span>
+              <span class="m">Lorena Verdugo Miranda · Aulas 2, Aula 110 · pin 4</span>
+            </span>
+          </div>
+          <div class="mock-row">
+            <span class="mock-time"><span class="dot-live"></span>48 min</span>
+            <span class="mock-body">
+              <span class="n">Cine foro: La sardina</span>
+              <span class="m">Víctor Melo · Centro de convenciones, Auditorio · pin 15</span>
+            </span>
+          </div>
+          <div class="mock-row">
+            <span class="mock-time"><span class="dot-live"></span>48 min</span>
+            <span class="mock-body">
+              <span class="n">La ingeniería de prompts en la POO</span>
+              <span class="m">Georgina Arcos Ponce · Sala 1 <span class="tag-warn">sala por confirmar</span></span>
+            </span>
+          </div>
+          <div class="mock-row">
+            <span class="mock-time">15:30</span>
+            <span class="mock-body">
+              <span class="n">Charla · Embajada de la República Islámica de Irán</span>
+              <span class="m">Auditorio Edificio Principal · pin 2 · empieza en 18 min</span>
+            </span>
+          </div>
+          <div class="mock-foot">4 sesiones más en curso · 25 salas abiertas todo el día</div>
+        </div>
+        <p class="mock-caption">
+          La pantalla que justifica el proyecto entero. Todo lo demás cuelga de ella.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nucleo">
+    <div class="sec-head"><span class="eyebrow">02 · El núcleo</span></div>
+    <h2>Seis cosas, y nada más, para el día de publicar</h2>
+    <p class="lede">
+      Todas responden a lo mismo: orientarse dentro del evento. Ninguna necesita servidor —
+      con la agenda normalizada, el sitio entero es estático.
+    </p>
+    <div class="sec-body">
+      <div class="feats">
+        <div class="feat">
+          <div class="feat-top"><h3>Ahora mismo</h3><span class="cost">1 día</span></div>
+          <p>Lo que está en curso y lo que arranca en la próxima hora, ordenado por cuánto le queda. <em>Es la pantalla de inicio</em>, no una pestaña más.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-top"><h3>Agenda filtrable</h3><span class="cost">1 día</span></div>
+          <p>Por día, por tipo —conferencia, taller, cultural, presentación de libro— y por lugar. Los cuatro tipos ya vienen en la agenda oficial: <em>no hay que inventar taxonomía</em>.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-top"><h3>Buscador instantáneo</h3><span class="cost">½ día</span></div>
+          <p>Una caja sobre título, ponente, autor y obra. Con 188 registros no hace falta índice ni librería: filtrado en memoria y listo.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-top"><h3>Mi agenda, con choques</h3><span class="cost">1 día</span></div>
+          <p>Guardar sesiones en el teléfono y <em>avisar cuando dos se pisan</em>. Es la respuesta directa al problema: no es que haya mucho, es que hay mucho al mismo tiempo.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-top"><h3>Mapa interactivo</h3><span class="cost">1 día</span></div>
+          <p>Los 15 pines del mapa oficial como zonas clicables sobre la misma imagen. Tocar un pin muestra qué hay ahí ahora y qué viene. Las dos sedes en Colombia van aparte.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-top"><h3>Ficha de sesión</h3><span class="cost">½ día</span></div>
+          <p>Una dirección propia por sesión, con horario, lugar, pin del mapa y ponente. Es lo que se pega en un grupo de WhatsApp o en una historia de Instagram.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="extras">
+    <div class="sec-head"><span class="eyebrow">03 · Extras</span></div>
+    <h2>Alto impacto, coste casi nulo</h2>
+    <p class="lede">
+      Cuatro añadidos que cuestan horas, no días, y que marcan la diferencia entre
+      un sitio que existe y un sitio que la gente usa.
+    </p>
+    <div class="sec-body">
+      <div class="rows">
+        <div class="row">
+          <span class="k">Códigos QR por lugar<span class="sub">2–3 h · imprenta aparte</span></span>
+          <span class="d">Un cartel A4 por edificio con un QR que abre <strong>qué pasa aquí, hoy</strong>. Es el mecanismo de adopción completo: sin señalética física, un sitio web dentro de un campus es invisible. Necesita permiso de la organización, y por eso hay que pedirlo esta semana.</span>
+        </div>
+        <div class="row">
+          <span class="k">Funciona sin internet<span class="sub">3 h · PWA</span></span>
+          <span class="d">El wifi de un campus con dos mil visitantes no aguanta. Si la agenda viaja dentro del paquete y hay <em>service worker</em>, el sitio abre igual y además se instala en la pantalla de inicio como si fuera una app.</span>
+        </div>
+        <div class="row">
+          <span class="k">Modo pantalla<span class="sub">2 h</span></span>
+          <span class="d">Una vista a pantalla completa con <strong>ahora y a continuación</strong>, con letra grande, para el televisor de la entrada o del centro de convenciones. Es barata de hacer y es lo que hace que la Universidad note que el proyecto existe.</span>
+        </div>
+        <div class="row">
+          <span class="k">Accesibilidad en serio<span class="sub">medio día</span></span>
+          <span class="d">Contraste, navegación por teclado, lectores de pantalla, tipografía escalable. En un festival que dedica un salón entero a «Inclusión 360°: tecnología, ingenio y accesibilidad», hacerlo bien no es un detalle técnico: <strong>es el argumento con el que se presenta el proyecto</strong>.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fuera">
+    <div class="sec-head"><span class="eyebrow">04 · Fuera de alcance</span></div>
+    <h2>Lo que no vamos a construir, y por qué</h2>
+    <p class="lede">
+      Con siete días, decidir qué se queda fuera vale tanto como decidir qué entra.
+      Nada de esto entra en la versión del 18 de septiembre.
+    </p>
+    <div class="sec-body">
+      <div class="rows">
+        <div class="row cut">
+          <span class="k">Notificaciones push</span>
+          <span class="d">En iOS exige instalación previa, permisos y un backend con claves. Dos días de trabajo frágil para algo que casi nadie llegaría a activar. <strong>Sustituto:</strong> botón «añadir al calendario» con un archivo <code>.ics</code>, que se apoya en el recordatorio que la gente ya tiene configurado.</span>
+        </div>
+        <div class="row cut">
+          <span class="k">Cuentas de usuario</span>
+          <span class="d">Login, base de datos, contraseñas y datos personales de menores en un evento con público infantil. «Mi agenda» vive en el teléfono y ya está: sin servidor no hay nada que proteger ni que mantener.</span>
+        </div>
+        <div class="row cut">
+          <span class="k">Valoraciones y comentarios</span>
+          <span class="d">Necesita backend y moderación en vivo durante cinco días. Y abre un frente que no te conviene en un evento con ponentes invitados de cuatro embajadas.</span>
+        </div>
+        <div class="row cut">
+          <span class="k">Versión en inglés</span>
+          <span class="d">Las delegaciones de Corea, Irán, Alemania e Islandia son <strong>ponentes</strong>, no el público. El público es de Tulcán, Ipiales y Pasto. Traducir 188 registros son dos días que salen del núcleo.</span>
+        </div>
+        <div class="row cut">
+          <span class="k">Recomendador de rutas</span>
+          <span class="d">Suena bien y no resuelve nada que el filtro por tipo no resuelva mejor y en una décima parte del tiempo. Si al final sobra tiempo, se hace a mano como listas curadas: «para niños», «para docentes», «tecnología e IA».</span>
+        </div>
+        <div class="row cut">
+          <span class="k">App nativa</span>
+          <span class="d">Nadie instala una app para un evento de cinco días. Web más PWA da instalación opcional, cero fricción y un enlace que circula por las mismas redes sociales donde la UPEC promociona todo.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="datos">
+    <div class="sec-head"><span class="eyebrow">05 · El cuello de botella</span></div>
+    <h2>Los datos son el proyecto; la interfaz es un fin de semana</h2>
+    <p class="lede">
+      La agenda en Markdown es una transcripción a mano del documento de InDesign, y tiene
+      problemas concretos que hay que resolver antes de escribir una sola pantalla.
+      Estos son todos los que aparecieron al parsearla.
+    </p>
+    <div class="sec-body">
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Problema</th><th>Alcance</th><th>Gravedad</th><th>Qué hacemos</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="q">«Sala 1», «Sala 2» y «Sala» no dicen en qué edificio están</td>
+              <td class="n">60 sesiones<br>38 % del total</td>
+              <td><span class="sev sev-block">Bloqueante</span></td>
+              <td class="fix">El pin 14 del mapa dice «sala de presentaciones de libros», así que el Centro de convenciones es lo razonable —pero es una inferencia, y mandar gente al edificio equivocado es exactamente el fallo que la app existe para evitar. <strong>Preguntar a la organización.</strong> Mientras tanto, mostrarlo con la etiqueta «sala por confirmar» a la vista, no esconderlo.</td>
+            </tr>
+            <tr>
+              <td class="q">Los nombres de la agenda no coinciden con los del mapa</td>
+              <td class="n">11 cadenas<br>distintas</td>
+              <td><span class="sev sev-mid">Media</span></td>
+              <td class="fix">«Auditorio Edificio central» en la agenda es «Auditorio Edificio Principal» (pin 2) en el mapa. Son once cadenas nada más: una tabla de equivalencias escrita una vez y cada sesión queda enganchada a su pin.</td>
+            </tr>
+            <tr>
+              <td class="q">Dos sedes están en otro país</td>
+              <td class="n">7 sesiones</td>
+              <td><span class="sev sev-mid">Media</span></td>
+              <td class="fix">La Agencia Cultural del Banco de la República (Ipiales) y el Auditorio Gonzalo Bravo Pérez (Universidad de Nariño, Pasto) no pueden ser pines del campus. Sección «fuera del campus», con su propia insignia y enlace a Google Maps.</td>
+            </tr>
+            <tr>
+              <td class="q">Las 25 actividades permanentes no tienen hora de cierre</td>
+              <td class="n">25 actividades</td>
+              <td><span class="sev sev-mid">Media</span></td>
+              <td class="fix">Dicen «desde las 08:30» y nada más. Sin una hora de cierre por defecto, la vista «ahora» las seguirá mostrando a las diez de la noche. Proponer 08:30–18:00 y marcarlo como horario referencial hasta confirmarlo.</td>
+            </tr>
+            <tr>
+              <td class="q">Celdas con dos horarios en una sola fila</td>
+              <td class="n">4 filas</td>
+              <td><span class="sev sev-low">Baja</span></td>
+              <td class="fix">El Ágora aparece como «09:00 – 12:00 / 15:00 – 16:00» en una misma fila. El parser las separa: 159 filas de tabla se convierten en <strong>163 sesiones reales</strong>.</td>
+            </tr>
+            <tr>
+              <td class="q">Títulos cortados con puntos suspensivos</td>
+              <td class="n">14 filas</td>
+              <td><span class="sev sev-mid">Media</span></td>
+              <td class="fix">Se perdieron al transcribir desde InDesign. Recuperarlos del documento original antes de publicar; si no se puede, se muestran tal como están. No se inventan.</td>
+            </tr>
+            <tr>
+              <td class="q">El Markdown podría estar desactualizado</td>
+              <td class="n">todo</td>
+              <td><span class="sev sev-block">Bloqueante</span></td>
+              <td class="fix">No hay forma de comprobarlo por tu cuenta: el enlace de Adobe es un visor con JavaScript del que no se puede extraer nada automáticamente. Hay que contrastarlo con una persona de la organización.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="lede">
+        Y conviene decirlo sin rodeos: <strong>el JSON normalizado es un entregable por sí solo.</strong>
+        Si la aplicación no llega a tiempo, el programa de 2026 en formato legible por máquina
+        sigue existiendo y le sigue sirviendo a la Universidad el año que viene. Es tu red de seguridad.
+      </p>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="sec-head"><span class="eyebrow">06 · Cómo se construye</span></div>
+    <h2>Sin backend, sin base de datos, sin nada que se caiga un martes</h2>
+    <div class="sec-body">
+      <div class="stack-list">
+        <div class="stack-item">
+          <h4>Next.js con <code>output: 'export'</code></h4>
+          <p>HTML estático, una página por sesión. Eso da etiquetas Open Graph reales: cuando alguien pega el enlace de una charla en Facebook o WhatsApp, aparece el título, la hora y el lugar. <strong>Importa</strong>, porque las redes sociales son el único canal de difusión que usa la UPEC.</p>
+        </div>
+        <div class="stack-item">
+          <h4>La agenda como TypeScript tipado</h4>
+          <p>Un módulo con las 163 sesiones, las 25 permanentes, los 17 lugares y los 176 nombres. El compilador atrapa el pin que no existe o el horario mal escrito antes de que lo vea nadie.</p>
+        </div>
+        <div class="stack-item">
+          <h4>Zona horaria fija</h4>
+          <p><code>America/Guayaquil</code>, UTC−5 sin horario de verano, calculada de forma explícita en vez de confiar en el reloj del teléfono. Un visitante que cruce desde Ipiales tiene que ver la misma hora que todos.</p>
+        </div>
+        <div class="stack-item">
+          <h4>Simulador de hora</h4>
+          <p>Un parámetro <code>?t=2026-09-24T15:10</code> que finge la hora actual. Sin eso no puedes probar ni enseñar la vista «ahora» hasta el día del evento —y vas a necesitar mostrársela a la organización el viernes.</p>
+        </div>
+        <div class="stack-item">
+          <h4>Mapa como imagen con zonas</h4>
+          <p>La vista aérea que ya tienes, con áreas clicables posicionadas en porcentajes encima. Nada de SVG dibujado a mano ni librerías de mapas: quince rectángulos y a otra cosa.</p>
+        </div>
+        <div class="stack-item">
+          <h4>Avisos que no exigen desplegar</h4>
+          <p>Un <code>avisos.json</code> pequeño, servido aparte, que el sitio consulta al abrir. Para «se cambió de sala» o «se canceló», sin tocar el código. Todo lo demás viaja dentro del paquete y se corrige redesplegando: son sesenta segundos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="sec-head"><span class="eyebrow">07 · El plan</span></div>
+    <h2>Siete días de trabajo, con la fecha de publicar al frente</h2>
+    <p class="lede">
+      El orden no es negociable: primero los datos, porque todo lo demás depende de ellos,
+      y el contacto con la organización va el <strong>primer día</strong>, no el último —
+      imprimir señalética y resolver lo de «Sala 1» necesita días de anticipación, no horas.
+    </p>
+    <div class="sec-body">
+      <div class="ladder">
+
+        <div class="step">
+          <span class="step-when"><span class="date">vie 12 sep</span><span class="dd">D−9</span></span>
+          <div>
+            <h3>Datos y contacto</h3>
+            <ul>
+              <li><strong>Escribir a la organización hoy</strong>: qué es «Sala 1», si el Markdown está al día, y permiso para colgar carteles con QR.</li>
+              <li>Definir el esquema: sesión, lugar, persona, tipo, día, franja.</li>
+              <li>Parser del Markdown a JSON, con la tabla de equivalencias de lugares.</li>
+              <li>Revisión manual de las 163 sesiones. Es tedioso, y es lo más importante de la semana.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-when"><span class="date">sáb 13 – dom 14</span><span class="dd">D−8 · D−7</span></span>
+          <div>
+            <h3>Esqueleto y las dos vistas principales</h3>
+            <ul>
+              <li>Proyecto, tipografía, tokens de color, temas claro y oscuro.</li>
+              <li><strong>Ahora mismo</strong>, con la hora anclada a Ecuador y el simulador <code>?t=</code>.</li>
+              <li>Agenda filtrable por día, tipo y lugar.</li>
+              <li>Ficha de sesión con dirección propia y Open Graph.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-when"><span class="date">lun 15 sep</span><span class="dd">D−6</span></span>
+          <div>
+            <h3>Buscador y agenda personal</h3>
+            <ul>
+              <li>Búsqueda instantánea sobre título, ponente y obra.</li>
+              <li>Guardar sesiones en el teléfono y <strong>detectar choques de horario</strong>.</li>
+              <li>Botón «añadir al calendario» con <code>.ics</code>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-when"><span class="date">mar 16 sep</span><span class="dd">D−5</span></span>
+          <div>
+            <h3>Mapa</h3>
+            <ul>
+              <li>Los 15 pines como zonas clicables sobre la vista aérea.</li>
+              <li>Ficha de lugar: qué hay aquí ahora, qué viene después.</li>
+              <li>Sección aparte para Ipiales y Pasto.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-when"><span class="date">mié 17 sep</span><span class="dd">D−4</span></span>
+          <div>
+            <h3>Sin internet, y listo para compartir</h3>
+            <ul>
+              <li>PWA: service worker, manifiesto, instalación en pantalla de inicio.</li>
+              <li>Imágenes de previsualización para redes sociales.</li>
+              <li><code>avisos.json</code> y su banner.</li>
+              <li>Pasada de accesibilidad: teclado, contraste, lector de pantalla.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step ship">
+          <span class="step-when"><span class="date">jue 18 sep</span><span class="dd">D−3 · publicar</span></span>
+          <div>
+            <h3>En línea</h3>
+            <ul>
+              <li><strong>Publicar.</strong> A partir de aquí se corrige sobre algo que ya existe.</li>
+              <li>Carteles con QR por edificio, listos para imprimir.</li>
+              <li>Modo pantalla para el televisor de la entrada.</li>
+              <li>Probarlo en teléfonos de verdad —Android barato incluido—, no solo en el navegador del portátil.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-when"><span class="date">vie 19 – dom 20</span><span class="dd">D−2 · D−0</span></span>
+          <div>
+            <h3>Corregir y difundir</h3>
+            <ul>
+              <li>Pasar los datos por la organización y corregir lo que salga.</li>
+              <li>Imprimir y colocar la señalética.</li>
+              <li>Publicar el enlace por redes. Margen para lo que salga mal.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step live">
+          <span class="step-when"><span class="date">lun 21 – vie 25</span><span class="dd">en vivo</span></span>
+          <div>
+            <h3>Operación</h3>
+            <ul>
+              <li>Avisos de cambios y cancelaciones el mismo día.</li>
+              <li>Un despliegue diario con las correcciones que reporte la gente.</li>
+              <li>Medir uso: cuánta gente, qué busca, qué pines abre.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="decisiones">
+    <div class="sec-head"><span class="eyebrow">08 · Decisiones</span></div>
+    <h2>Lo que ningún parser puede resolver</h2>
+    <p class="lede">
+      Cuatro cosas que dependen de una conversación con una persona, no de escribir código.
+      Las tres primeras son para esta semana.
+    </p>
+    <div class="sec-body">
+      <div class="qs">
+        <div class="q-item">
+          <span class="q-mark">01</span>
+          <div>
+            <h3>¿Dónde quedan «Sala 1» y «Sala 2»?</h3>
+            <p>El 38 % del programa depende de esta respuesta. Es la única pregunta que puede hacer que la aplicación mande gente al edificio equivocado.</p>
+          </div>
+        </div>
+        <div class="q-item">
+          <span class="q-mark">02</span>
+          <div>
+            <h3>¿Este Markdown corresponde a la versión final?</h3>
+            <p>Las agendas de eventos cambian hasta el día anterior. Si hay una versión más reciente, todo el trabajo de normalización se hace sobre ella.</p>
+          </div>
+        </div>
+        <div class="q-item">
+          <span class="q-mark">03</span>
+          <div>
+            <h3>¿Se pueden colgar carteles con QR en los edificios?</h3>
+            <p>Es la diferencia entre un enlace que circula por redes y una herramienta que la gente encuentra estando ya dentro del campus. Necesita permiso y tiempo de imprenta.</p>
+          </div>
+        </div>
+        <div class="q-item">
+          <span class="q-mark">04</span>
+          <div>
+            <h3>¿Proyecto oficial o proyecto de estudiante?</h3>
+            <p>Si la UPEC lo adopta, ganas señalética, datos de primera mano y alguien que te avise de los cambios —a cambio de revisiones y tiempos que no controlas. Si no, lo publicas como iniciativa estudiantil, con el crédito a la Universidad y una nota clara de «sitio no oficial», y lo ofreces después. <strong>Lo segundo se puede empezar hoy; lo primero no.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="eyebrow">09 · Después</span></div>
+    <h2>El festival dura cinco días; el argumento dura más</h2>
+    <div class="prose sec-body">
+      <p>
+        Si mides el uso durante la semana —visitantes, sesiones guardadas, qué pines se abren
+        más— terminas el viernes 25 con algo que hoy no existe en ninguna parte: <strong>datos
+        reales sobre cómo circula la gente por el Libro Fest</strong>. Eso es lo que convierte
+        «un estudiante hizo una página» en «la UPEC necesita esto en 2027», y lo que le da a la
+        Universidad una razón para financiar la edición siguiente en lugar de volver al visor
+        de Adobe.
+      </p>
+      <p>
+        El JSON del programa, el mapa con sus pines y el generador de carteles quedan como base
+        reutilizable. El año que viene el trabajo son dos días, no siete.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="prose">
+      <p>Análisis y plan de construcción · UPEC Libro Fest 2026 «Academia, arte y cultura» · Universidad Politécnica Estatal del Carchi, Tulcán.</p>
+      <p>Cifras calculadas sobre <code>Agenda_UPEC_Libro_Fest_2026.md</code> —159 filas de tabla con horario, 163 sesiones tras separar las celdas de doble franja, 25 actividades permanentes— y sobre el mapa oficial de 15 puntos del campus más las 2 sedes fuera de él.</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var start = new Date(2026, 8, 21);
+  var ship  = new Date(2026, 8, 18);
+  var end   = new Date(2026, 8, 26);
+  var now   = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var num = document.getElementById('cd-num');
+  var txt = document.getElementById('cd-txt');
+  if(!num || !txt){ return; }
+  var day = 86400000;
+  var toStart = Math.round((start - today) / day);
+  var toShip  = Math.round((ship  - today) / day);
+
+  if (today >= end) {
+    num.textContent = 'Terminado';
+    txt.innerHTML = 'El festival ya pasó. Lo que queda es el programa normalizado, el mapa y las métricas de uso: la base para la edición de 2027.';
+  } else if (today >= start) {
+    num.textContent = 'En vivo';
+    txt.innerHTML = 'El festival está en marcha. El trabajo de hoy es operación: avisos de cambios, un despliegue diario con correcciones y medir el uso.';
+  } else if (toShip <= 0) {
+    num.textContent = (toStart === 1) ? 'Mañana' : toStart + ' días';
+    txt.innerHTML = 'para el arranque del festival, y la fecha de publicar ya pasó. Lo urgente es poner en línea lo que haya y corregir sobre eso.';
+  } else {
+    num.textContent = (toStart === 1) ? 'Mañana' : toStart + ' días';
+    txt.innerHTML = 'para el arranque del festival. Si quieres códigos QR impresos el lunes 21, el sitio tiene que estar en línea el <strong>jueves 18</strong>: son <strong>' + toShip + ' días de trabajo</strong>, no ' + toStart + '.';
+  }
+})();
+</script>

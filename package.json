@@ -1,0 +1,25 @@
+{
+  "name": "libro_fest_app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "datos": "node scripts/parse-agenda.mjs",
+    "prebuild": "node scripts/parse-agenda.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.4",
+    "qrcode": "^1.5.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}
