@@ -6,89 +6,107 @@ import { diaDe, diasHastaElInicio, estadoFestival, hhmm } from "@/lib/tiempo";
 import { DIAS } from "@/lib/tipos";
 import { useMomento } from "./Reloj";
 import ListaSesiones from "./ListaSesiones";
-import { IconoAgenda, IconoFlecha } from "./Iconos";
+import { IconoAgenda, IconoFlecha, IconoMapa, IconoPermanente } from "./Iconos";
 
 /**
  * «Ahora mismo»: lo que está pasando y lo que arranca enseguida.
  *
- * Mientras `momento` es `null` —es decir, en el HTML estático, antes de que el
- * navegador hidrate— se enseña la versión de antes del festival con el programa del
- * primer día. Es un estado real y útil, no un esqueleto cargando, y evita cocer la
- * fecha de compilación dentro del HTML.
+ * Mientras `momento` es `null` —el HTML estático, antes de que el navegador
+ * hidrate— se enseña un esqueleto neutro. Antes se enseñaba la portada de «faltan
+ * N días», que durante el festival es contenido equivocado: la página pintaba una
+ * cuenta atrás y saltaba a la vista en vivo un instante después, en cada carga y
+ * para todo el mundo. Un esqueleto no dice nada falso.
  */
 export default function Ahora() {
   const momento = useMomento();
-  const estado = momento ? estadoFestival(momento.fecha) : "antes";
+
+  /* --------------------------------------------------------- sin hora ---- */
+
+  if (!momento) {
+    return (
+      <div className="pagina">
+        <section className="heroe heroe-esqueleto" aria-hidden>
+          <span className="esq esq-hora" />
+          <span className="esq esq-linea" />
+          <span className="esq esq-linea corta" />
+        </section>
+        <div className="esqueleto-lista" aria-hidden>
+          <span /> <span /> <span />
+        </div>
+        <p className="solo-lectores">Cargando la programación en curso.</p>
+      </div>
+    );
+  }
+
+  const estado = estadoFestival(momento.fecha);
 
   /* ---------------------------------------------------- antes y después ---- */
 
-  if (estado !== "durante" || !momento) {
+  if (estado !== "durante") {
     const primerDia = DIAS[0];
-    const faltan = momento ? diasHastaElInicio(momento.fecha) : null;
+    const faltan = diasHastaElInicio(momento.fecha);
     const terminado = estado === "despues";
-    const muestra = sesionesDe(primerDia.fecha, false).slice(0, 6);
+    const muestra = sesionesDe(primerDia.fecha, false).slice(0, 5);
 
     return (
       <div className="pagina">
-        <header>
-          <p className="eyebrow">Del 21 al 25 de septiembre · Tulcán, Carchi</p>
-          <h1 className="titulo-pagina">
-            {terminado ? "Hasta la próxima edición" : "Qué hay ahora y dónde"}
-          </h1>
-          <p className="entradilla">
-            {terminado ? (
-              <>
-                El UPEC Libro Fest 2026 ya terminó. El programa completo sigue disponible por si
-                buscas un libro, un autor o una charla a la que asististe.
-              </>
-            ) : (
-              <>
-                Cuando arranque el festival, esta pantalla enseñará lo que está pasando en ese
-                momento y en qué edificio del campus. Mientras tanto, puedes ir armando tu agenda.
-              </>
-            )}
-          </p>
-        </header>
+        <section className="heroe">
+          <p className="eyebrow">Del 21 al 25 de septiembre · UPEC, Tulcán</p>
 
-        {!terminado && faltan !== null && faltan > 0 && (
-          <p className="aviso">
-            <span className="etiqueta">Faltan</span>
-            <span>
-              <strong>{faltan === 1 ? "un día" : `${faltan} días`}</strong> para el arranque. Guarda
-              desde ya las sesiones que te interesan: la aplicación te avisa si dos se pisan.
-            </span>
-          </p>
-        )}
+          {terminado ? (
+            <h1 className="titulo-pagina">Hasta la próxima edición</h1>
+          ) : faltan > 0 ? (
+            <div className="cuenta-atras">
+              <span className="n">{faltan}</span>
+              <span className="u">{faltan === 1 ? "día para el festival" : "días para el festival"}</span>
+            </div>
+          ) : (
+            <h1 className="titulo-pagina">Empieza hoy</h1>
+          )}
 
-        <div className="cifras">
-          <div className="cifra">
-            <span className="v">{CIFRAS.total}</span>
-            <span className="l">actividades</span>
+          <p className="entradilla" style={{ marginTop: 0 }}>
+            {terminado
+              ? "El programa completo sigue aquí, por si buscas un libro, un autor o una charla a la que asististe."
+              : "Cuando arranque, esta pantalla enseñará qué está pasando en ese momento y en qué edificio."}
+          </p>
+
+          <div className="heroe-resumen">
+            <div className="resumen-dato">
+              <span className="v">{CIFRAS.total}</span>
+              <span className="l">actividades</span>
+            </div>
+            <div className="resumen-dato">
+              <span className="v">{CIFRAS.lugares}</span>
+              <span className="l">lugares</span>
+            </div>
+            <div className="resumen-dato">
+              <span className="v">{CIFRAS.personas}</span>
+              <span className="l">ponentes y autores</span>
+            </div>
           </div>
-          <div className="cifra">
-            <span className="v">{CIFRAS.lugares}</span>
-            <span className="l">lugares</span>
+
+          <div className="botonera">
+            <Link href="/agenda/" className="boton primario">
+              <IconoAgenda />
+              Ver la agenda
+              <IconoFlecha />
+            </Link>
+            <Link href="/mapa/" className="boton">
+              <IconoMapa />
+              Mapa del campus
+            </Link>
           </div>
-          <div className="cifra">
-            <span className="v">{CIFRAS.personas}</span>
-            <span className="l">ponentes y autores</span>
-          </div>
-          <div className="cifra">
-            <span className="v">{CIFRAS.editoriales}</span>
-            <span className="l">editoriales</span>
-          </div>
-        </div>
+        </section>
 
         <section className="bloque">
           <div className="bloque-cabecera">
-            <h2>{terminado ? "Así empezó" : "Así arranca"} el {primerDia.nombre.toLowerCase()}</h2>
-            <span className="cuenta">primeras {muestra.length} de {sesionesDe(primerDia.fecha, false).length}</span>
+            <h2>{terminado ? "Así empezó" : "Así arranca"} el lunes</h2>
+            <span className="cuenta">{sesionesDe(primerDia.fecha, false).length}</span>
           </div>
           <ListaSesiones sesiones={muestra} />
-          <Link href="/agenda/" className="boton primario" style={{ alignSelf: "flex-start" }}>
-            <IconoAgenda aria-hidden />
-            Ver la agenda completa
-            <IconoFlecha aria-hidden />
+          <Link href="/agenda/" className="boton" style={{ alignSelf: "flex-start" }}>
+            Ver el lunes completo
+            <IconoFlecha />
           </Link>
         </section>
       </div>
@@ -105,20 +123,34 @@ export default function Ahora() {
   const conHorario = corriendo.filter((s) => !s.permanente);
   const abiertas = corriendo.filter((s) => s.permanente);
   const restoDelDia = sesionesDe(momento.fecha, false).filter((s) => s.inicio > momento.minutos);
+  const lugaresAhora = new Set(conHorario.map((s) => s.lugarId)).size;
 
   return (
     <div className="pagina">
-      <header>
-        <p className="eyebrow">
-          {dia.nombre} · {hhmm(momento.minutos)} en Tulcán
-        </p>
-        <h1 className="titulo-pagina">Ahora mismo</h1>
-        <p className="entradilla">
-          {conHorario.length > 0
-            ? `${conHorario.length} ${conHorario.length === 1 ? "sesión en curso" : "sesiones en curso"}, ordenadas por lo que les queda. ${abiertas.length} salas y muestras abiertas todo el día.`
-            : `Ninguna sesión con horario ahora mismo, pero hay ${abiertas.length} salas y muestras abiertas.`}
-        </p>
-      </header>
+      <section className="heroe">
+        <div className="heroe-fila">
+          <div>
+            <span className="heroe-hora">{hhmm(momento.minutos)}</span>
+            <p className="heroe-dia">{dia.nombre} de septiembre</p>
+            <p className="heroe-lugar">Campus UPEC · Tulcán</p>
+          </div>
+
+          <div className="heroe-resumen">
+            <div className="resumen-dato" style={{ "--color-dato": "var(--t-cultural)" } as React.CSSProperties}>
+              <span className="v">{conHorario.length}</span>
+              <span className="l">en curso ahora</span>
+            </div>
+            <div className="resumen-dato">
+              <span className="v">{lugaresAhora}</span>
+              <span className="l">{lugaresAhora === 1 ? "lugar activo" : "lugares activos"}</span>
+            </div>
+            <div className="resumen-dato">
+              <span className="v">{abiertas.length}</span>
+              <span className="l">salas abiertas</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="bloque">
         <div className="bloque-cabecera">
@@ -128,14 +160,14 @@ export default function Ahora() {
         <ListaSesiones
           sesiones={conHorario}
           relativo
-          vacio="No hay sesiones con horario en este momento. Mira lo que viene a continuación."
+          vacio="Ninguna sesión con horario en este momento. Mira lo que viene a continuación."
         />
       </section>
 
       <section className="bloque">
         <div className="bloque-cabecera">
           <h2>A continuación</h2>
-          <span className="cuenta">próximas dos horas</span>
+          <span className="cuenta">{siguientes.length}</span>
         </div>
         <ListaSesiones
           sesiones={siguientes}
@@ -148,43 +180,27 @@ export default function Ahora() {
         />
       </section>
 
+      {restoDelDia.length > siguientes.length && (
+        <Link href={`/agenda/?dia=${momento.fecha}`} className="boton" style={{ alignSelf: "flex-start" }}>
+          <IconoAgenda />
+          Resto del {dia.nombre.toLowerCase()} · {restoDelDia.length} sesiones
+          <IconoFlecha />
+        </Link>
+      )}
+
       {abiertas.length > 0 && (
         <section className="bloque">
           <div className="bloque-cabecera">
-            <h2>Abierto todo el día</h2>
+            <h2>
+              <IconoPermanente style={{ width: 19, height: 19, color: "var(--t-permanente)" }} />
+              Abierto todo el día
+            </h2>
             <span className="cuenta">
               {abiertas.length} de {permanentes.length}
             </span>
           </div>
           <ListaSesiones sesiones={abiertas} />
-          <p className="nota">
-            <span>
-              Las salas, muestras y exposiciones permanentes abren a las 08:30. La agenda oficial no
-              dice a qué hora cierran: mostramos las 18:00 como estimación.
-            </span>
-          </p>
         </section>
-      )}
-
-      {restoDelDia.length > siguientes.length && (
-        <Link href={`/agenda/?dia=${momento.fecha}`} className="boton" style={{ alignSelf: "flex-start" }}>
-          <IconoAgenda aria-hidden />
-          Ver el resto del {dia.nombre.toLowerCase()} ({restoDelDia.length} sesiones)
-          <IconoFlecha aria-hidden />
-        </Link>
-      )}
-
-      {corriendo.length > 0 && (
-        <p className="nota">
-          <span>
-            El festival llega a programar ocho sesiones en paralelo en ocho lugares distintos. Si dos
-            te interesan a la vez, guárdalas: en{" "}
-            <Link href="/mi-agenda/" style={{ textDecoration: "underline" }}>
-              Mi agenda
-            </Link>{" "}
-            verás cuántos minutos se pisan.
-          </span>
-        </p>
       )}
     </div>
   );

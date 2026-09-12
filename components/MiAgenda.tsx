@@ -1,22 +1,38 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
-import { choques, sesionPorId, permanentesDe } from "@/lib/datos";
+import { useMemo, useState } from "react";
+import { choques, sesionesDe, sesionPorId } from "@/lib/datos";
 import { useGuardadas } from "@/lib/guardadas";
 import { descargarIcs } from "@/lib/ics";
-import { duracion, hhmm } from "@/lib/tiempo";
 import { DIAS, type Sesion } from "@/lib/tipos";
 import ListaSesiones from "./ListaSesiones";
 import ListaChoques from "./ListaChoques";
-import { IconoAgenda, IconoCalendario, IconoFlecha } from "./Iconos";
+import HorarioDia from "./HorarioDia";
+import SincronizacionCalendario from "./SincronizacionCalendario";
+import { useEntrada } from "./Entrada";
+import { useBrindis } from "./Brindis";
+import {
+  IconoAgenda,
+  IconoCalendario,
+  IconoChoque,
+  IconoCuenta,
+  IconoFlecha,
+  IconoSinNube,
+} from "./Iconos";
 
 export default function MiAgenda() {
-  const { ids, vaciar } = useGuardadas();
+  const { ids, vaciar, deshacerVaciado, cargando, haEntrado, sesionResuelta, pendientes, falloServidor } =
+    useGuardadas();
+  const { pedirEntrada } = useEntrada();
+  const { brindar } = useBrindis();
+  const [choquesAbiertos, setChoquesAbiertos] = useState(false);
+  const [vista, setVista] = useState<"lista" | "horario">("lista");
 
-  const guardadas = useMemo(() => {
-    return ids.map((id) => sesionPorId(id)).filter((s): s is Sesion => s !== null);
-  }, [ids]);
+  const guardadas = useMemo(
+    () => ids.map((id) => sesionPorId(id)).filter((s): s is Sesion => s !== null),
+    [ids]
+  );
 
   const conHorario = guardadas.filter((s) => !s.permanente);
   const permanentes = guardadas.filter((s) => s.permanente);
@@ -36,32 +52,101 @@ export default function MiAgenda() {
     sesiones: conHorario.filter((s) => s.dia === d.fecha).sort((a, b) => a.inicio - b.inicio),
   })).filter((g) => g.sesiones.length > 0);
 
-  if (guardadas.length === 0) {
+  /* -------------------------------------------------- todavía no se sabe ---- */
+
+  if (!sesionResuelta || (haEntrado && cargando)) {
     return (
       <div className="pagina">
         <header>
-          <p className="eyebrow">Se guarda solo en este teléfono</p>
           <h1 className="titulo-pagina">Mi agenda</h1>
         </header>
-
-        <p className="vacio">
-          Todavía no has guardado nada. Toca el marcador de cualquier sesión y aparecerá aquí.
-        </p>
-
-        <p className="nota">
-          <span>
-            No hay cuentas ni contraseñas: lo que guardes vive en este navegador y no se envía a
-            ningún sitio. Si cambias de teléfono o borras los datos del navegador, se pierde.
-          </span>
-        </p>
-
-        <Link href="/agenda/" className="boton primario" style={{ alignSelf: "flex-start" }}>
-          <IconoAgenda aria-hidden />
-          Ir a la agenda
-          <IconoFlecha aria-hidden />
-        </Link>
+        <div className="esqueleto-lista" aria-hidden>
+          <span /> <span /> <span />
+        </div>
+        <p className="solo-lectores">Cargando tu agenda.</p>
       </div>
     );
+  }
+
+  /* ------------------------------------------------------- sin entrar ------ */
+
+  if (!haEntrado) {
+    const lunes = sesionesDe(DIAS[0].fecha, false).slice(0, 3);
+
+    return (
+      <div className="pagina">
+        <header>
+          <h1 className="titulo-pagina">Mi agenda</h1>
+          <p className="entradilla">
+            Guarda lo que no te quieras perder y lo tendrás en el móvil, en el ordenador y en las
+            pantallas del campus. Si quieres, también en tu Google Calendar.
+          </p>
+        </header>
+
+        <div className="botonera">
+          <button type="button" className="boton primario" onClick={() => pedirEntrada("Entra para guardar")}>
+            <IconoCuenta aria-hidden />
+            Entrar
+            <IconoFlecha aria-hidden />
+          </button>
+        </div>
+
+        <section className="bloque">
+          <div className="bloque-cabecera">
+            <h2>Así arranca el festival</h2>
+            <span className="cuenta">{lunes.length}</span>
+          </div>
+          <ListaSesiones sesiones={lunes} />
+          <Link href="/agenda/" className="boton" style={{ alignSelf: "flex-start" }}>
+            <IconoAgenda aria-hidden />
+            Ver la agenda completa
+            <IconoFlecha aria-hidden />
+          </Link>
+        </section>
+      </div>
+    );
+  }
+
+  /* ------------------------------------------------- dentro, pero vacía ---- */
+
+  if (guardadas.length === 0) {
+    const lunes = sesionesDe(DIAS[0].fecha, false).slice(0, 4);
+
+    return (
+      <div className="pagina">
+        <header>
+          <h1 className="titulo-pagina">Mi agenda</h1>
+          <p className="entradilla">
+            Todavía no has guardado nada. Toca el marcador de cualquier actividad y aparecerá aquí.
+          </p>
+        </header>
+
+        <section className="bloque">
+          <div className="bloque-cabecera">
+            <h2>Empieza por el lunes</h2>
+            <span className="cuenta">{lunes.length}</span>
+          </div>
+          <ListaSesiones sesiones={lunes} />
+          <Link href="/agenda/" className="boton primario" style={{ alignSelf: "flex-start" }}>
+            <IconoAgenda aria-hidden />
+            Ver los cinco días
+            <IconoFlecha aria-hidden />
+          </Link>
+        </section>
+      </div>
+    );
+  }
+
+  /* ------------------------------------------------------------ con cosas --- */
+
+  function alVaciar() {
+    const anteriores = ids.slice();
+    vaciar();
+    brindar({
+      texto: `${anteriores.length} ${anteriores.length === 1 ? "actividad quitada" : "actividades quitadas"}`,
+      deshacer: () => deshacerVaciado(anteriores),
+      tono: "alerta",
+    });
   }
 
   return (
@@ -73,51 +158,78 @@ export default function MiAgenda() {
         <h1 className="titulo-pagina">Mi agenda</h1>
       </header>
 
+      {falloServidor && (
+        <p className="aviso alerta">
+          <IconoSinNube aria-hidden />
+          <span>
+            No se puede guardar en el servidor ahora mismo. Lo que toques se queda en este
+            dispositivo y se sincroniza cuando vuelva.
+          </span>
+        </p>
+      )}
+
+      {pendientes > 0 && !falloServidor && (
+        <p className="nota">
+          <IconoSinNube />
+          <span>
+            {pendientes} {pendientes === 1 ? "cambio sin sincronizar" : "cambios sin sincronizar"}. Se
+            mandan solos en cuanto haya conexión.
+          </span>
+        </p>
+      )}
+
+      <SincronizacionCalendario />
+
+      {/* Antes esto abría la pantalla con un bloque rojo a pantalla completa: la
+          aplicación castigaba a quien la había usado bien. Ahora es una línea que
+          se despliega si interesa. */}
       {colisiones.length > 0 && (
-        <section className="bloque">
-          <p className="aviso alerta">
-            <span className="etiqueta">Se pisan</span>
+        <div className="choques-resumen">
+          <button
+            type="button"
+            className="choques-cabecera"
+            aria-expanded={choquesAbiertos}
+            onClick={() => setChoquesAbiertos((v) => !v)}
+          >
+            <IconoChoque aria-hidden />
             <span>
               {colisiones.length === 1
-                ? "Dos de tus sesiones se solapan."
-                : `Hay ${colisiones.length} solapamientos entre tus sesiones.`}{" "}
-              El festival programa hasta ocho cosas a la vez, así que toca elegir.
+                ? "Dos actividades se te pisan"
+                : `${colisiones.length} solapamientos en tu agenda`}
             </span>
-          </p>
-
-          <ListaChoques colisiones={colisiones} />
-
-          <p className="nota">
-            <span>
-              Las salas y muestras permanentes no cuentan como choque: están abiertas de 08:30 a
-              18:00 y se solaparían con todo.
+            <span className="chevron" aria-hidden>
+              {choquesAbiertos ? "−" : "+"}
             </span>
-          </p>
-        </section>
+          </button>
+          {choquesAbiertos && <ListaChoques colisiones={colisiones} />}
+        </div>
       )}
 
       <div className="botonera">
         <button
           type="button"
-          className="boton primario"
+          className="boton"
           onClick={() => descargarIcs(conHorario, "mi-agenda-librofest-2026")}
           disabled={conHorario.length === 0}
         >
           <IconoCalendario aria-hidden />
-          Añadir {conHorario.length} al calendario
+          Descargar .ics
         </button>
-        <button
-          type="button"
-          className="boton"
-          onClick={() => {
-            if (window.confirm("¿Vaciar tu agenda? Se borran las " + guardadas.length + " actividades guardadas.")) {
-              vaciar();
-            }
-          }}
-        >
+        <button type="button" className="boton" onClick={alVaciar}>
           Vaciar
         </button>
       </div>
+
+      {porDia.length > 0 && (
+        <div className="conmutador" role="group" aria-label="Forma de ver la agenda">
+          <button type="button" aria-pressed={vista === "lista"} onClick={() => setVista("lista")}>
+            Lista
+          </button>
+          <button type="button" aria-pressed={vista === "horario"} onClick={() => setVista("horario")}>
+            Horario
+          </button>
+        </div>
+      )}
 
       {porDia.map(({ dia, sesiones }) => (
         <section className="bloque" key={dia.fecha}>
@@ -125,7 +237,11 @@ export default function MiAgenda() {
             <h2>{dia.nombre}</h2>
             <span className="cuenta">{sesiones.length}</span>
           </div>
-          <ListaSesiones sesiones={sesiones} idsQueChocan={idsQueChocan} />
+          {vista === "horario" ? (
+            <HorarioDia sesiones={sesiones} />
+          ) : (
+            <ListaSesiones sesiones={sesiones} idsQueChocan={idsQueChocan} />
+          )}
         </section>
       ))}
 
@@ -133,20 +249,11 @@ export default function MiAgenda() {
         <section className="bloque">
           <div className="bloque-cabecera">
             <h2>Abierto los cinco días</h2>
-            <span className="cuenta">
-              {permanentes.length} de {permanentesDe(DIAS[0].fecha).length}
-            </span>
+            <span className="cuenta">{permanentes.length}</span>
           </div>
           <ListaSesiones sesiones={permanentes} />
         </section>
       )}
-
-      <p className="nota">
-        <span>
-          Todo esto vive solo en este navegador. No hay cuentas, no se sube a ningún servidor y nadie
-          más lo ve.
-        </span>
-      </p>
     </div>
   );
 }

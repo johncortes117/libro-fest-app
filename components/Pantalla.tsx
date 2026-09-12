@@ -36,7 +36,6 @@ function Item({ sesion, minutos }: { sesion: Sesion; minutos: number }) {
             <>
               {lugar.pin != null && `${lugar.pin} · `}
               {lugar.nombre}
-              {lugar.porConfirmar && " · sala por confirmar"}
               {lugar.fuera && ` · ${lugar.fuera.ciudad}`}
             </>
           ) : (

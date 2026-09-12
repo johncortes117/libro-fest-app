@@ -2,12 +2,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { porId as lugarPorId } from "@/data/lugares";
 import { PERMANENTES, SESIONES, sesionPorId, sesionesDe } from "@/lib/datos";
-import { diaDe, hhmm } from "@/lib/tiempo";
-import { TIPOS } from "@/lib/tipos";
+import { diaDe, duracion, hhmm } from "@/lib/tiempo";
 import AccionesSesion from "@/components/AccionesSesion";
-import ListaSesiones from "@/components/ListaSesiones";
+import BloqueRelacionadas from "@/components/BloqueRelacionadas";
 import Avisos from "@/components/Avisos";
-import { IconoVolver } from "@/components/Iconos";
+import EtiquetaTipo from "@/components/EtiquetaTipo";
+import { IconoMapa, IconoPersonas, IconoReloj, IconoVolver } from "@/components/Iconos";
 
 /** Una página estática por sesión: 188 archivos HTML, ninguno con servidor detrás. */
 export function generateStaticParams() {
@@ -49,7 +49,6 @@ export default async function FichaSesion({ params }: { params: Promise<{ id: st
 
   const lugar = lugarPorId.get(sesion.lugarId);
   const dia = diaDe(sesion.dia);
-  const tipo = TIPOS[sesion.tipo];
 
   /* Lo que se pisa con esta sesión: el problema real del festival, resuelto en la
      propia ficha en vez de obligar a volver a la agenda y comparar a mano. */
@@ -69,144 +68,107 @@ export default async function FichaSesion({ params }: { params: Promise<{ id: st
     <div className="pagina">
       <Avisos sesionId={sesion.id} />
 
-      <Link href="/agenda/" className="eyebrow" style={{ display: "inline-flex", gap: 6, alignItems: "center" }}>
-        <IconoVolver aria-hidden style={{ width: 13, height: 13 }} />
+      <Link href="/agenda/" className="migaja">
+        <IconoVolver aria-hidden />
         Agenda
       </Link>
 
       <article className="ficha">
         <header className="ficha-cabecera">
-          <div className="fila-meta">
-            <span
-              className="chip chip-tipo"
-              style={
-                {
-                  "--color-tipo": `var(--t-${sesion.tipo})`,
-                  "--fondo-tipo": `var(--t-${sesion.tipo}-soft)`,
-                } as React.CSSProperties
-              }
-            >
-              {tipo.nombre}
-            </span>
-            {sesion.permanente && <span className="chip chip-aviso">los cinco días</span>}
-          </div>
-
-          <h1>{sesion.titulo}</h1>
-          {sesion.detalle && <p className="entradilla">{sesion.detalle}</p>}
-
-          {sesion.truncado && (
-            <p className="nota">
-              <span>
-                El título viene cortado en la agenda oficial. Lo mostramos tal cual llega, sin
-                completarlo por nuestra cuenta.
+          <EtiquetaTipo tipo={sesion.tipo} />
+          <h1>
+            {sesion.titulo}
+            {/* El título viene cortado en la agenda oficial. El porqué está en
+                /datos; aquí basta la marca y el «title» del navegador. */}
+            {sesion.truncado && (
+              <span className="cortado" title="El título viene cortado en la agenda oficial">
+                {" "}
+                […]
               </span>
-            </p>
-          )}
+            )}
+          </h1>
+          {sesion.detalle && <p className="entradilla" style={{ marginTop: 0 }}>{sesion.detalle}</p>}
         </header>
 
         <AccionesSesion sesion={sesion} />
 
         <dl className="datos">
           <div className="dato">
-            <dt>Cuándo</dt>
-            <dd>
-              {sesion.permanente ? (
-                <>
-                  Del lunes 21 al viernes 25, desde las {hhmm(sesion.inicio)}
-                  <br />
-                  <span style={{ color: "var(--muted)", fontSize: "0.85rem" }}>
-                    La agenda oficial no indica hora de cierre. Mostramos las {hhmm(sesion.fin)} como
-                    estimación.
-                  </span>
-                </>
-              ) : (
-                <>
-                  {dia?.nombre} de septiembre · {hhmm(sesion.inicio)} – {hhmm(sesion.fin)}
-                </>
-              )}
-            </dd>
+            <IconoReloj />
+            <div>
+              <dt>Cuándo</dt>
+              <dd>
+                {sesion.permanente ? (
+                  <>
+                    Los cinco días, {hhmm(sesion.inicio)} – <span title="La agenda oficial no indica hora de cierre; 18:00 es una estimación nuestra.">~{hhmm(sesion.fin)}</span>
+                  </>
+                ) : (
+                  <>
+                    {dia?.nombre} de septiembre · {hhmm(sesion.inicio)} – {hhmm(sesion.fin)}
+                    <span className="secundario">Dura {duracion(sesion.fin - sesion.inicio)}</span>
+                  </>
+                )}
+              </dd>
+            </div>
           </div>
 
           <div className="dato">
-            <dt>Dónde</dt>
-            <dd>
-              {lugar ? (
-                <>
-                  <Link href={`/lugar/${lugar.id}/`} style={{ textDecoration: "underline", textUnderlineOffset: 2 }}>
-                    {lugar.nombre}
-                  </Link>
-                  {lugar.pin != null && (
-                    <>
-                      {" "}
-                      <span className="chip chip-pin">{lugar.pin}</span>{" "}
-                      <span style={{ color: "var(--muted)", fontSize: "0.85rem" }}>en el mapa del campus</span>
-                    </>
-                  )}
-                  {lugar.fuera && (
-                    <>
-                      <br />
-                      <span style={{ color: "var(--muted)", fontSize: "0.85rem" }}>
+            <IconoMapa />
+            <div>
+              <dt>Dónde</dt>
+              <dd>
+                {lugar ? (
+                  <>
+                    {lugar.pin != null && (
+                      <span className="pin-num" style={{ display: "inline-grid", verticalAlign: "-4px", marginRight: 6 }}>
+                        {lugar.pin}
+                      </span>
+                    )}
+                    <Link href={`/lugar/${lugar.id}/`}>{lugar.nombre}</Link>
+
+                    {lugar.fuera && (
+                      <span className="secundario">
                         Fuera del campus · {lugar.fuera.ciudad}, {lugar.fuera.pais} ·{" "}
-                        <a href={lugar.fuera.maps} target="_blank" rel="noreferrer" style={{ textDecoration: "underline" }}>
+                        <a href={lugar.fuera.maps} target="_blank" rel="noreferrer">
                           abrir en Google Maps
                         </a>
                       </span>
-                    </>
-                  )}
-                  {lugar.porConfirmar && (
-                    <>
-                      <br />
-                      <span className="chip chip-aviso" style={{ marginTop: 6 }}>
-                        sala por confirmar
+                    )}
+
+                    {/* La única advertencia que sobrevive en la ficha, porque es la
+                        única que cambia adónde tiene que ir una persona. */}
+                    {lugar.porConfirmar && (
+                      <span className="secundario">
+                        <span className="marca-aviso">sala por confirmar</span>{" "}
+                        <Link href="/datos/">por qué</Link>
                       </span>
-                      <br />
-                      <span style={{ color: "var(--muted)", fontSize: "0.85rem" }}>{lugar.nota}</span>
-                    </>
-                  )}
-                </>
-              ) : (
-                sesion.lugarTexto
-              )}
-            </dd>
+                    )}
+                  </>
+                ) : (
+                  sesion.lugarTexto
+                )}
+              </dd>
+            </div>
           </div>
 
           {sesion.personas.length > 0 && (
             <div className="dato">
-              <dt>{sesion.tipo === "libro" ? "Autoría" : "Participan"}</dt>
-              <dd>{sesion.personas.join(" · ")}</dd>
+              <IconoPersonas />
+              <div>
+                <dt>{sesion.tipo === "libro" ? "Autoría" : "Participan"}</dt>
+                <dd>{sesion.personas.join(" · ")}</dd>
+              </div>
             </div>
           )}
-
-          <div className="dato">
-            <dt>En la agenda</dt>
-            <dd style={{ color: "var(--muted)", fontSize: "0.85rem" }}>
-              Aparece como «{sesion.lugarTexto}» en la agenda oficial de la UPEC.
-            </dd>
-          </div>
         </dl>
 
-        {alMismoTiempo.length > 0 && (
-          <section className="bloque">
-            <div className="bloque-cabecera">
-              <h2>Al mismo tiempo</h2>
-              <span className="cuenta">{alMismoTiempo.length}</span>
-            </div>
-            <p className="entradilla" style={{ marginTop: 0 }}>
-              Lo que se solapa con esta sesión, para que decidas antes de cruzar el campus.
-            </p>
-            <ListaSesiones sesiones={alMismoTiempo} />
-          </section>
-        )}
-
-        {mismoLugar.length > 0 && (
-          <section className="bloque">
-            <div className="bloque-cabecera">
-              <h2>Ese día, en {lugar?.nombre ?? sesion.lugarTexto}</h2>
-              <span className="cuenta">{mismoLugar.length}</span>
-            </div>
-            <ListaSesiones sesiones={mismoLugar} />
-          </section>
-        )}
+        <BloqueRelacionadas
+          alMismoTiempo={alMismoTiempo}
+          mismoLugar={mismoLugar}
+          dia={sesion.dia}
+          lugarId={sesion.lugarId}
+          nombreLugar={lugar?.nombre ?? sesion.lugarTexto}
+        />
       </article>
     </div>
   );

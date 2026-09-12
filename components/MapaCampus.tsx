@@ -1,19 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { LUGARES, LUGARES_CAMPUS, LUGARES_FUERA, MAPA, PIN_13_DERECHA, porId } from "@/data/lugares";
-import { enCurso, sesionesDe } from "@/lib/datos";
+import { CUENTA_POR_LUGAR, enCurso, sesionesDe } from "@/lib/datos";
 import { diaVisible, hhmm } from "@/lib/tiempo";
 import { DIAS } from "@/lib/tipos";
 import { useMomento } from "./Reloj";
 import ListaSesiones from "./ListaSesiones";
-import { IconoFlecha } from "./Iconos";
+import TiraDias from "./TiraDias";
+import { IconoCerrar, IconoFlecha, IconoLupaMas, IconoMapa } from "./Iconos";
+
+const ZOOMS = [1, 1.8, 2.6];
 
 export default function MapaCampus() {
   const momento = useMomento();
   const [elegido, setElegido] = useState<string | null>(null);
   const [diaElegido, setDiaElegido] = useState<string | null>(null);
+  const [nivelZoom, setNivelZoom] = useState(0);
+  const [ampliado, setAmpliado] = useState(false);
+  const ventana = useRef<HTMLDivElement>(null);
 
   // El día se deriva del momento en lugar de fijarse en un efecto: así el primer
   // render ya trae el día correcto y los puntos encendidos, sin un fotograma de
@@ -47,31 +53,49 @@ export default function MapaCampus() {
   const ahoraAqui = esHoy && minutos != null ? delLugar.filter((s) => s.inicio <= minutos && s.fin > minutos) : [];
   const luegoAqui = esHoy && minutos != null ? delLugar.filter((s) => s.inicio > minutos) : delLugar;
 
-  return (
-    <div className="pagina">
-      <header>
-        <p className="eyebrow">Vista aérea del campus universitario</p>
-        <h1 className="titulo-pagina">Mapa</h1>
-        <p className="entradilla">
-          Toca un punto para ver qué hay ahí. Los puntos encendidos tienen algo en marcha ahora mismo.
-        </p>
-      </header>
+  /* Centrar el zoom en el punto elegido: acercar y que el sitio que te interesa
+     se quede fuera de la ventana sería peor que no acercar. */
+  const centrarEn = useCallback((x: number, y: number) => {
+    const v = ventana.current;
+    if (!v) return;
+    const lienzo = v.firstElementChild as HTMLElement | null;
+    if (!lienzo) return;
+    v.scrollTo({
+      left: (lienzo.offsetWidth * x) / 100 - v.clientWidth / 2,
+      top: (lienzo.offsetHeight * y) / 100 - v.clientHeight / 2,
+      behavior: "smooth",
+    });
+  }, []);
 
-      <div className="tira" role="group" aria-label="Día">
-        {DIAS.map((d) => (
-          <button
-            key={d.fecha}
-            type="button"
-            className="pildora"
-            aria-pressed={dia === d.fecha}
-            onClick={() => setDiaElegido(d.fecha)}
-          >
-            {d.corto}
-          </button>
-        ))}
-      </div>
+  function alternarZoom() {
+    const siguiente = (nivelZoom + 1) % ZOOMS.length;
+    setNivelZoom(siguiente);
+    if (siguiente > 0 && lugar?.x != null && lugar.y != null) {
+      window.setTimeout(() => centrarEn(lugar.x!, lugar.y!), 60);
+    }
+  }
 
-      <div className="mapa-marco">
+  function elegirLugar(id: string) {
+    setElegido((previo) => (previo === id ? null : id));
+  }
+
+  useEffect(() => {
+    if (!ampliado) return;
+    const escape = (e: KeyboardEvent) => e.key === "Escape" && setAmpliado(false);
+    window.addEventListener("keydown", escape);
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", escape);
+      document.body.style.overflow = overflow;
+    };
+  }, [ampliado]);
+
+  const zoom = ZOOMS[nivelZoom];
+
+  const mapa = (
+    <div className={ampliado ? "mapa-ventana ampliado" : "mapa-ventana"} ref={ventana}>
+      <div className="mapa-lienzo" style={{ width: `${zoom * 100}%` }}>
         {/* Imagen del mapa oficial de la UPEC; los puntos van encima en porcentajes. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -87,7 +111,7 @@ export default function MapaCampus() {
             type="button"
             className={`pin${ocupados.has(l.id) || (l.pin === 14 && ocupados.has("sala-presentaciones")) ? " ocupado" : ""}${elegido === l.id ? " activo" : ""}`}
             style={{ left: `${l.x}%`, top: `${l.y}%` }}
-            onClick={() => setElegido(elegido === l.id ? null : l.id)}
+            onClick={() => elegirLugar(l.id)}
             aria-pressed={elegido === l.id}
             aria-label={`Punto ${l.pin}: ${l.nombre}. ${l.descripcion}`}
           >
@@ -100,101 +124,150 @@ export default function MapaCampus() {
           type="button"
           className={`pin${elegido === "parqueadero-antisana" ? " activo" : ""}`}
           style={{ left: `${PIN_13_DERECHA.x}%`, top: `${PIN_13_DERECHA.y}%` }}
-          onClick={() => setElegido(elegido === "parqueadero-antisana" ? null : "parqueadero-antisana")}
+          onClick={() => elegirLugar("parqueadero-antisana")}
+          aria-pressed={elegido === "parqueadero-antisana"}
           aria-label="Punto 13: Parqueadero Calle Antisana, lado este"
         >
           <span aria-hidden>13</span>
         </button>
       </div>
 
-      {!lugar && (
-        <div className="leyenda">
-          {LUGARES_CAMPUS.map((l) => (
-            <button key={l.id} type="button" className="leyenda-fila" onClick={() => setElegido(l.id)}>
-              <span className="chip chip-pin">{l.pin}</span>
-              <span className="leyenda-texto">
-                <span className="n">{l.nombre}</span>
-                <span className="d">{l.descripcion}</span>
-              </span>
-            </button>
-          ))}
+      <div className="mapa-controles">
+        <button
+          type="button"
+          className="boton-mapa"
+          onClick={alternarZoom}
+          aria-label={nivelZoom === ZOOMS.length - 1 ? "Alejar el mapa" : "Acercar el mapa"}
+        >
+          <IconoLupaMas aria-hidden />
+          <span>{zoom === 1 ? "Acercar" : `${zoom}×`}</span>
+        </button>
+        <button
+          type="button"
+          className="boton-mapa"
+          onClick={() => setAmpliado((v) => !v)}
+          aria-label={ampliado ? "Cerrar el mapa ampliado" : "Ver el mapa a pantalla completa"}
+        >
+          {ampliado ? <IconoCerrar aria-hidden /> : <IconoMapa aria-hidden />}
+          <span>{ampliado ? "Cerrar" : "Ampliar"}</span>
+        </button>
+      </div>
+    </div>
+  );
+
+  /* La ficha del punto va en una hoja por encima del mapa. Antes se insertaba
+     debajo de la imagen: tocabas un pin y, desde el móvil, no pasaba nada visible. */
+  const hoja = lugar && (
+    <div className="hoja-mapa" role="dialog" aria-label={lugar.nombre}>
+      <div className="hoja-mapa-tirador" aria-hidden />
+
+      <div className="hoja-mapa-cabecera">
+        <h2>
+          {lugar.pin != null && <span className="pin-num">{lugar.pin}</span>}
+          {lugar.nombre}
+        </h2>
+        <button type="button" className="boton-icono oscuro" onClick={() => setElegido(null)} aria-label="Cerrar">
+          <IconoCerrar aria-hidden />
+        </button>
+      </div>
+
+      <p className="hoja-mapa-desc">{lugar.descripcion}</p>
+
+      <div className="hoja-mapa-cuerpo">
+        {ahoraAqui.length > 0 && (
+          <>
+            <div className="hora-marca">
+              <h3 className="h">Ahora mismo aquí</h3>
+              <span className="raya" />
+            </div>
+            <ListaSesiones sesiones={ahoraAqui} relativo />
+          </>
+        )}
+
+        <div className="hora-marca">
+          <h3 className="h">{esHoy && ahoraAqui.length > 0 ? "Después" : "Programa del día"}</h3>
+          <span className="raya" />
         </div>
-      )}
+        <ListaSesiones
+          sesiones={luegoAqui}
+          vacio={`Nada programado aquí el ${DIAS.find((d) => d.fecha === dia)?.nombre.toLowerCase()}.`}
+        />
 
-      {lugar && (
-        <section className="bloque">
-          <div className="bloque-cabecera">
-            <h2>
-              {lugar.pin != null && <span className="chip chip-pin">{lugar.pin}</span>} {lugar.nombre}
-            </h2>
-            <button type="button" className="boton" onClick={() => setElegido(null)}>
-              Ver todos los puntos
-            </button>
-          </div>
-          <p className="entradilla" style={{ marginTop: 0 }}>
-            {lugar.descripcion}
-          </p>
+        <Link href={`/lugar/${lugar.id}/`} className="boton" style={{ alignSelf: "flex-start" }}>
+          Ver los cinco días
+          <IconoFlecha aria-hidden />
+        </Link>
+      </div>
+    </div>
+  );
 
-          {ahoraAqui.length > 0 && (
-            <>
-              <h3 className="grupo-hora">Ahora mismo aquí</h3>
-              <ListaSesiones sesiones={ahoraAqui} relativo />
-            </>
-          )}
+  return (
+    <div className="pagina pagina-mapa">
+      <header>
+        <h1 className="titulo-pagina">Mapa</h1>
+      </header>
 
-          <h3 className="grupo-hora">{esHoy && ahoraAqui.length > 0 ? "Después" : "Programa del día"}</h3>
-          <ListaSesiones
-            sesiones={luegoAqui}
-            vacio={`No hay nada programado aquí el ${DIAS.find((d) => d.fecha === dia)?.nombre.toLowerCase()}.`}
-          />
+      <TiraDias dia={dia} hoy={momento?.fecha ?? null} onElegir={setDiaElegido} />
 
-          <Link href={`/lugar/${lugar.id}/`} className="boton" style={{ alignSelf: "flex-start" }}>
-            Ver los cinco días de este lugar
-            <IconoFlecha aria-hidden />
-          </Link>
-        </section>
-      )}
+      {mapa}
+
+      {/* La leyenda no desaparece al elegir un punto: comparar dos sitios sin
+          tener que deseleccionar es justo lo que se hace aquí. */}
+      <div className="leyenda">
+        {LUGARES_CAMPUS.map((l) => (
+          <button
+            key={l.id}
+            type="button"
+            className={elegido === l.id ? "leyenda-fila activa" : "leyenda-fila"}
+            aria-pressed={elegido === l.id}
+            onClick={() => elegirLugar(l.id)}
+          >
+            <span className={ocupados.has(l.id) ? "pin-num vivo" : "pin-num"}>{l.pin}</span>
+            <span className="leyenda-texto">
+              <span className="n">{l.nombre}</span>
+              <span className="d">{l.descripcion}</span>
+            </span>
+            <span className="cuantas">{CUENTA_POR_LUGAR[l.id] ?? 0}</span>
+          </button>
+        ))}
+      </div>
 
       <section className="bloque">
         <div className="bloque-cabecera">
           <h2>Fuera del campus</h2>
-          <span className="cuenta">{LUGARES_FUERA.length} sedes</span>
+          <span className="cuenta">{LUGARES_FUERA.length}</span>
         </div>
-        <p className="entradilla" style={{ marginTop: 0 }}>
-          El festival es binacional: dos sedes están al otro lado de la frontera y no aparecen en el
-          mapa del campus.
-        </p>
-        <div className="lista">
+        <div className="fuera-lista">
           {LUGARES_FUERA.map((l) => {
             const cuantas = sesionesDe(dia, false).filter((s) => s.lugarId === l.id);
             return (
-              <div className="fila" key={l.id} style={{ gridTemplateColumns: "1fr" }}>
-                <div className="fila-cuerpo">
-                  <Link href={`/lugar/${l.id}/`} className="fila-titulo">
-                    {l.nombre}
-                  </Link>
-                  <p className="fila-detalle">{l.descripcion}</p>
-                  <div className="fila-meta">
-                    <span className="chip chip-aviso">
-                      {l.fuera!.ciudad}, {l.fuera!.pais}
-                    </span>
-                    <span>
-                      {cuantas.length === 0
-                        ? "sin programación este día"
-                        : `${cuantas.length} ${cuantas.length === 1 ? "sesión" : "sesiones"} · ${cuantas
-                            .map((s) => hhmm(s.inicio))
-                            .join(", ")}`}
-                    </span>
-                    <a href={l.fuera!.maps} target="_blank" rel="noreferrer">
-                      Google Maps
-                    </a>
-                  </div>
+              <div className="fuera-fila" key={l.id}>
+                <Link href={`/lugar/${l.id}/`} className="fuera-titulo">
+                  {l.nombre}
+                </Link>
+                <p className="fuera-desc">{l.descripcion}</p>
+                <div className="fuera-pie">
+                  <span className="marca-aviso">
+                    {l.fuera!.ciudad}, {l.fuera!.pais}
+                  </span>
+                  <span>
+                    {cuantas.length === 0
+                      ? "sin programación este día"
+                      : `${cuantas.length} ${cuantas.length === 1 ? "sesión" : "sesiones"} · ${cuantas
+                          .map((s) => hhmm(s.inicio))
+                          .join(", ")}`}
+                  </span>
+                  <a href={l.fuera!.maps} target="_blank" rel="noreferrer">
+                    Google Maps
+                  </a>
                 </div>
               </div>
             );
           })}
         </div>
       </section>
+
+      {hoja}
     </div>
   );
 }

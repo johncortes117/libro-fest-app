@@ -1,18 +1,39 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { porId as lugarPorId } from "@/data/lugares";
 import { useGuardadas } from "@/lib/guardadas";
 import { duracion, hhmm } from "@/lib/tiempo";
-import { TIPOS, type Sesion } from "@/lib/tipos";
+import { TIPOS, type Sesion, type TipoSesion } from "@/lib/tipos";
 import { useMomento } from "./Reloj";
-import { IconoGuardado, IconoGuardar } from "./Iconos";
+import { useEntrada } from "./Entrada";
+import { useBrindis } from "./Brindis";
+import {
+  IconoChoque,
+  IconoConferencia,
+  IconoCultural,
+  IconoGuardado,
+  IconoGuardar,
+  IconoLibro,
+  IconoPermanente,
+  IconoTaller,
+} from "./Iconos";
+
+/** Cada tipo lleva icono además de color: el color por sí solo no es accesible. */
+export const ICONO_TIPO: Record<TipoSesion, (p: { className?: string }) => React.ReactElement> = {
+  conferencia: IconoConferencia,
+  taller: IconoTaller,
+  cultural: IconoCultural,
+  libro: IconoLibro,
+  permanente: IconoPermanente,
+};
 
 interface Props {
   sesion: Sesion;
-  /** Muestra «quedan 48 min» / «en 18 min» en lugar de la hora de fin. */
+  /** Muestra la barra de avance y el tiempo que queda, en vez de la hora de fin. */
   relativo?: boolean;
-  /** Marca la fila como conflictiva en «Mi agenda». */
+  /** Se solapa con algo que esta persona ya tiene guardado. */
   choca?: boolean;
   mostrarDia?: boolean;
 }
@@ -28,101 +49,136 @@ const DIA_CORTO: Record<string, string> = {
 export default function FilaSesion({ sesion, relativo, choca, mostrarDia }: Props) {
   const momento = useMomento();
   const { contiene, alternar } = useGuardadas();
+  const { pedirEntrada } = useEntrada();
+  const { brindar } = useBrindis();
+
+  /* El rebote del icono al guardar. Es la acción que más se repite en toda la
+     aplicación y hasta ahora no devolvía ninguna señal: la gente tocaba dos veces
+     porque dudaba, y con eso desguardaba lo que acababa de guardar. */
+  const [late, setLate] = useState(false);
+  const reloj = useRef(0);
+
+  useEffect(() => () => window.clearTimeout(reloj.current), []);
 
   const lugar = lugarPorId.get(sesion.lugarId);
   const guardada = contiene(sesion.id);
+  const Icono = ICONO_TIPO[sesion.tipo];
 
-  const enCurso =
-    momento != null &&
-    momento.fecha === sesion.dia &&
-    sesion.inicio <= momento.minutos &&
-    sesion.fin > momento.minutos;
+  const esHoy = momento?.fecha === sesion.dia;
+  const enCurso = esHoy && sesion.inicio <= momento!.minutos && sesion.fin > momento!.minutos;
+  const faltan = esHoy && sesion.inicio > momento!.minutos ? sesion.inicio - momento!.minutos : null;
+  const restante = enCurso ? sesion.fin - momento!.minutos : null;
+  const avance = enCurso ? ((momento!.minutos - sesion.inicio) / (sesion.fin - sesion.inicio)) * 100 : 0;
 
-  const restante = momento && enCurso ? sesion.fin - momento.minutos : null;
-  const faltan =
-    momento && momento.fecha === sesion.dia && sesion.inicio > momento.minutos
-      ? sesion.inicio - momento.minutos
-      : null;
+  function alGuardar() {
+    const resultado = alternar(sesion.id);
+
+    if (resultado === "necesita-entrar") {
+      pedirEntrada("Entra para guardar esta actividad");
+      return;
+    }
+
+    setLate(true);
+    window.clearTimeout(reloj.current);
+    reloj.current = window.setTimeout(() => setLate(false), 420);
+
+    if (resultado === "guardada") {
+      brindar({ texto: `Guardada · ${sesion.titulo}` });
+    }
+  }
 
   const estilo = {
     "--color-tipo": `var(--t-${sesion.tipo})`,
     "--fondo-tipo": `var(--t-${sesion.tipo}-soft)`,
   } as React.CSSProperties;
 
+  const clases = ["sesion"];
+  if (enCurso) clases.push("vive");
+  if (choca) clases.push("choca");
+  if (late) clases.push("late");
+
   return (
-    <div className={choca ? "fila choca" : "fila"} style={estilo}>
-      <div className="fila-hora">
+    <div className={clases.join(" ")} style={estilo}>
+      <div className="sesion-hora">
+        <span className="inicio">{hhmm(sesion.inicio)}</span>
         {sesion.permanente ? (
-          <>
-            <span>{hhmm(sesion.inicio)}</span>
-            <span className="fin">todo el día</span>
-          </>
+          <span className="todo-el-dia">
+            abierto
+            <br />
+            todo el día
+          </span>
         ) : (
-          <>
-            <span>{hhmm(sesion.inicio)}</span>
-            <span className="fin">
-              {relativo && restante != null
-                ? `quedan ${duracion(restante)}`
-                : relativo && faltan != null
-                  ? `en ${duracion(faltan)}`
-                  : hhmm(sesion.fin)}
-            </span>
-          </>
+          <span className="fin">
+            {relativo && faltan != null ? `en ${duracion(faltan)}` : `hasta ${hhmm(sesion.fin)}`}
+          </span>
         )}
       </div>
 
-      <div className="fila-cuerpo">
-        <Link href={`/sesion/${sesion.id}/`} className="fila-titulo">
+      <div className="sesion-cuerpo">
+        <span className="sesion-tipo">
+          <Icono />
+          {TIPOS[sesion.tipo].nombre}
+          {mostrarDia && ` · ${DIA_CORTO[sesion.dia]}`}
+        </span>
+
+        {/* El enlace del título se estira por encima de toda la tarjeta con un
+            ::after. Antes solo navegaba el texto, así que tocar la hora, el
+            ponente o el hueco en blanco no hacía nada. */}
+        <Link href={`/sesion/${sesion.id}/`} className="sesion-titulo">
           {sesion.titulo}
-          {sesion.truncado && <span title="El título viene cortado en la agenda oficial"> […]</span>}
-        </Link>
-
-        {sesion.detalle && <p className="fila-detalle">{sesion.detalle}</p>}
-        {sesion.personas.length > 0 && <p className="fila-detalle">{sesion.personas.join(" · ")}</p>}
-
-        <div className="fila-meta">
-          <span className="chip chip-tipo">{TIPOS[sesion.tipo].nombre}</span>
-
-          {enCurso && (
-            <span className="chip chip-vivo">
-              <span className="punto-vivo" /> en curso
+          {sesion.truncado && (
+            <span className="cortado" title="El título viene cortado en la agenda oficial">
+              {" "}
+              […]
             </span>
           )}
+        </Link>
 
-          {mostrarDia && <span>{DIA_CORTO[sesion.dia]}</span>}
+        {(sesion.detalle || sesion.personas.length > 0) && (
+          <p className="sesion-quien">{sesion.detalle ?? sesion.personas.join(" · ")}</p>
+        )}
 
-          {lugar && (
+        <div className="sesion-donde">
+          {lugar ? (
             <>
-              {lugar.pin != null && <span className="chip chip-pin">{lugar.pin}</span>}
-              <Link href={`/lugar/${lugar.id}/`}>{lugar.nombre}</Link>
-              {sesion.lugarTexto !== lugar.nombre && (
-                <>
-                  <span className="sep">·</span>
-                  <span>{sesion.lugarTexto}</span>
-                </>
-              )}
-              {lugar.fuera && <span className="chip chip-aviso">{lugar.fuera.ciudad}</span>}
-              {lugar.porConfirmar && <span className="chip chip-aviso">sala por confirmar</span>}
+              {lugar.pin != null && <span className="pin-num">{lugar.pin}</span>}
+              {/* Por encima de la capa del enlace de la tarjeta, si no sería
+                  imposible llegar a la ficha del lugar. */}
+              <Link href={`/lugar/${lugar.id}/`} className="lugar encima">
+                {lugar.nombre}
+              </Link>
+              {lugar.fuera && <span className="marca-aviso">{lugar.fuera.ciudad}</span>}
             </>
+          ) : (
+            <span className="lugar">{sesion.lugarTexto}</span>
           )}
 
-          {sesion.finSupuesto && <span className="chip chip-aviso">cierre estimado</span>}
-          {choca && <span className="chip chip-vivo">se pisa</span>}
+          {choca && (
+            <span className="marca-aviso choque">
+              <IconoChoque />
+              se pisa
+            </span>
+          )}
         </div>
       </div>
 
+      {enCurso && (
+        <div className="sesion-avance">
+          <span className="pista">
+            <span className="hecho" style={{ width: `${Math.min(100, Math.max(2, avance))}%` }} />
+          </span>
+          <span className="queda">quedan {duracion(restante!)}</span>
+        </div>
+      )}
+
       <button
         type="button"
-        className="boton-icono fila-guardar"
+        className="sesion-guardar encima"
         aria-pressed={guardada}
         aria-label={guardada ? `Quitar «${sesion.titulo}» de mi agenda` : `Guardar «${sesion.titulo}» en mi agenda`}
-        onClick={() => alternar(sesion.id)}
+        onClick={alGuardar}
       >
-        {guardada ? (
-          <IconoGuardado className="icono" aria-hidden />
-        ) : (
-          <IconoGuardar className="icono" aria-hidden />
-        )}
+        {guardada ? <IconoGuardado /> : <IconoGuardar />}
       </button>
     </div>
   );

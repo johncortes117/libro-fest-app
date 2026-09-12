@@ -8,11 +8,14 @@ export interface DatosTipo {
 }
 
 export const TIPOS: Record<TipoSesion, DatosTipo> = {
-  conferencia: { id: "conferencia", nombre: "Conferencia", plural: "Conferencias y conversatorios", color: "var(--t-conferencia)" },
-  taller:      { id: "taller",      nombre: "Taller",     plural: "Talleres",                       color: "var(--t-taller)" },
-  cultural:    { id: "cultural",    nombre: "Cultural",   plural: "Actividades culturales",         color: "var(--t-cultural)" },
-  libro:       { id: "libro",       nombre: "Libro",      plural: "Presentaciones de libros",       color: "var(--t-libro)" },
-  permanente:  { id: "permanente",  nombre: "Permanente", plural: "Salas y muestras permanentes",   color: "var(--t-permanente)" },
+  // `nombre` es la etiqueta corta de la ficha; `plural`, la del filtro. Cortas a
+  // propósito: «Presentaciones de libros» como etiqueta repetida 60 veces convierte
+  // la página en un muro de texto.
+  conferencia: { id: "conferencia", nombre: "Conferencia", plural: "Conferencias", color: "var(--t-conferencia)" },
+  taller:      { id: "taller",      nombre: "Taller",      plural: "Talleres",     color: "var(--t-taller)" },
+  cultural:    { id: "cultural",    nombre: "Cultura",     plural: "Cultura",      color: "var(--t-cultural)" },
+  libro:       { id: "libro",       nombre: "Libro",       plural: "Libros",       color: "var(--t-libro)" },
+  permanente:  { id: "permanente",  nombre: "Todo el día", plural: "Todo el día",  color: "var(--t-permanente)" },
 };
 
 export const ORDEN_TIPOS: TipoSesion[] = ["conferencia", "taller", "cultural", "libro", "permanente"];

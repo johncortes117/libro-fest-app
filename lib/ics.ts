@@ -47,8 +47,7 @@ function evento(s: Sesion): string[] {
   const descripcion = [
     s.detalle,
     s.personas.length ? `Participan: ${s.personas.join(", ")}` : "",
-    `Indicado en la agenda como «${s.lugarTexto}».`,
-    s.finSupuesto ? "Horario de cierre estimado: la agenda oficial no lo indica." : "",
+    s.finSupuesto ? "Hora de cierre estimada." : "",
     "UPEC Libro Fest 2026",
   ]
     .filter(Boolean)

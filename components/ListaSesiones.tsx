@@ -17,7 +17,7 @@ export default function ListaSesiones({ sesiones, relativo, mostrarDia, idsQueCh
   }
 
   return (
-    <div className="lista">
+    <div className="sesiones">
       {sesiones.map((s) => (
         <FilaSesion
           key={`${s.id}-${s.dia}`}

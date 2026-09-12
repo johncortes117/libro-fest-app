@@ -1,10 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { IconoTema } from "./Iconos";
+import { IconoLuna, IconoSol } from "./Iconos";
 
 const CLAVE = "librofest2026:tema";
 
+/**
+ * El icono dice en qué tema estás, no solo a cuál vas.
+ *
+ * Antes era siempre una luna y solo cambiaba la etiqueta para lectores de
+ * pantalla: quien lo miraba no sabía si la luna significaba «estás en oscuro» o
+ * «pulsa para oscuro». Ahora el sol sale en tema oscuro —lo que te dan al
+ * pulsarlo— y la luna en claro.
+ */
 export default function BotonTema() {
   const [tema, setTema] = useState<"light" | "dark" | null>(null);
 
@@ -31,6 +39,10 @@ export default function BotonTema() {
     }
   }
 
+  // Hueco del mismo tamaño mientras no se sabe el tema: sin esto la cabecera
+  // salta, y pintar un icono al azar sería peor que no pintar ninguno.
+  if (tema === null) return <span className="hueco-icono" aria-hidden />;
+
   return (
     <button
       type="button"
@@ -38,7 +50,7 @@ export default function BotonTema() {
       onClick={alternar}
       aria-label={tema === "dark" ? "Cambiar a tema claro" : "Cambiar a tema oscuro"}
     >
-      <IconoTema aria-hidden />
+      {tema === "dark" ? <IconoSol aria-hidden /> : <IconoLuna aria-hidden />}
     </button>
   );
 }

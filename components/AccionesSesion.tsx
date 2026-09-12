@@ -4,12 +4,25 @@ import { useState } from "react";
 import { useGuardadas } from "@/lib/guardadas";
 import { descargarIcs } from "@/lib/ics";
 import type { Sesion } from "@/lib/tipos";
+import { useEntrada } from "./Entrada";
+import { useBrindis } from "./Brindis";
 import { IconoCalendario, IconoCompartir, IconoGuardado, IconoGuardar } from "./Iconos";
 
 export default function AccionesSesion({ sesion }: { sesion: Sesion }) {
   const { contiene, alternar } = useGuardadas();
+  const { pedirEntrada } = useEntrada();
+  const { brindar } = useBrindis();
   const [copiado, setCopiado] = useState(false);
   const guardada = contiene(sesion.id);
+
+  function alGuardar() {
+    const resultado = alternar(sesion.id);
+    if (resultado === "necesita-entrar") {
+      pedirEntrada("Entra para guardar esta actividad");
+      return;
+    }
+    if (resultado === "guardada") brindar({ texto: "Guardada en tu agenda" });
+  }
 
   async function compartir() {
     const url = window.location.href;
@@ -38,7 +51,7 @@ export default function AccionesSesion({ sesion }: { sesion: Sesion }) {
       <button
         type="button"
         className={guardada ? "boton activo" : "boton primario"}
-        onClick={() => alternar(sesion.id)}
+        onClick={alGuardar}
         aria-pressed={guardada}
       >
         {guardada ? <IconoGuardado aria-hidden /> : <IconoGuardar aria-hidden />}

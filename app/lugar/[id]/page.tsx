@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LUGARES, porId } from "@/data/lugares";
-import { CUENTA_POR_LUGAR, sesionesDe } from "@/lib/datos";
+import { CUENTA_POR_LUGAR, EDITORIALES, sesionesDe } from "@/lib/datos";
 import { hhmm } from "@/lib/tiempo";
 import { DIAS } from "@/lib/tipos";
 import ListaSesiones from "@/components/ListaSesiones";
-import { IconoMapa, IconoVolver } from "@/components/Iconos";
+import { IconoInfo, IconoMapa, IconoVolver } from "@/components/Iconos";
 
 export function generateStaticParams() {
   return LUGARES.map((l) => ({ id: l.id }));
@@ -45,22 +45,27 @@ export default async function FichaLugar({ params }: { params: Promise<{ id: str
   const total = porDia.reduce((n, d) => n + d.sesiones.length, 0);
   const primera = porDia.flatMap((d) => d.sesiones).filter((s) => !s.permanente)[0];
 
+  /* La muestra editorial es lo que más gente busca de este edificio, y hasta ahora
+     tenía una pestaña propia en la navegación para una lista de nombres. Vive aquí,
+     que es donde están los sellos. */
+  const esMuestraEditorial = lugar.id === "centro-convenciones";
+
   return (
     <div className="pagina">
-      <Link href="/mapa/" className="eyebrow" style={{ display: "inline-flex", gap: 6, alignItems: "center" }}>
-        <IconoVolver aria-hidden style={{ width: 13, height: 13 }} />
+      <Link href="/mapa/" className="migaja">
+        <IconoVolver aria-hidden />
         Mapa
       </Link>
 
       <header>
-        <div className="fila-meta" style={{ marginBottom: 8 }}>
-          {lugar.pin != null && <span className="chip chip-pin">{lugar.pin}</span>}
+        <div className="sesion-donde" style={{ marginBottom: 10 }}>
+          {lugar.pin != null && <span className="pin-num">{lugar.pin}</span>}
           {lugar.fuera && (
-            <span className="chip chip-aviso">
+            <span className="marca-aviso">
               {lugar.fuera.ciudad}, {lugar.fuera.pais}
             </span>
           )}
-          {lugar.porConfirmar && <span className="chip chip-aviso">sala por confirmar</span>}
+          {lugar.porConfirmar && <span className="marca-aviso">sala por confirmar</span>}
         </div>
 
         <h1 className="titulo-pagina">{lugar.nombre}</h1>
@@ -68,8 +73,10 @@ export default async function FichaLugar({ params }: { params: Promise<{ id: str
 
         {lugar.nota && (
           <p className="aviso" style={{ marginTop: 14 }}>
-            <span className="etiqueta">Ojo</span>
-            <span>{lugar.nota}</span>
+            <IconoInfo />
+            <span>
+              {lugar.nota} <Link href="/datos/">Más sobre los datos</Link>
+            </span>
           </p>
         )}
       </header>
@@ -89,22 +96,47 @@ export default async function FichaLugar({ params }: { params: Promise<{ id: str
         )}
       </div>
 
-      <div className="cifras">
-        <div className="cifra">
+      <div className="heroe-resumen">
+        <div className="resumen-dato">
           <span className="v">{total}</span>
           <span className="l">actividades en los cinco días</span>
         </div>
-        <div className="cifra">
+        <div className="resumen-dato">
           <span className="v">{porDia.filter((d) => d.sesiones.length > 0).length}</span>
           <span className="l">días con programación</span>
         </div>
         {primera && (
-          <div className="cifra">
+          <div className="resumen-dato">
             <span className="v">{hhmm(primera.inicio)}</span>
             <span className="l">primera sesión de la semana</span>
           </div>
         )}
       </div>
+
+      {esMuestraEditorial && (
+        <section className="bloque" id="editoriales">
+          <div className="bloque-cabecera">
+            <h2>Muestra editorial</h2>
+            <span className="cuenta">{EDITORIALES.length}</span>
+          </div>
+          <p className="entradilla" style={{ marginTop: 0 }}>
+            Sellos de Ecuador, Colombia y fuera de la región, en el salón del primer piso. Abierta
+            los cinco días desde las 08:30. Los emprendimientos están aparte, en la Plaza Roja y el
+            Coliseo.
+          </p>
+          <details className="desplegable">
+            <summary>Ver las {EDITORIALES.length} editoriales y librerías</summary>
+            <ol className="editoriales">
+              {EDITORIALES.map((nombre, i) => (
+                <li key={nombre}>
+                  <span className="num">{String(i + 1).padStart(2, "0")}</span>
+                  <span>{nombre}</span>
+                </li>
+              ))}
+            </ol>
+          </details>
+        </section>
+      )}
 
       {porDia.map(({ dia, sesiones }) => (
         <section className="bloque" key={dia.fecha}>
