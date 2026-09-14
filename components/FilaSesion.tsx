@@ -16,6 +16,7 @@ import {
   IconoGuardado,
   IconoGuardar,
   IconoLibro,
+  IconoMapa,
   IconoPermanente,
   IconoPersonas,
   IconoReloj,
@@ -157,13 +158,22 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia, index 
         {/* Lugar y avisos */}
         <div className="sesion-donde">
           {lugar ? (
-            <Link href={`/lugar/${lugar.id}/`} className="lugar-chip encima">
-              {lugar.pin != null && <span className="pin-num">{lugar.pin}</span>}
+            <Link href={`/lugar/${lugar.id}/`} className={`lugar-chip encima${lugar.pin != null ? " con-pin" : " sin-pin"}`}>
+              {lugar.pin != null ? (
+                <span className="pin-num">{lugar.pin}</span>
+              ) : (
+                <span className="pin-num pin-ext" aria-label="Lugar fuera del campus">
+                  <IconoMapa aria-hidden />
+                </span>
+              )}
               <span className="lugar-nombre">{lugar.nombre}</span>
               {lugar.fuera && <span className="marca-aviso">{lugar.fuera.ciudad}</span>}
             </Link>
           ) : (
-            <span className="lugar-chip">
+            <span className="lugar-chip sin-pin">
+              <span className="pin-num pin-ext" aria-label="Lugar">
+                <IconoMapa aria-hidden />
+              </span>
               <span className="lugar-nombre">{sesion.lugarTexto}</span>
             </span>
           )}

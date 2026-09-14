@@ -636,8 +636,11 @@ button, input, select { font: inherit; color: inherit; }
   text-decoration: none;
   background: var(--surface-warm);
   border: 1px solid var(--line);
-  border-radius: 99px;
-  padding: 2px 10px 2px 3px;
+  border-radius: 12px;
+  padding: 3px 10px 3px 3px;
+  max-width: 100%;
+  line-height: 1.35;
+  box-sizing: border-box;
   transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
 }
 .lugar-chip:hover {
@@ -646,6 +649,13 @@ button, input, select { font: inherit; color: inherit; }
 }
 .lugar-chip:active {
   transform: scale(0.96);
+}
+.lugar-chip.sin-pin {
+  border-radius: 10px;
+}
+.lugar-chip .lugar-nombre {
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .pin-num {
@@ -660,6 +670,17 @@ button, input, select { font: inherit; color: inherit; }
   font-variant-numeric: tabular-nums;
   display: grid;
   place-items: center;
+  align-self: flex-start;
+  margin-top: 1px;
+}
+.pin-num.pin-ext {
+  background: var(--surface-3);
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+.pin-num.pin-ext svg {
+  width: 11px;
+  height: 11px;
 }
 
 /* Barra de avance en vivo */
@@ -961,14 +982,17 @@ button, input, select { font: inherit; color: inherit; }
 }
 
 .badge-texto-caja {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1px;
+  line-height: 1.05;
 }
 
 .badge-cifra-num {
   font-family: var(--display);
-  font-size: 0.96rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
@@ -976,7 +1000,7 @@ button, input, select { font: inherit; color: inherit; }
 }
 
 .badge-cifra-tag {
-  font-size: 0.76rem;
+  font-size: 0.69rem;
   font-weight: 600;
   color: var(--ink-2);
   line-height: 1;
@@ -1345,33 +1369,38 @@ button, input, select { font: inherit; color: inherit; }
   .badge-literario {
     flex: 1 1 0;
     min-width: 0;
-    padding: 3px 6px;
-    gap: 4px;
+    padding: 4px 6px;
+    gap: 6px;
     border-radius: 6px;
-    white-space: nowrap;
   }
   .badge-icono-caja {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
     flex-shrink: 0;
   }
   .badge-icono-caja svg {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
   }
   .badge-texto-caja {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 3px;
-    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1px;
+    line-height: 1.05;
     min-width: 0;
   }
   .badge-cifra-num {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1;
   }
   .badge-cifra-tag {
-    font-size: 0.68rem;
+    font-size: 0.66rem;
+    font-weight: 600;
+    line-height: 1;
   }
 
   /* Reducción de espaciados en mobile para ver la primera sesión de inmediato */
@@ -1454,11 +1483,19 @@ button, input, select { font: inherit; color: inherit; }
     gap: 4px;
   }
   .badge-literario {
-    padding: 2px 4px;
-    gap: 3px;
+    padding: 3px 5px;
+    gap: 4px;
+  }
+  .badge-icono-caja {
+    width: 20px;
+    height: 20px;
+  }
+  .badge-icono-caja svg {
+    width: 11px;
+    height: 11px;
   }
   .badge-cifra-num {
-    font-size: 0.76rem;
+    font-size: 0.82rem;
   }
   .badge-cifra-tag {
     font-size: 0.62rem;
