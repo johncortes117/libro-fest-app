@@ -17,6 +17,8 @@ import {
   IconoGuardar,
   IconoLibro,
   IconoPermanente,
+  IconoPersonas,
+  IconoReloj,
   IconoTaller,
 } from "./Iconos";
 
@@ -36,6 +38,7 @@ interface Props {
   /** Se solapa con algo que esta persona ya tiene guardado. */
   choca?: boolean;
   mostrarDia?: boolean;
+  index?: number;
 }
 
 const DIA_CORTO: Record<string, string> = {
@@ -46,7 +49,7 @@ const DIA_CORTO: Record<string, string> = {
   "2026-09-25": "vie 25",
 };
 
-export default function FilaSesion({ sesion, relativo, choca, mostrarDia }: Props) {
+export default function FilaSesion({ sesion, relativo, choca, mostrarDia, index }: Props) {
   const momento = useMomento();
   const { contiene, alternar } = useGuardadas();
   const { pedirEntrada } = useEntrada();
@@ -90,6 +93,7 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia }: Prop
   const estilo = {
     "--color-tipo": `var(--t-${sesion.tipo})`,
     "--fondo-tipo": `var(--t-${sesion.tipo}-soft)`,
+    "--i": Math.min(index ?? 0, 10),
   } as React.CSSProperties;
 
   const clases = ["sesion"];
@@ -98,7 +102,8 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia }: Prop
   if (late) clases.push("late");
 
   return (
-    <div className={clases.join(" ")} style={estilo}>
+    <article className={clases.join(" ")} style={estilo}>
+      {/* Columna izquierda: Hora de inicio y fin grande con máxima jerarquía */}
       <div className="sesion-hora">
         <span className="inicio">{hhmm(sesion.inicio)}</span>
         {sesion.permanente ? (
@@ -114,16 +119,23 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia }: Prop
         )}
       </div>
 
+      {/* Cuerpo principal */}
       <div className="sesion-cuerpo">
-        <span className="sesion-tipo">
-          <Icono />
-          {TIPOS[sesion.tipo].nombre}
-          {mostrarDia && ` · ${DIA_CORTO[sesion.dia]}`}
-        </span>
+        <div className="sesion-cabecera-cuerpo">
+          <span className="sesion-tipo">
+            <Icono />
+            {TIPOS[sesion.tipo].nombre}
+            {mostrarDia && ` · ${DIA_CORTO[sesion.dia]}`}
+          </span>
 
-        {/* El enlace del título se estira por encima de toda la tarjeta con un
-            ::after. Antes solo navegaba el texto, así que tocar la hora, el
-            ponente o el hueco en blanco no hacía nada. */}
+          {enCurso && (
+            <span className="sesion-en-vivo">
+              <span className="punto-vivo" />
+              EN VIVO
+            </span>
+          )}
+        </div>
+
         <Link href={`/sesion/${sesion.id}/`} className="sesion-titulo">
           {sesion.titulo}
           {sesion.truncado && (
@@ -134,27 +146,30 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia }: Prop
           )}
         </Link>
 
+        {/* Ponente / Persona */}
         {(sesion.detalle || sesion.personas.length > 0) && (
-          <p className="sesion-quien">{sesion.detalle ?? sesion.personas.join(" · ")}</p>
+          <div className="sesion-quien">
+            <IconoPersonas className="icono-ponente" />
+            <span>{sesion.detalle ?? sesion.personas.join(" · ")}</span>
+          </div>
         )}
 
+        {/* Lugar y avisos */}
         <div className="sesion-donde">
           {lugar ? (
-            <>
+            <Link href={`/lugar/${lugar.id}/`} className="lugar-chip encima">
               {lugar.pin != null && <span className="pin-num">{lugar.pin}</span>}
-              {/* Por encima de la capa del enlace de la tarjeta, si no sería
-                  imposible llegar a la ficha del lugar. */}
-              <Link href={`/lugar/${lugar.id}/`} className="lugar encima">
-                {lugar.nombre}
-              </Link>
+              <span className="lugar-nombre">{lugar.nombre}</span>
               {lugar.fuera && <span className="marca-aviso">{lugar.fuera.ciudad}</span>}
-            </>
+            </Link>
           ) : (
-            <span className="lugar">{sesion.lugarTexto}</span>
+            <span className="lugar-chip">
+              <span className="lugar-nombre">{sesion.lugarTexto}</span>
+            </span>
           )}
 
           {choca && (
-            <span className="marca-aviso choque">
+            <span className="marca-aviso choque encima">
               <IconoChoque />
               se pisa
             </span>
@@ -162,6 +177,7 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia }: Prop
         </div>
       </div>
 
+      {/* Barra de progreso si está en curso */}
       {enCurso && (
         <div className="sesion-avance">
           <span className="pista">
@@ -171,6 +187,7 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia }: Prop
         </div>
       )}
 
+      {/* Botón Guardar en la esquina superior derecha */}
       <button
         type="button"
         className="sesion-guardar encima"
@@ -180,6 +197,6 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia }: Prop
       >
         {guardada ? <IconoGuardado /> : <IconoGuardar />}
       </button>
-    </div>
+    </article>
   );
 }

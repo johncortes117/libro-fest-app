@@ -3,21 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useGuardadas } from "@/lib/guardadas";
-import { IconoAgenda, IconoAhora, IconoGuardar, IconoMapa } from "./Iconos";
+import { IconoAgenda, IconoGuardar, IconoMapa } from "./Iconos";
 
 /**
- * Cuatro secciones, no cinco.
+ * Tres secciones.
  *
- * «Editoriales» era una lista de 29 nombres sin número de estand ni horario, y se
- * llevaba el 20 % de la barra. Ahora vive dentro de la ficha del Centro de
- * convenciones, que es donde esos sellos están físicamente.
+ * «Ahora» y «Agenda» se fusionaron: la página principal muestra el héroe
+ * (cuenta atrás o estado en vivo) seguido de la agenda filtrable completa.
+ * «Editoriales» vive dentro de la ficha del Centro de convenciones.
  *
  * La prueba que tiene que pasar una sección para estar aquí: ¿responde a una
  * pregunta que alguien se está haciendo ahora mismo, de pie, en el campus?
  */
 const ENLACES = [
-  { href: "/", texto: "Ahora", Icono: IconoAhora, clave: "ahora" },
-  { href: "/agenda/", texto: "Agenda", Icono: IconoAgenda, clave: "agenda" },
+  { href: "/", texto: "Agenda", Icono: IconoAgenda, clave: "agenda" },
   { href: "/mapa/", texto: "Mapa", Icono: IconoMapa, clave: "mapa" },
   { href: "/mi-agenda/", texto: "Mi agenda", Icono: IconoGuardar, clave: "mi-agenda" },
 ];

@@ -18,13 +18,14 @@ export default function ListaSesiones({ sesiones, relativo, mostrarDia, idsQueCh
 
   return (
     <div className="sesiones">
-      {sesiones.map((s) => (
+      {sesiones.map((s, i) => (
         <FilaSesion
           key={`${s.id}-${s.dia}`}
           sesion={s}
           relativo={relativo}
           mostrarDia={mostrarDia}
           choca={idsQueChocan?.has(s.id)}
+          index={i}
         />
       ))}
     </div>

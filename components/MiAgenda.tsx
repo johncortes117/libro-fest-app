@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { choques, sesionesDe, sesionPorId } from "@/lib/datos";
+import { choques, sesionPorId } from "@/lib/datos";
 import { useGuardadas } from "@/lib/guardadas";
 import { descargarIcs } from "@/lib/ics";
 import { DIAS, type Sesion } from "@/lib/tipos";
@@ -71,38 +71,25 @@ export default function MiAgenda() {
   /* ------------------------------------------------------- sin entrar ------ */
 
   if (!haEntrado) {
-    const lunes = sesionesDe(DIAS[0].fecha, false).slice(0, 3);
-
     return (
       <div className="pagina">
         <header>
           <h1 className="titulo-pagina">Mi agenda</h1>
-          <p className="entradilla">
-            Guarda lo que no te quieras perder y lo tendrás en el móvil, en el ordenador y en las
-            pantallas del campus. Si quieres, también en tu Google Calendar.
-          </p>
         </header>
 
-        <div className="botonera">
-          <button type="button" className="boton primario" onClick={() => pedirEntrada("Entra para guardar")}>
+        <div className="mi-agenda-invitacion">
+          <IconoCalendario className="mi-agenda-invitacion-icono" aria-hidden />
+          <h2>Personaliza tu agenda</h2>
+          <p>
+            Inicia sesión con tu cuenta de Google para guardar las actividades que te interesen.
+            Las añadiremos a tu Google Calendar para que no te pierdas nada del festival.
+          </p>
+          <button type="button" className="boton primario" onClick={() => pedirEntrada("Entra para personalizar tu agenda")}>
             <IconoCuenta aria-hidden />
-            Entrar
+            Iniciar sesión con Google
             <IconoFlecha aria-hidden />
           </button>
         </div>
-
-        <section className="bloque">
-          <div className="bloque-cabecera">
-            <h2>Así arranca el festival</h2>
-            <span className="cuenta">{lunes.length}</span>
-          </div>
-          <ListaSesiones sesiones={lunes} />
-          <Link href="/agenda/" className="boton" style={{ alignSelf: "flex-start" }}>
-            <IconoAgenda aria-hidden />
-            Ver la agenda completa
-            <IconoFlecha aria-hidden />
-          </Link>
-        </section>
       </div>
     );
   }
@@ -110,29 +97,25 @@ export default function MiAgenda() {
   /* ------------------------------------------------- dentro, pero vacía ---- */
 
   if (guardadas.length === 0) {
-    const lunes = sesionesDe(DIAS[0].fecha, false).slice(0, 4);
-
     return (
       <div className="pagina">
         <header>
           <h1 className="titulo-pagina">Mi agenda</h1>
-          <p className="entradilla">
-            Todavía no has guardado nada. Toca el marcador de cualquier actividad y aparecerá aquí.
-          </p>
         </header>
 
-        <section className="bloque">
-          <div className="bloque-cabecera">
-            <h2>Empieza por el lunes</h2>
-            <span className="cuenta">{lunes.length}</span>
-          </div>
-          <ListaSesiones sesiones={lunes} />
-          <Link href="/agenda/" className="boton primario" style={{ alignSelf: "flex-start" }}>
+        <div className="mi-agenda-invitacion">
+          <IconoAgenda className="mi-agenda-invitacion-icono" aria-hidden />
+          <h2>Tu agenda está vacía</h2>
+          <p>
+            Toca el marcador de cualquier actividad en la agenda y aparecerá aquí.
+            También puedes añadirlas a tu Google Calendar.
+          </p>
+          <Link href="/" className="boton primario">
             <IconoAgenda aria-hidden />
-            Ver los cinco días
+            Ir a la agenda
             <IconoFlecha aria-hidden />
           </Link>
-        </section>
+        </div>
       </div>
     );
   }

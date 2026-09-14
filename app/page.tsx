@@ -1,9 +1,9 @@
 import Ahora from "@/components/Ahora";
 
 export const metadata = {
-  title: "Qué hay ahora y dónde",
+  title: "Agenda · UPEC Libro Fest 2026",
   description:
-    "Lo que está pasando en este momento en el UPEC Libro Fest 2026 y en qué edificio del campus, con lo que arranca en las próximas dos horas.",
+    "Las 188 actividades del UPEC Libro Fest 2026 en una sola vista: filtra por día, tipo y lugar, busca por título, autor o ponente.",
 };
 
 export default function Inicio() {

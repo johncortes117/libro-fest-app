@@ -50,8 +50,8 @@
   --t-taller-soft: #fbf0d8;
   --t-cultural: #a63e52;
   --t-cultural-soft: #fbe4e7;
-  --t-libro: #6b2522;
-  --t-libro-soft: #f7e6e0;
+  --t-libro: #b8612a;
+  --t-libro-soft: #fdf0e6;
   --t-permanente: #7a6a55;
   --t-permanente-soft: #f2ece1;
 
@@ -100,8 +100,8 @@
     --t-taller-soft: #33241a;
     --t-cultural: #e58198;
     --t-cultural-soft: #3a1f26;
-    --t-libro: #e0a08c;
-    --t-libro-soft: #3a241e;
+    --t-libro: #e8a06a;
+    --t-libro-soft: #352218;
     --t-permanente: #bfae94;
     --t-permanente-soft: #2e271f;
 
@@ -142,8 +142,8 @@
   --t-taller-soft: #33241a;
   --t-cultural: #e58198;
   --t-cultural-soft: #3a1f26;
-  --t-libro: #e0a08c;
-  --t-libro-soft: #3a241e;
+  --t-libro: #e8a06a;
+  --t-libro-soft: #352218;
   --t-permanente: #bfae94;
   --t-permanente-soft: #2e271f;
 
@@ -278,11 +278,9 @@ button, input, select { font: inherit; color: inherit; }
 }
 
 .marca-ulif-header {
-  height: 32px;
+  height: 34px;
   width: auto;
-  border-radius: 5px;
   display: block;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.25);
 }
 
 .marca-separador {
@@ -405,78 +403,244 @@ button, input, select { font: inherit; color: inherit; }
    sirve para quien no lo distingue.
    ======================================================================== */
 
-.sesiones { display: flex; flex-direction: column; gap: 9px; }
+.sesiones { display: flex; flex-direction: column; gap: 12px; }
+
+/* Aparición suave escalonada */
+@keyframes sesion-aparicion {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .sesion {
   position: relative;
   display: grid;
-  grid-template-columns: 74px 1fr;
-  gap: 0 15px;
+  grid-template-columns: 88px 1fr;
+  gap: 0 16px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-left: 4px solid var(--color-tipo);
-  border-radius: var(--radio-s);
-  padding: 14px 50px 14px 15px;
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  border-left: 5px solid var(--color-tipo);
+  border-radius: var(--radio);
+  padding: 16px 52px 16px 16px;
+  box-shadow: 0 2px 6px -1px rgba(51, 32, 29, 0.04);
+  transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.16s ease,
+              border-color 0.16s ease;
+  -webkit-tap-highlight-color: transparent;
+  animation: sesion-aparicion 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 32ms);
 }
-.sesion:hover { box-shadow: var(--sombra); transform: translateY(-1px); }
-.sesion.vive { background: var(--surface-warm); }
+
+/* Respuesta táctil en móvil: sensación física inmediata */
+.sesion:active {
+  transform: scale(0.986);
+}
+
+@media (hover: hover) {
+  .sesion:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px -6px color-mix(in srgb, var(--color-tipo) 22%, rgba(51, 32, 29, 0.08));
+    border-color: color-mix(in srgb, var(--color-tipo) 35%, var(--line));
+  }
+}
+
+.sesion.vive {
+  background: var(--surface-warm);
+  border-color: var(--color-tipo);
+  box-shadow: 0 0 0 1px var(--color-tipo), 0 4px 16px -4px color-mix(in srgb, var(--color-tipo) 25%, transparent);
+}
 .sesion.choca { border-left-color: var(--t-cultural); }
 
-.sesion-hora { display: flex; flex-direction: column; gap: 1px; padding-top: 1px; }
+/* ---------- Columna izquierda: Hora de inicio y fin grande directamente en el fondo ---------- */
+.sesion-hora {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding-top: 2px;
+  align-self: start;
+}
 .sesion-hora .inicio {
   font-family: var(--display);
-  font-size: 1.42rem;
+  font-size: 1.55rem;
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
   line-height: 1;
   color: var(--color-tipo);
 }
 .sesion-hora .fin {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
+  font-weight: 600;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
+  line-height: 1.2;
 }
-.sesion-hora .todo-el-dia { font-size: 0.67rem; color: var(--muted); line-height: 1.2; margin-top: 2px; }
+.sesion-hora .todo-el-dia {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--muted);
+  line-height: 1.2;
+}
 
-.sesion-cuerpo { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+/* ---------- Cuerpo de la tarjeta ---------- */
+.sesion-cuerpo {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
 
+.sesion-cabecera-cuerpo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+}
+
+/* Etiqueta de tipo: badge sólido y nítido */
 .sesion-tipo {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.67rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-tipo);
+  color: #ffffff;
+  background: var(--color-tipo);
+  border-radius: 6px;
+  padding: 4px 8px 4px 6px;
+  line-height: 1;
+  width: fit-content;
+  flex: none;
 }
-.sesion-tipo svg { width: 13px; height: 13px; flex: none; }
+.sesion-tipo svg { width: 12px; height: 12px; flex: none; }
 
+/* Badge EN VIVO con pulso */
+.sesion-en-vivo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  background: #d63031;
+  border-radius: 6px;
+  padding: 3px 7px;
+  line-height: 1;
+}
+.sesion-en-vivo .punto-vivo {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: pulso-vivo 1.4s ease-in-out infinite;
+}
+@keyframes pulso-vivo {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.4; }
+}
+
+/* Botón Guardar / Bookmark — esquina superior derecha, táctil y accesible */
+.sesion .sesion-guardar {
+  position: absolute !important;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-soft);
+  border-radius: 50%;
+  background: var(--ground-alt);
+  color: var(--muted);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+              background 0.15s ease,
+              color 0.15s ease,
+              border-color 0.15s ease;
+}
+.sesion .sesion-guardar:hover {
+  background: var(--fondo-tipo);
+  color: var(--color-tipo);
+  border-color: transparent;
+}
+.sesion .sesion-guardar:active {
+  transform: scale(0.85);
+}
+.sesion .sesion-guardar[aria-pressed="true"] {
+  color: #9e6e14;
+  background: var(--gold-soft);
+  border-color: color-mix(in srgb, var(--gold-bright) 50%, transparent);
+}
+:root[data-theme="dark"] .sesion .sesion-guardar[aria-pressed="true"] {
+  color: var(--gold);
+}
+.sesion .sesion-guardar svg { width: 17px; height: 17px; }
+
+/* Título */
 .sesion-titulo {
   font-family: var(--display);
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   font-weight: 700;
-  line-height: 1.27;
-  letter-spacing: -0.012em;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
   color: var(--ink);
+  text-decoration: none;
+  word-break: break-word;
 }
 .sesion:hover .sesion-titulo { text-decoration: underline; text-underline-offset: 2px; }
 .sesion-titulo .cortado { color: var(--muted); font-weight: 400; }
 
-.sesion-quien { font-size: 0.85rem; color: var(--ink-2); line-height: 1.4; }
+/* Ponente / Persona */
+.sesion-quien {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86rem;
+  color: var(--ink-2);
+  line-height: 1.35;
+}
+.sesion-quien .icono-ponente { width: 14px; height: 14px; flex: none; color: var(--muted); }
 
+/* Lugar y chips */
 .sesion-donde {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 5px 7px;
-  font-size: 0.8rem;
-  color: var(--muted);
+  gap: 8px;
   margin-top: 1px;
 }
-.sesion-donde .lugar { color: var(--ink-2); font-weight: 500; }
+
+.lugar-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  text-decoration: none;
+  background: var(--surface-warm);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 2px 10px 2px 3px;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+.lugar-chip:hover {
+  background: var(--surface-3);
+  border-color: var(--muted);
+}
+.lugar-chip:active {
+  transform: scale(0.96);
+}
 
 .pin-num {
   flex: none;
@@ -492,10 +656,16 @@ button, input, select { font: inherit; color: inherit; }
   place-items: center;
 }
 
-/* Barra de avance: dice de un vistazo cuánto queda, sin leer un número. */
-.sesion-avance { grid-column: 1 / -1; margin-top: 11px; display: flex; align-items: center; gap: 9px; }
-.sesion-avance .pista { flex: 1; height: 5px; border-radius: 99px; background: var(--line); overflow: hidden; }
-.sesion-avance .hecho { height: 100%; border-radius: 99px; background: var(--color-tipo); }
+/* Barra de avance en vivo */
+.sesion-avance {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.sesion-avance .pista { flex: 1; height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.sesion-avance .hecho { height: 100%; border-radius: 99px; background: var(--color-tipo); transition: width 0.6s ease; }
 .sesion-avance .queda {
   font-size: 0.74rem;
   font-weight: 700;
@@ -503,22 +673,6 @@ button, input, select { font: inherit; color: inherit; }
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
-
-.sesion-guardar {
-  position: absolute;
-  top: 4px; right: 3px;
-  width: 44px; height: 44px;
-  border: 0;
-  border-radius: 8px;
-  background: none;
-  color: var(--muted);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-}
-.sesion-guardar:hover { background: var(--surface-3); color: var(--ink); }
-.sesion-guardar[aria-pressed="true"] { color: var(--gold); }
-.sesion-guardar svg { width: 17px; height: 17px; }
 
 .marca-aviso {
   display: inline-flex;
@@ -537,23 +691,33 @@ button, input, select { font: inherit; color: inherit; }
 .punto-vivo { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: latido 2.2s ease-in-out infinite; }
 @keyframes latido { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-@media (max-width: 400px) {
-  .sesion { grid-template-columns: 58px 1fr; gap: 0 11px; padding-right: 46px; }
-  .sesion-hora .inicio { font-size: 1.2rem; }
+@media (max-width: 440px) {
+  .sesion {
+    grid-template-columns: 68px 1fr;
+    gap: 0 12px;
+    padding: 14px 44px 14px 12px;
+  }
+  .sesion-hora {
+    padding-top: 1px;
+  }
+  .sesion-hora .inicio { font-size: 1.35rem; }
+  .sesion-hora .fin { font-size: 0.68rem; }
+  .sesion-titulo { font-size: 1rem; }
+  .sesion-tipo { font-size: 0.6rem; padding: 3px 7px 3px 5px; }
+  .sesion .sesion-guardar { top: 9px; right: 9px; width: 36px; height: 36px; }
 }
 
 /* ======================================================== EL HÉROE ====== */
 
 .heroe {
-  background:
-    radial-gradient(130% 100% at 50% -30%, var(--gold-soft) 0%, transparent 65%),
-    linear-gradient(180deg, var(--ground-alt) 0%, var(--surface-warm) 100%);
+  background: var(--surface-warm);
   border: 1px solid var(--line);
   border-radius: var(--radio);
   padding: 22px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  box-shadow: 0 4px 20px -8px rgba(51, 32, 29, 0.06);
 }
 
 .heroe-fila { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
@@ -609,83 +773,491 @@ button, input, select { font: inherit; color: inherit; }
 }
 .cuenta-atras .u { font-family: var(--display); font-size: 1.05rem; font-weight: 700; color: var(--gold); }
 
-/* ------------------------------------------- Portada Héroe Compacto con Card 3D ---- */
-.heroe-compacto {
+/* ========================================================================
+   HÉROE LITERARIO · FRONTISPICIO EDITORIAL
+   ======================================================================== */
+
+.heroe-literario {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 32px;
-  padding: 20px 26px;
+  gap: 24px;
+  padding: 18px 24px;
   position: relative;
-  overflow: hidden;
+  background: var(--surface-warm);
+  border: 1px solid var(--line);
+  border-radius: var(--radio);
+  box-shadow: 0 4px 20px -8px rgba(51, 32, 29, 0.08);
 }
 
-.heroe-compacto .heroe-contenido {
+.heroe-literario .heroe-contenido {
   display: flex;
   flex-direction: column;
   gap: 12px;
   min-width: 0;
   flex: 1;
+  position: relative;
+  z-index: 2;
 }
 
-.heroe-cifras-pildora {
-  display: inline-flex;
+/* Fechas y sede */
+.heroe-editorial-header {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.84rem;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.heroe-editorial-fecha {
+  font-family: var(--display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* Cuerpo central: Cuenta regresiva concisa */
+.heroe-editorial-cuerpo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Bloque de Cuenta Regresiva Chévere */
+.contador-chevere-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Placa / Ficha de cuenta regresiva estilo Ex-Libris */
+.contador-placa-sello {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 76px;
+  padding: 6px 14px 7px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 4px 14px;
-  width: fit-content;
-  margin-top: 2px;
+  border-top: 3.5px solid var(--gold);
+  border-radius: 9px;
+  box-shadow: 0 3px 12px -3px rgba(51, 32, 29, 0.08);
+  text-align: center;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.heroe-cifras-pildora strong {
-  color: var(--ink);
-  font-weight: 700;
-}
-.heroe-cifras-pildora .punto {
-  color: var(--line);
-  font-weight: 900;
+.contador-placa-sello:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -4px rgba(51, 32, 29, 0.12);
 }
 
-/* 3D Card Interactive Showcase */
+.placa-kicker {
+  font-family: var(--display);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.placa-cifra {
+  font-family: var(--display);
+  font-size: 2.35rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.placa-unidad {
+  font-family: var(--display);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* Titular del evento al lado de la placa */
+.contador-titular-evento {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.contador-de {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--muted);
+  line-height: 1.1;
+}
+
+.contador-nombre-fest {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Badges literarios: Solo Actividades y Autores, compactos y directos */
+.heroe-badges-literarios {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge-literario {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 5px 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: transform 0.14s ease, border-color 0.14s ease;
+}
+.badge-literario:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--gold) 40%, var(--line));
+}
+
+.badge-icono-caja {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: var(--t-libro-soft);
+  color: var(--t-libro);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.badge-icono-caja.autores {
+  background: var(--upec-suave);
+  color: var(--upec);
+}
+.badge-icono-caja svg {
+  width: 13px;
+  height: 13px;
+}
+
+.badge-texto-caja {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.badge-cifra-num {
+  font-family: var(--display);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.badge-cifra-tag {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  line-height: 1;
+}
+
+/* ========================================================================
+   LIBRO 3D INTERACTIVO (Hero Showcase)
+   ======================================================================== */
+
+:root {
+  --libro-w: 135px;
+  --libro-h: 204px;
+  --libro-d: 22px;
+  --libro-medio-d: 11px;
+}
+
 .heroe-arte-lado {
+  align-self: stretch;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  perspective: 1000px;
+  perspective: 950px;
 }
 
-.tarjeta-3d-contenedor {
+.libro-3d-escenario {
   position: relative;
-  border-radius: 12px;
-  box-shadow: 0 14px 30px -8px rgba(151, 71, 12, 0.42), 0 3px 10px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-  overflow: hidden;
   display: inline-block;
+  cursor: grab;
   user-select: none;
+  touch-action: none;
+  padding: 8px 12px 16px 10px;
+}
+.libro-3d-escenario:active {
+  cursor: grabbing;
+}
+
+.libro-3d-cuerpo {
+  position: relative;
+  width: var(--libro-w);
+  height: var(--libro-h);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Animación continua de flotación y rotación 3D del libro */
+@keyframes libro-flotacion-3d {
+  0% {
+    transform: rotateX(6deg) rotateY(-26deg) rotateZ(-1.5deg) translateY(0px);
+  }
+  25% {
+    transform: rotateX(12deg) rotateY(-6deg) rotateZ(0deg) translateY(-8px);
+  }
+  50% {
+    transform: rotateX(4deg) rotateY(20deg) rotateZ(1.5deg) translateY(-3px);
+  }
+  75% {
+    transform: rotateX(-5deg) rotateY(0deg) rotateZ(0deg) translateY(-10px);
+  }
+  100% {
+    transform: rotateX(6deg) rotateY(-26deg) rotateZ(-1.5deg) translateY(0px);
+  }
+}
+
+@keyframes libro-brillo-flotacion {
+  0%, 100% {
+    opacity: 0.18;
+    background: radial-gradient(circle at 18% 30%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 65%);
+  }
+  50% {
+    opacity: 0.38;
+    background: radial-gradient(circle at 82% 65%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 65%);
+  }
+}
+
+@keyframes libro-sombra-flotacion {
+  0%, 100% {
+    transform: translateY(14px) scale(1) rotate(-1deg);
+    opacity: 0.42;
+  }
+  50% {
+    transform: translateY(18px) scale(0.9) rotate(1deg);
+    opacity: 0.28;
+    filter: blur(14px);
+  }
+}
+
+.animando-libre .libro-3d-cuerpo {
+  animation: libro-flotacion-3d 6s ease-in-out infinite;
+}
+.animando-libre .tarjeta-3d-brillo {
+  animation: libro-brillo-flotacion 6s ease-in-out infinite;
+}
+.animando-libre .libro-sombra {
+  animation: libro-sombra-flotacion 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animando-libre .libro-3d-cuerpo {
+    animation: none;
+    transform: rotateX(5deg) rotateY(-14deg);
+  }
+  .animando-libre .tarjeta-3d-brillo,
+  .animando-libre .libro-sombra {
+    animation: none;
+  }
+}
+
+/* ---------- Portada frontal (Front Cover) ---------- */
+.libro-portada {
+  position: absolute;
+  inset: 0;
+  transform: translateZ(var(--libro-medio-d));
+  border-radius: 2px 7px 7px 2px;
+  overflow: hidden;
+  background: #281208;
+  box-shadow: inset 1px 0 2px rgba(255, 255, 255, 0.15),
+              inset -1px 0 2px rgba(0, 0, 0, 0.4);
 }
 
 .heroe-afiche-3d-img {
-  border-radius: 12px;
-  width: 124px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  transform: translateZ(20px);
 }
 
+/* Ranura / hendidura de la bisagra del lomo */
+.libro-ranura-lomo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 9px;
+  width: 3px;
+  background: rgba(0, 0, 0, 0.28);
+  box-shadow: 1px 0 1px rgba(255, 255, 255, 0.14),
+              -1px 0 2px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Brillo specular dinámico */
 .tarjeta-3d-brillo {
   position: absolute;
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.15s ease;
   mix-blend-mode: overlay;
   z-index: 10;
+}
+
+/* ---------- Contraportada (Back Cover) ---------- */
+.libro-contraportada {
+  position: absolute;
+  inset: 0;
+  transform: translateZ(calc(-1 * var(--libro-medio-d))) rotateY(180deg);
+  border-radius: 7px 2px 2px 7px;
+  background: #220e06;
+  border: 1px solid #140703;
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Lomo del libro (Spine) ---------- */
+.libro-lomo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * var(--libro-medio-d));
+  width: var(--libro-d);
+  transform: rotateY(-90deg);
+  background: #33130a;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  overflow: hidden;
+}
+
+.libro-lomo-texto {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--upec-amarillo);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  opacity: 0.95;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Nervios del lomo */
+.libro-lomo-nervio {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #1e0904;
+  box-shadow: 0 -1px 0 rgba(241, 207, 73, 0.35), 0 1px 0 rgba(0, 0, 0, 0.6);
+}
+.libro-lomo-nervio.n1 { top: 15%; }
+.libro-lomo-nervio.n2 { top: 50%; }
+.libro-lomo-nervio.n3 { top: 85%; }
+
+/* ---------- Bloque de páginas: Canto derecho ---------- */
+.libro-paginas-derecha {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  right: calc(-1 * (var(--libro-medio-d) - 1px));
+  width: calc(var(--libro-d) - 2px);
+  transform: rotateY(90deg);
+  background: repeating-linear-gradient(
+    to bottom,
+    #faf6ec 0px,
+    #faf6ec 1.5px,
+    #cfc4ab 1.5px,
+    #cfc4ab 2.5px
+  );
+  box-shadow: inset 2px 0 4px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Bloque de páginas: Canto superior ---------- */
+.libro-paginas-arriba {
+  position: absolute;
+  top: calc(-1 * (var(--libro-medio-d) - 1px));
+  left: 4px;
+  right: 3px;
+  height: calc(var(--libro-d) - 2px);
+  transform: rotateX(90deg);
+  background: repeating-linear-gradient(
+    to right,
+    #faf6ec 0px,
+    #faf6ec 1.5px,
+    #cfc4ab 1.5px,
+    #cfc4ab 2.5px
+  );
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Bloque de páginas: Canto inferior ---------- */
+.libro-paginas-abajo {
+  position: absolute;
+  bottom: calc(-1 * (var(--libro-medio-d) - 1px));
+  left: 4px;
+  right: 3px;
+  height: calc(var(--libro-d) - 2px);
+  transform: rotateX(-90deg);
+  background: repeating-linear-gradient(
+    to right,
+    #faf6ec 0px,
+    #faf6ec 1.5px,
+    #cfc4ab 1.5px,
+    #cfc4ab 2.5px
+  );
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Cinta marcapáginas dorada ---------- */
+.libro-cinta {
+  position: absolute;
+  bottom: -13px;
+  right: 26px;
+  width: 9px;
+  height: 22px;
+  background: var(--upec-amarillo);
+  transform: translateZ(3px) rotate(4deg);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.35);
+  z-index: 5;
+}
+
+/* ---------- Sombra suave del libro ---------- */
+.libro-sombra {
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  right: 2px;
+  height: 18px;
+  background: rgba(35, 14, 6, 0.38);
+  filter: blur(10px);
+  border-radius: 50%;
+  transform: translateY(12px) rotate(-1deg);
+  pointer-events: none;
 }
 
 .heroe-marcas-vivo {
@@ -703,17 +1275,102 @@ button, input, select { font: inherit; color: inherit; }
 }
 
 @media (max-width: 640px) {
-  .heroe-compacto {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+  :root {
+    --libro-w: 98px;
+    --libro-h: 148px;
+    --libro-d: 17px;
+    --libro-medio-d: 8.5px;
   }
-  .heroe-arte-lado {
-    align-self: center;
-    order: -1;
+  .libro-3d-escenario {
+    padding: 3px 5px 8px 5px;
   }
-  .heroe-afiche-3d-img {
-    width: 100px;
+  .libro-lomo-texto {
+    font-size: 0.55rem;
+  }
+  .libro-cinta {
+    width: 7px;
+    height: 16px;
+    bottom: -9px;
+    right: 20px;
+  }
+  .libro-ranura-lomo {
+    left: 7px;
+    width: 2px;
+  }
+  .heroe-literario {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+  }
+  .heroe-literario .heroe-contenido {
+    gap: 8px;
+  }
+  .heroe-editorial-header {
+    padding-bottom: 5px;
+  }
+  .heroe-editorial-fecha {
+    font-size: 0.68rem;
+  }
+  .contador-chevere-wrap {
+    gap: 10px;
+  }
+  .contador-placa-sello {
+    min-width: 66px;
+    padding: 4px 10px 5px;
+  }
+  .placa-cifra {
+    font-size: 1.95rem;
+  }
+  .contador-nombre-fest {
+    font-size: 1.35rem;
+  }
+  .contador-de {
+    font-size: 0.85rem;
+  }
+  .heroe-badges-literarios {
+    gap: 6px;
+  }
+  .badge-literario {
+    padding: 4px 8px;
+    gap: 5px;
+    border-radius: 6px;
+  }
+  .badge-icono-caja {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+  }
+  .badge-icono-caja svg {
+    width: 11px;
+    height: 11px;
+  }
+  .badge-cifra-num {
+    font-size: 0.88rem;
+  }
+  .badge-cifra-tag {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --libro-w: 96px;
+    --libro-h: 148px;
+    --libro-d: 16px;
+    --libro-medio-d: 8px;
+  }
+  .heroe-literario {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  .num-countdown {
+    font-size: 1.85rem;
+  }
+  .txt-faltan,
+  .lbl-countdown,
+  .txt-evento {
+    font-size: 0.88rem;
   }
 }
 
@@ -1311,11 +1968,9 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
   background: var(--line);
 }
 .pie-simple-ulif {
-  height: 22px;
+  height: 24px;
   width: auto;
-  border-radius: 4px;
   display: block;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   transition: opacity 0.15s ease;
 }
 .pie-simple-ulif:hover {
@@ -1334,11 +1989,99 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
   color: var(--ink);
 }
 
+/* Créditos del Creador en el Pie */
+.pie-creditos-autor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  margin-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+
+.pie-autor-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.pie-autor-label {
+  color: var(--muted);
+}
+
+.pie-autor-handle {
+  font-family: var(--display);
+  font-weight: 800;
+  color: var(--ink);
+  background: var(--surface-3);
+  padding: 2px 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.pie-autor-handle:hover {
+  background: var(--upec-suave);
+  color: var(--upec);
+  transform: translateY(-1px);
+}
+
+.pie-autor-redes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pie-red-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: transform 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+.pie-red-link:hover {
+  transform: translateY(-1.5px);
+  border-color: var(--gold);
+  color: var(--ink);
+  box-shadow: 0 3px 8px -2px rgba(51, 32, 29, 0.12);
+}
+
+.pie-red-icono {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
 @media (max-width: 600px) {
   .pie-simple-fila {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+  }
+  .pie-creditos-autor {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .pie-autor-redes {
+    gap: 6px;
+  }
+  .pie-red-link {
+    padding: 4px 9px;
+    font-size: 0.75rem;
   }
 }
 
@@ -1370,9 +2113,7 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
 .datos-logo-ulif {
   height: 36px;
   width: auto;
-  border-radius: 6px;
   display: block;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .pie {
@@ -1426,15 +2167,16 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
 
 @keyframes rebote-guardar {
   0%   { transform: scale(1); }
-  45%  { transform: scale(1.28); }
-  100% { transform: scale(1); }
+  35%  { transform: scale(1.35) rotate(-8deg); }
+  65%  { transform: scale(0.92) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); }
 }
 @keyframes destello-fila {
   from { background: var(--fondo-tipo); }
   to   { background: var(--surface); }
 }
 
-.sesion.late .sesion-guardar svg { animation: rebote-guardar 0.22s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.sesion.late .sesion-guardar svg { animation: rebote-guardar 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
 .sesion.late { animation: destello-fila 0.42s ease-out; }
 
 /* La barra de avance saltaba de golpe cada 20 segundos. */
@@ -1948,6 +2690,39 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
 .fuera-pie a { color: var(--upec); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---------------------------------------------------------- mi agenda ---- */
+
+.mi-agenda-invitacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 40px 24px;
+  background: var(--surface-warm);
+  border: 1px solid var(--line);
+  border-radius: var(--radio);
+}
+.mi-agenda-invitacion-icono {
+  width: 48px;
+  height: 48px;
+  color: var(--gold);
+  opacity: 0.7;
+}
+.mi-agenda-invitacion h2 {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+.mi-agenda-invitacion p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 380px;
+  margin: 0;
+}
 
 .sync-calendario {
   display: flex;

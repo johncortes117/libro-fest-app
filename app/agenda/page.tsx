@@ -1,11 +1,10 @@
-import AgendaFiltrable from "@/components/AgendaFiltrable";
+import { redirect } from "next/navigation";
 
-export const metadata = {
-  title: "Agenda completa",
-  description:
-    "Las 188 actividades del UPEC Libro Fest 2026, filtrables por día, tipo y lugar, con buscador por título, autor y ponente.",
-};
-
+/**
+ * La agenda completa ahora vive en la página principal (`/`).
+ * Esta ruta se mantiene como redirect para que los enlaces existentes
+ * (compartidos, favoritos, carteles) sigan funcionando.
+ */
 export default function Agenda() {
-  return <AgendaFiltrable />;
+  redirect("/");
 }
