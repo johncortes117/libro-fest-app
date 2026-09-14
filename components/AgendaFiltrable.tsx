@@ -36,7 +36,7 @@ export default function AgendaFiltrable() {
     const p = new URLSearchParams(window.location.search);
 
     const d = p.get("dia");
-    if (d && DIAS.some((x) => x.fecha === d)) setDiaElegido(d);
+    if (d && (d === "todos" || DIAS.some((x) => x.fecha === d))) setDiaElegido(d);
 
     const t = (p.get("tipo") ?? "").split(",").filter(esTipo);
     if (t.length) setTipos(t);
@@ -66,7 +66,10 @@ export default function AgendaFiltrable() {
     window.history.replaceState(null, "", cadena ? `?${cadena}` : window.location.pathname);
   }, [diaElegido, tipos, lugar, consulta]);
 
-  const delDia = useMemo(() => sesionesDe(dia), [dia]);
+  const delDia = useMemo(() => {
+    if (dia === "todos") return permanentesDe("todos");
+    return sesionesDe(dia);
+  }, [dia]);
 
   const lugaresDelDia = useMemo(() => {
     const ids = new Set(delDia.map((s) => s.lugarId));
@@ -141,7 +144,10 @@ export default function AgendaFiltrable() {
 
   const cuantosFiltros = tipos.length + (lugar ? 1 : 0) + (soloLibres ? 1 : 0);
   const hayFiltros = cuantosFiltros > 0 || consulta !== "";
-  const totalDia = permanentesDe(dia).length + sesionesDe(dia, false).length;
+  const totalDia =
+    dia === "todos"
+      ? permanentesDe("todos").length
+      : permanentesDe(dia).length + sesionesDe(dia, false).length;
 
   function alternarTipo(t: TipoSesion) {
     setTipos((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
@@ -155,7 +161,7 @@ export default function AgendaFiltrable() {
   }
 
   return (
-    <div className="pagina pagina-agenda">
+    <div className="pagina-agenda">
       {/* Los días se quedan pegados arriba; el resto de los filtros se pliega.
           Antes, cuatro controles apilados empujaban la primera sesión fuera de la
           pantalla en un móvil: la página que existe para enseñar la programación
@@ -313,9 +319,13 @@ export default function AgendaFiltrable() {
       {permanentes.length > 0 && (
         <section className="bloque">
           <div className="hora-marca">
-            <h2 className="h">Todo el día</h2>
+            <h2 className="h">{dia === "todos" ? "Todos los días" : "Todo el día"}</h2>
             <span className="raya" />
-            <span className="n">{permanentes.length} salas y muestras</span>
+            <span className="n">
+              {dia === "todos"
+                ? `${permanentes.length} ${permanentes.length === 1 ? "actividad permanente" : "actividades permanentes"}`
+                : `${permanentes.length} salas y muestras`}
+            </span>
           </div>
           <ListaSesiones sesiones={permanentes} />
         </section>

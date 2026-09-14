@@ -36,6 +36,16 @@ export default function TiraDias({
           </button>
         );
       })}
+      <button
+        type="button"
+        className="dia-boton dia-boton-todos"
+        aria-pressed={dia === "todos"}
+        onClick={() => onElegir("todos")}
+        title="Ver actividades permanentes de todos los días"
+      >
+        <span className="d">TODOS</span>
+        <span className="n n-todos">LOS DÍAS</span>
+      </button>
     </div>
   );
 }
