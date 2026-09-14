@@ -83,6 +83,24 @@ export default function AgendaFiltrable() {
     if (lugar && !lugaresDelDia.some((l) => l.id === lugar)) setLugar("");
   }, [lugar, lugaresDelDia]);
 
+  /* Al empezar a hacer scroll con el panel de filtros abierto, ocultarlo automáticamente
+     para no tapar las sesiones que el usuario quiere consultar. */
+  useEffect(() => {
+    if (!panelAbierto) return;
+
+    const scrollInicial = window.scrollY;
+    const UMBRAL = 15;
+
+    const alHacerScroll = () => {
+      if (Math.abs(window.scrollY - scrollInicial) > UMBRAL) {
+        setPanelAbierto(false);
+      }
+    };
+
+    window.addEventListener("scroll", alHacerScroll, { passive: true });
+    return () => window.removeEventListener("scroll", alHacerScroll);
+  }, [panelAbierto]);
+
   /* Lo que se pisa con lo que esta persona ya guardó. Es el cálculo que antes solo
      existía dentro de «Mi agenda», y es la razón por la que esta aplicación sirve
      para algo que el PDF no: con ocho cosas a la vez, la tarea no es leer el
@@ -271,12 +289,21 @@ export default function AgendaFiltrable() {
               </div>
             )}
 
-            {hayFiltros && (
-              <button type="button" className="boton" style={{ alignSelf: "flex-start" }} onClick={limpiar}>
-                <IconoCerrar aria-hidden />
-                Quitar filtros
+            <div className="fila-acciones-filtros" style={{ display: "flex", gap: "8px", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", marginTop: "4px" }}>
+              {hayFiltros ? (
+                <button type="button" className="boton" onClick={limpiar}>
+                  <IconoCerrar aria-hidden />
+                  Quitar filtros
+                </button>
+              ) : <div />}
+              <button
+                type="button"
+                className="boton primario"
+                onClick={() => setPanelAbierto(false)}
+              >
+                Cerrar filtros
               </button>
-            )}
+            </div>
           </div>
         )}
       </div>
