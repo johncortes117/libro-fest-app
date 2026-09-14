@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CIFRAS } from "@/lib/datos";
 import { IconoInfo, IconoMapa, IconoPantalla } from "@/components/Iconos";
 
@@ -50,6 +51,24 @@ export default function Organizacion() {
   return (
     <div className="pagina">
       <header>
+        <div className="datos-marcas-cabecera">
+          <div className="datos-upec-pill">
+            <Image
+              src="/logos/upec.png"
+              alt="Universidad Politécnica Estatal del Carchi"
+              width={112}
+              height={43}
+            />
+          </div>
+          <span className="datos-divisor-marcas" aria-hidden="true" />
+          <Image
+            src="/logos/ulif.png"
+            alt="UPEC Libro Fest 2026"
+            width={124}
+            height={48}
+            className="datos-logo-ulif"
+          />
+        </div>
         <p className="eyebrow">Herramientas internas</p>
         <h1 className="titulo-pagina">Para la organización</h1>
         <p className="entradilla">

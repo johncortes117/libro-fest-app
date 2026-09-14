@@ -1,3 +1,4 @@
+import Image from "next/image";
 import QRCode from "qrcode";
 import { LUGARES_CAMPUS, LUGARES_FUERA } from "@/data/lugares";
 import { CIFRAS, CUENTA_POR_LUGAR } from "@/lib/datos";
@@ -64,6 +65,23 @@ export default async function Carteles() {
       </header>
 
       <article className="cartel cartel-general">
+        <div className="cartel-cabecera-logos">
+          <Image
+            src="/logos/upec.png"
+            alt="UPEC"
+            width={120}
+            height={46}
+            className="cartel-logo-upec-blanco"
+          />
+          <span className="cartel-divisor-logos" aria-hidden="true" />
+          <Image
+            src="/logos/librofest.png"
+            alt="UPEC Libro Fest 2026"
+            width={48}
+            height={74}
+            className="cartel-logo-fest"
+          />
+        </div>
         <p className="cartel-eyebrow">UPEC Libro Fest 2026 · Academia, arte y cultura</p>
         <h2>¿Qué hay ahora y dónde?</h2>
         <div className="cartel-qr" dangerouslySetInnerHTML={{ __html: general }} />
@@ -76,6 +94,26 @@ export default async function Carteles() {
 
       {carteles.map(({ lugar, svg, cuantas }) => (
         <article className="cartel" key={lugar.id}>
+          <div className="cartel-cabecera-logos cartel-lugar-logos">
+            <div className="cartel-upec-pastilla">
+              <Image
+                src="/logos/upec.png"
+                alt="UPEC"
+                width={100}
+                height={38}
+                className="cartel-upec-img"
+              />
+            </div>
+            <span className="cartel-divisor-logos" aria-hidden="true" />
+            <Image
+              src="/logos/ulif.png"
+              alt="ULIF'26"
+              width={105}
+              height={40}
+              className="cartel-ulif-img"
+            />
+          </div>
+
           <p className="cartel-eyebrow">UPEC Libro Fest 2026</p>
 
           <div className="cartel-lugar">

@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Instrument_Sans, Yellowtail } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import "./globals.css";
 
 import Navegacion from "@/components/Navegacion";
 import BotonTema from "@/components/BotonTema";
 import BotonCuenta from "@/components/BotonCuenta";
-import RelojCabecera from "@/components/RelojCabecera";
 import Avisos from "@/components/Avisos";
 import RegistrarSW from "@/components/RegistrarSW";
 import SincronizadorGuardadas from "@/components/SincronizadorGuardadas";
@@ -101,20 +101,40 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               <header className="cabecera">
                 <div className="cabecera-fila">
-                  <Link href="/" className="marca" aria-label="UPEC Libro Fest 2026, inicio">
-                    <span className="marca-liston" aria-hidden>
-                      UPEC
-                      <br />
-                      LIBRO
-                    </span>
-                    <span className="marca-nombre">
-                      <span className="a">Libro</span>
-                      <span className="b">Fest 2026</span>
-                    </span>
-                  </Link>
+                  <div className="marca-conjunto">
+                    <Link href="/" className="marca-ulif-link" aria-label="UPEC Libro Fest 2026, inicio">
+                      <Image
+                        src="/logos/ulif.png"
+                        alt="ULIF'26 · Academia, arte y cultura"
+                        width={96}
+                        height={37}
+                        className="marca-ulif-header"
+                        priority
+                      />
+                    </Link>
+
+                    <span className="marca-separador" aria-hidden="true" />
+
+                    <a
+                      href="https://www.upec.edu.ec"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="marca-upec"
+                      title="Universidad Politécnica Estatal del Carchi"
+                      aria-label="Sitio web oficial de la UPEC"
+                    >
+                      <Image
+                        src="/logos/upec.png"
+                        alt="Universidad Politécnica Estatal del Carchi"
+                        width={92}
+                        height={36}
+                        className="marca-upec-img"
+                        priority
+                      />
+                    </a>
+                  </div>
 
                   <div className="acciones-cabecera">
-                    <RelojCabecera />
                     <BotonCuenta />
                     <BotonTema />
                   </div>
@@ -129,16 +149,42 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <QrLlevar />
               </main>
 
-              {/* Una línea. Lo que antes eran dos párrafos de descargo en las 188
-                  fichas vive ahora en /datos, donde no le quita sitio a la agenda. */}
-              <footer className="pie contenedor">
-                <p>
-                  Sitio no oficial · programación de la{" "}
-                  <a href="https://www.upec.edu.ec" target="_blank" rel="noreferrer">
-                    UPEC
-                  </a>{" "}
-                  · <Link href="/datos/">Sobre esta agenda</Link>
-                </p>
+              <footer className="pie-simple contenedor">
+                <div className="pie-simple-fila">
+                  <div className="pie-simple-marcas">
+                    <a
+                      href="https://www.upec.edu.ec"
+                      target="_blank"
+                      rel="noreferrer"
+                      title="Universidad Politécnica Estatal del Carchi"
+                    >
+                      <Image
+                        src="/logos/upec.png"
+                        alt="UPEC"
+                        width={68}
+                        height={26}
+                        className="pie-simple-upec"
+                      />
+                    </a>
+                    <span className="pie-simple-div" aria-hidden="true" />
+                    <Link href="/" title="ULIF'26">
+                      <Image
+                        src="/logos/ulif.png"
+                        alt="ULIF'26"
+                        width={60}
+                        height={23}
+                        className="pie-simple-ulif"
+                      />
+                    </Link>
+                  </div>
+
+                  <p className="pie-simple-texto">
+                    UPEC Libro Fest 2026 · Del 21 al 25 de septiembre · <Link href="/datos/">Sobre esta agenda</Link> ·{" "}
+                    <a href="https://www.upec.edu.ec" target="_blank" rel="noreferrer">
+                      UPEC ↗
+                    </a>
+                  </p>
+                </div>
               </footer>
             </ProveedorEntrada>
           </ProveedorBrindis>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { aContinuacion, enCurso, sesionesDe } from "@/lib/datos";
 import { porId as lugarPorId } from "@/data/lugares";
 import { diaDe, diasHastaElInicio, duracion, estadoFestival, hhmm } from "@/lib/tiempo";
@@ -56,7 +57,27 @@ export default function Pantalla() {
     return (
       <div className="pantalla">
         <div className="pantalla-cabecera">
-          <h1>UPEC Libro Fest 2026</h1>
+          <div className="pantalla-logos-lado">
+            <Image
+              src="/logos/upec.png"
+              alt="UPEC"
+              width={120}
+              height={46}
+              className="pantalla-logo-upec"
+            />
+            <div className="pantalla-divisor-logos" aria-hidden="true" />
+            <Image
+              src="/logos/ulif.png"
+              alt="ULIF'26"
+              width={126}
+              height={48}
+              className="pantalla-logo-ulif"
+            />
+          </div>
+          <div className="pantalla-cabecera-info">
+            <p className="eyebrow">Universidad Politécnica Estatal del Carchi</p>
+            <h1>UPEC Libro Fest 2026</h1>
+          </div>
           <span className="pantalla-reloj">--:--</span>
         </div>
         <p className="entradilla">Del 21 al 25 de septiembre · Academia, arte y cultura</p>
@@ -71,7 +92,27 @@ export default function Pantalla() {
     return (
       <div className="pantalla">
         <div className="pantalla-cabecera">
-          <h1>UPEC Libro Fest 2026</h1>
+          <div className="pantalla-logos-lado">
+            <Image
+              src="/logos/upec.png"
+              alt="UPEC"
+              width={120}
+              height={46}
+              className="pantalla-logo-upec"
+            />
+            <div className="pantalla-divisor-logos" aria-hidden="true" />
+            <Image
+              src="/logos/ulif.png"
+              alt="ULIF'26"
+              width={126}
+              height={48}
+              className="pantalla-logo-ulif"
+            />
+          </div>
+          <div className="pantalla-cabecera-info">
+            <p className="eyebrow">Universidad Politécnica Estatal del Carchi</p>
+            <h1>UPEC Libro Fest 2026</h1>
+          </div>
           <span className="pantalla-reloj">{hhmm(momento.minutos)}</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "1.4vh", marginTop: "6vh" }}>
@@ -100,7 +141,24 @@ export default function Pantalla() {
   return (
     <div className="pantalla">
       <div className="pantalla-cabecera">
-        <div>
+        <div className="pantalla-logos-lado">
+          <Image
+            src="/logos/upec.png"
+            alt="UPEC"
+            width={120}
+            height={46}
+            className="pantalla-logo-upec"
+          />
+          <div className="pantalla-divisor-logos" aria-hidden="true" />
+          <Image
+            src="/logos/ulif.png"
+            alt="ULIF'26"
+            width={126}
+            height={48}
+            className="pantalla-logo-ulif"
+          />
+        </div>
+        <div className="pantalla-cabecera-info">
           <p className="eyebrow">UPEC Libro Fest 2026 · {DIAS.length} días · Academia, arte y cultura</p>
           <h1>{dia.nombre} de septiembre</h1>
         </div>

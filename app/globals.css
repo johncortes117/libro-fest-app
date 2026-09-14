@@ -259,38 +259,60 @@ button, input, select { font: inherit; color: inherit; }
   gap: 12px;
 }
 
-/* El escudo de la marca: el listón marrón del material impreso. */
-.marca { display: flex; align-items: center; gap: 9px; color: #fff; }
-.marca-liston {
-  background: var(--brown);
-  color: var(--upec-amarillo);
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 0.6rem;
-  letter-spacing: 0.04em;
-  line-height: 1.05;
-  padding: 7px 8px 11px;
-  text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 84%, 0 100%);
-  text-transform: uppercase;
+/* Bloque de marca oficial en cabecera: ULIF'26 horizontal y UPEC */
+.marca-conjunto {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-:root[data-theme="dark"] .marca-liston { background: #5a1f1c; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .marca-liston { background: #5a1f1c; }
+
+.marca-ulif-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.18s ease, opacity 0.18s ease;
 }
-.marca-nombre { display: flex; flex-direction: column; line-height: 1.05; }
-.marca-nombre .a {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 0.86rem;
-  letter-spacing: -0.01em;
+.marca-ulif-link:hover {
+  transform: translateY(-1px);
+  opacity: 0.94;
 }
-.marca-nombre .b {
-  font-family: var(--script);
-  font-size: 1rem;
-  color: var(--upec-amarillo);
-  line-height: 1;
-  margin-top: 1px;
+
+.marca-ulif-header {
+  height: 32px;
+  width: auto;
+  border-radius: 5px;
+  display: block;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.25);
+}
+
+.marca-separador {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.28);
+  flex-shrink: 0;
+}
+
+.marca-upec {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.marca-upec:hover {
+  transform: translateY(-1px);
+  opacity: 0.94;
+}
+.marca-upec-img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 520px) {
+  .marca-separador,
+  .marca-upec {
+    display: none;
+  }
 }
 
 .acciones-cabecera { margin-left: auto; display: flex; align-items: center; gap: 6px; }
@@ -586,6 +608,114 @@ button, input, select { font: inherit; color: inherit; }
   font-variant-numeric: tabular-nums;
 }
 .cuenta-atras .u { font-family: var(--display); font-size: 1.05rem; font-weight: 700; color: var(--gold); }
+
+/* ------------------------------------------- Portada Héroe Compacto con Card 3D ---- */
+.heroe-compacto {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  padding: 20px 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroe-compacto .heroe-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.heroe-cifras-pildora {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 14px;
+  width: fit-content;
+  margin-top: 2px;
+}
+.heroe-cifras-pildora strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+.heroe-cifras-pildora .punto {
+  color: var(--line);
+  font-weight: 900;
+}
+
+/* 3D Card Interactive Showcase */
+.heroe-arte-lado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  perspective: 1000px;
+}
+
+.tarjeta-3d-contenedor {
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 14px 30px -8px rgba(151, 71, 12, 0.42), 0 3px 10px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  overflow: hidden;
+  display: inline-block;
+  user-select: none;
+}
+
+.heroe-afiche-3d-img {
+  border-radius: 12px;
+  width: 124px;
+  height: auto;
+  display: block;
+  transform: translateZ(20px);
+}
+
+.tarjeta-3d-brillo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.2s ease;
+  mix-blend-mode: overlay;
+  z-index: 10;
+}
+
+.heroe-marcas-vivo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.heroe-vivo-logo {
+  width: 38px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .heroe-compacto {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .heroe-arte-lado {
+    align-self: center;
+    order: -1;
+  }
+  .heroe-afiche-3d-img {
+    width: 100px;
+  }
+}
 
 /* ---------------------------------------------------------- secciones ---- */
 
@@ -950,11 +1080,42 @@ button, input, select { font: inherit; color: inherit; }
 }
 .pantalla-cabecera {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
   border-bottom: 3px solid var(--gold-bright);
   padding-bottom: 1.5vh;
+}
+.pantalla-logos-lado {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--upec);
+  padding: 8px 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+.pantalla-logo-upec {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+.pantalla-divisor-logos {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.pantalla-logo-ulif {
+  height: 40px;
+  width: auto;
+  border-radius: 6px;
+  display: block;
+}
+.pantalla-cabecera-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .pantalla-cabecera h1 { font-size: clamp(1.8rem, 3.6vw, 3.1rem); font-weight: 800; letter-spacing: -0.03em; }
 .pantalla-reloj {
@@ -1000,7 +1161,8 @@ button, input, select { font: inherit; color: inherit; }
 
 body:has(.pantalla) .cabecera,
 body:has(.pantalla) .nav,
-body:has(.pantalla) .pie { display: none; }
+body:has(.pantalla) .pie,
+body:has(.pantalla) .pie-simple { display: none; }
 body:has(.pantalla) #principal { max-width: none; padding: 0; }
 
 /* ----------------------------------------------------------- carteles ---- */
@@ -1023,6 +1185,53 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
   width: 100%;
   margin: 0 auto;
 }
+.cartel-cabecera-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+.cartel-divisor-logos {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.35);
+}
+.cartel-lugar-logos .cartel-divisor-logos {
+  background: var(--line);
+}
+.cartel-logo-upec-blanco {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+.cartel-logo-fest {
+  height: 56px;
+  width: auto;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  display: block;
+}
+.cartel-upec-pastilla {
+  background: #336439;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+.cartel-upec-img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+.cartel-ulif-img {
+  height: 32px;
+  width: auto;
+  border-radius: 6px;
+  display: block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
 .cartel-eyebrow { font-family: var(--display); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #937a66; }
 .cartel-lugar { display: flex; flex-direction: column; align-items: center; gap: 11px; }
 .cartel-pin {
@@ -1050,14 +1259,121 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
 .cartel-general .cartel-qr svg path { fill: #ffffff; }
 
 @media print {
-  .cabecera, .nav, .pie, .no-imprimir, .aviso { display: none !important; }
+  .cabecera, .nav, .pie, .pie-simple, .no-imprimir, .aviso { display: none !important; }
   body { background: #fff; }
   #principal { max-width: none; padding: 0; }
   .carteles-pagina { gap: 0; padding: 0; }
   .cartel { border: 0; border-radius: 0; break-after: page; page-break-after: always; max-width: none; height: 100vh; aspect-ratio: auto; }
 }
 
-/* ----------------------------------------------------------------- pie --- */
+/* -------------------------------------------------- Pie Simple y Compacto ---- */
+
+.pie-simple {
+  border-top: 1px solid var(--line);
+  margin-top: 36px;
+  padding: 18px 0 85px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.pie-simple-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.pie-simple-marcas {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pie-simple-upec {
+  height: 24px;
+  width: auto;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(32%) sepia(21%) saturate(1450%) hue-rotate(85deg) brightness(96%) contrast(89%);
+  transition: opacity 0.15s ease;
+}
+:root[data-theme="dark"] .pie-simple-upec {
+  filter: brightness(0) invert(0.9);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .pie-simple-upec {
+    filter: brightness(0) invert(0.9);
+  }
+}
+.pie-simple-upec:hover {
+  opacity: 0.85;
+}
+.pie-simple-div {
+  width: 1px;
+  height: 18px;
+  background: var(--line);
+}
+.pie-simple-ulif {
+  height: 22px;
+  width: auto;
+  border-radius: 4px;
+  display: block;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.15s ease;
+}
+.pie-simple-ulif:hover {
+  opacity: 0.85;
+}
+.pie-simple-texto {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.pie-simple-texto a {
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.pie-simple-texto a:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 600px) {
+  .pie-simple-fila {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ------------------------------------------- Marcas en /datos y /organizacion ---- */
+.datos-marcas-cabecera {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.datos-upec-pill {
+  background: var(--upec);
+  padding: 5px 12px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+.datos-upec-pill img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+.datos-divisor-marcas {
+  width: 1px;
+  height: 30px;
+  background: var(--line);
+}
+.datos-logo-ulif {
+  height: 36px;
+  width: auto;
+  border-radius: 6px;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
 
 .pie {
   border-top: 1px solid var(--line);
@@ -1854,7 +2170,8 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
 /* Enlaces que sacan del navegador y dejan a alguien perdido en Google Maps
    delante de una pantalla sin teclado ni botón de atrás. */
 :root[data-kiosko="1"] .fuera-pie a[target="_blank"],
-:root[data-kiosko="1"] .pie { display: none; }
+:root[data-kiosko="1"] .pie,
+:root[data-kiosko="1"] .pie-simple { display: none; }
 
 /* Aviso de que la pantalla va a volver sola a la portada. */
 :root[data-kiosko-aviso="1"] body::after {

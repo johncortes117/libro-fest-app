@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CIFRAS, GENERADO } from "@/lib/datos";
 import { IconoInfo } from "@/components/Iconos";
 
@@ -27,12 +28,29 @@ export default function Datos() {
   return (
     <div className="pagina">
       <header>
+        <div className="datos-marcas-cabecera">
+          <div className="datos-upec-pill">
+            <Image
+              src="/logos/upec.png"
+              alt="Universidad Politécnica Estatal del Carchi"
+              width={112}
+              height={43}
+            />
+          </div>
+          <span className="datos-divisor-marcas" aria-hidden="true" />
+          <Image
+            src="/logos/ulif.png"
+            alt="UPEC Libro Fest 2026"
+            width={124}
+            height={48}
+            className="datos-logo-ulif"
+          />
+        </div>
         <p className="eyebrow">Procedencia y limitaciones</p>
         <h1 className="titulo-pagina">Sobre esta agenda</h1>
         <p className="entradilla">
-          Sitio no oficial, hecho por un estudiante para orientarse durante el festival. Toda la
-          programación procede de la agenda oficial de la Universidad Politécnica Estatal del
-          Carchi. Las horas son de Ecuador (UTC−5).
+          Toda la programación procede de la agenda oficial de la Universidad Politécnica Estatal del
+          Carchi para el festival UPEC Libro Fest 2026. Las horas corresponden a Ecuador (UTC−5).
         </p>
       </header>
 

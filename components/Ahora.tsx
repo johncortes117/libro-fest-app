@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import Card3D from "./Card3D";
 import { aContinuacion, CIFRAS, enCurso, permanentesDe, sesionesDe } from "@/lib/datos";
 import { diaDe, diasHastaElInicio, estadoFestival, hhmm } from "@/lib/tiempo";
 import { DIAS } from "@/lib/tipos";
@@ -50,51 +52,53 @@ export default function Ahora() {
 
     return (
       <div className="pagina">
-        <section className="heroe">
-          <p className="eyebrow">Del 21 al 25 de septiembre · UPEC, Tulcán</p>
+        <section className="heroe heroe-compacto">
+          <div className="heroe-contenido">
+            <p className="eyebrow">Del 21 al 25 de septiembre · UPEC, Tulcán</p>
 
-          {terminado ? (
-            <h1 className="titulo-pagina">Hasta la próxima edición</h1>
-          ) : faltan > 0 ? (
-            <div className="cuenta-atras">
-              <span className="n">{faltan}</span>
-              <span className="u">{faltan === 1 ? "día para el festival" : "días para el festival"}</span>
-            </div>
-          ) : (
-            <h1 className="titulo-pagina">Empieza hoy</h1>
-          )}
+            {terminado ? (
+              <h1 className="titulo-pagina">Hasta la próxima edición</h1>
+            ) : faltan > 0 ? (
+              <div className="cuenta-atras">
+                <span className="n">{faltan}</span>
+                <span className="u">{faltan === 1 ? "día para el festival" : "días para el festival"}</span>
+              </div>
+            ) : (
+              <h1 className="titulo-pagina">Empieza hoy</h1>
+            )}
 
-          <p className="entradilla" style={{ marginTop: 0 }}>
-            {terminado
-              ? "El programa completo sigue aquí, por si buscas un libro, un autor o una charla a la que asististe."
-              : "Cuando arranque, esta pantalla enseñará qué está pasando en ese momento y en qué edificio."}
-          </p>
+            <div className="heroe-cifras-pildora">
+              <span><strong>{CIFRAS.total}</strong> actividades</span>
+              <span className="punto" aria-hidden="true">·</span>
+              <span><strong>{CIFRAS.lugares}</strong> lugares</span>
+              <span className="punto" aria-hidden="true">·</span>
+              <span><strong>{CIFRAS.personas}</strong> autores</span>
+            </div>
 
-          <div className="heroe-resumen">
-            <div className="resumen-dato">
-              <span className="v">{CIFRAS.total}</span>
-              <span className="l">actividades</span>
-            </div>
-            <div className="resumen-dato">
-              <span className="v">{CIFRAS.lugares}</span>
-              <span className="l">lugares</span>
-            </div>
-            <div className="resumen-dato">
-              <span className="v">{CIFRAS.personas}</span>
-              <span className="l">ponentes y autores</span>
+            <div className="botonera">
+              <Link href="/agenda/" className="boton primario">
+                <IconoAgenda />
+                Ver la agenda
+                <IconoFlecha />
+              </Link>
+              <Link href="/mapa/" className="boton">
+                <IconoMapa />
+                Mapa del campus
+              </Link>
             </div>
           </div>
 
-          <div className="botonera">
-            <Link href="/agenda/" className="boton primario">
-              <IconoAgenda />
-              Ver la agenda
-              <IconoFlecha />
-            </Link>
-            <Link href="/mapa/" className="boton">
-              <IconoMapa />
-              Mapa del campus
-            </Link>
+          <div className="heroe-arte-lado" aria-hidden="true">
+            <Card3D className="heroe-afiche-card-3d">
+              <Image
+                src="/logos/librofest.png"
+                alt="Afiche UPEC Libro Fest 2026"
+                width={135}
+                height={207}
+                className="heroe-afiche-3d-img"
+                priority
+              />
+            </Card3D>
           </div>
         </section>
 
@@ -127,12 +131,23 @@ export default function Ahora() {
 
   return (
     <div className="pagina">
-      <section className="heroe">
+      <section className="heroe heroe-en-vivo">
         <div className="heroe-fila">
-          <div>
-            <span className="heroe-hora">{hhmm(momento.minutos)}</span>
-            <p className="heroe-dia">{dia.nombre} de septiembre</p>
-            <p className="heroe-lugar">Campus UPEC · Tulcán</p>
+          <div className="heroe-vivo-izq">
+            <div className="heroe-marcas-vivo">
+              <Image
+                src="/logos/librofest.png"
+                alt="Logo Libro Fest"
+                width={36}
+                height={55}
+                className="heroe-vivo-logo"
+              />
+              <div>
+                <span className="heroe-hora">{hhmm(momento.minutos)}</span>
+                <p className="heroe-dia">{dia.nombre} de septiembre</p>
+                <p className="heroe-lugar">Campus UPEC · Tulcán · En vivo</p>
+              </div>
+            </div>
           </div>
 
           <div className="heroe-resumen">
