@@ -24,6 +24,7 @@ export default function AgendaFiltrable() {
   const [consulta, setConsulta] = useState("");
   const [soloLibres, setSoloLibres] = useState(false);
   const [panelAbierto, setPanelAbierto] = useState(false);
+  const [mostrarPasadas, setMostrarPasadas] = useState(false);
 
   // Mientras nadie elija un día, manda el momento actual: durante el festival la
   // agenda abre en el día de hoy, y antes de empezar, en el lunes. Derivarlo en vez
@@ -178,6 +179,26 @@ export default function AgendaFiltrable() {
     setSoloLibres(false);
   }
 
+  /* ---- Partición en vivo: pasadas vs. actuales+futuras ---- */
+  const esHoyVivo = !!momento && momento.fecha === dia && dia !== "todos";
+  const minActual = momento?.minutos ?? 0;
+
+  const gruposPasados = useMemo(() => {
+    if (!esHoyVivo) return [];
+    // Un bloque-hora es "pasado" cuando su franja horaria ya terminó completa,
+    // es decir, la hora de inicio del bloque + 60 min ya pasó.
+    // Las sesiones largas (p.ej. 09:00–12:00) pueden seguir en vivo, pero
+    // el bloque-hora de las 09:00 ya es historia cuando son las 10:01.
+    return grupos.filter(([hora]) => hora + 60 <= minActual);
+  }, [grupos, esHoyVivo, minActual]);
+
+  const gruposVivosYFuturos = useMemo(() => {
+    if (!esHoyVivo) return grupos;
+    return grupos.filter(([hora]) => hora + 60 > minActual);
+  }, [grupos, esHoyVivo, minActual]);
+
+  const totalPasadas = gruposPasados.reduce((acc, [, sgs]) => acc + sgs.length, 0);
+
   return (
     <div className="pagina-agenda">
       {/* Los días se quedan pegados arriba; el resto de los filtros se pliega.
@@ -330,33 +351,64 @@ export default function AgendaFiltrable() {
       )}
 
       <div className="resultados" key={firmaFiltros}>
-      {grupos.map(([hora, sesiones]) => (
-        <section className="bloque" key={hora}>
-          <div className="hora-marca">
-            <h2 className="h">{hhmm(hora)}</h2>
-            <span className="raya" />
-            <span className="n">
-              {sesiones.length} {sesiones.length === 1 ? "actividad" : "en paralelo"}
-            </span>
-          </div>
-          <ListaSesiones sesiones={sesiones} idsQueChocan={idsQueChocan} />
-        </section>
-      ))}
 
-      {permanentes.length > 0 && (
-        <section className="bloque">
-          <div className="hora-marca">
-            <h2 className="h">{dia === "todos" ? "Todos los días" : "Todo el día"}</h2>
-            <span className="raya" />
-            <span className="n">
-              {dia === "todos"
-                ? `${permanentes.length} ${permanentes.length === 1 ? "actividad permanente" : "actividades permanentes"}`
-                : `${permanentes.length} salas y muestras`}
-            </span>
+        {/* Actividades pasadas: colapsadas debajo de un botón acordeón */}
+        {esHoyVivo && gruposPasados.length > 0 && (
+          <div className="seccion-pasadas">
+            <button
+              type="button"
+              className="btn-pasadas"
+              onClick={() => setMostrarPasadas((v) => !v)}
+              aria-expanded={mostrarPasadas}
+            >
+              {mostrarPasadas
+                ? `▲ Ocultar actividades anteriores`
+                : `▼ Ver actividades anteriores (${totalPasadas})`}
+            </button>
+            {mostrarPasadas &&
+              gruposPasados.map(([hora, sesiones]) => (
+                <section className="bloque bloque-pasado" key={hora}>
+                  <div className="hora-marca">
+                    <h2 className="h">{hhmm(hora)}</h2>
+                    <span className="raya" />
+                    <span className="n">
+                      {sesiones.length} {sesiones.length === 1 ? "actividad" : "en paralelo"}
+                    </span>
+                  </div>
+                  <ListaSesiones sesiones={sesiones} idsQueChocan={idsQueChocan} />
+                </section>
+              ))}
           </div>
-          <ListaSesiones sesiones={permanentes} />
-        </section>
-      )}
+        )}
+
+        {/* Actividades en curso y futuras */}
+        {gruposVivosYFuturos.map(([hora, sesiones]) => (
+          <section className="bloque" key={hora}>
+            <div className="hora-marca">
+              <h2 className="h">{hhmm(hora)}</h2>
+              <span className="raya" />
+              <span className="n">
+                {sesiones.length} {sesiones.length === 1 ? "actividad" : "en paralelo"}
+              </span>
+            </div>
+            <ListaSesiones sesiones={sesiones} idsQueChocan={idsQueChocan} />
+          </section>
+        ))}
+
+        {permanentes.length > 0 && (
+          <section className="bloque">
+            <div className="hora-marca">
+              <h2 className="h">{dia === "todos" ? "Todos los días" : "Todo el día"}</h2>
+              <span className="raya" />
+              <span className="n">
+                {dia === "todos"
+                  ? `${permanentes.length} ${permanentes.length === 1 ? "actividad permanente" : "actividades permanentes"}`
+                  : `${permanentes.length} salas y muestras`}
+              </span>
+            </div>
+            <ListaSesiones sesiones={permanentes} />
+          </section>
+        )}
       </div>
     </div>
   );

@@ -131,7 +131,9 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia, index 
 
           {enCurso && (
             <span className="sesion-en-vivo">
-              <span className="punto-vivo" />
+              <span className="ping-vivo" aria-hidden>
+                <span className="ping-nucleo" />
+              </span>
               EN VIVO
             </span>
           )}
@@ -190,9 +192,16 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia, index 
       {/* Barra de progreso si está en curso */}
       {enCurso && (
         <div className="sesion-avance">
-          <span className="pista">
-            <span className="hecho" style={{ width: `${Math.min(100, Math.max(2, avance))}%` }} />
-          </span>
+          <div
+            className="pista"
+            role="progressbar"
+            aria-valuenow={Math.round(avance)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label={`Progreso de la actividad: ${Math.round(avance)}%`}
+          >
+            <div className="hecho" style={{ width: `${Math.min(100, Math.max(2, avance))}%` }} />
+          </div>
           <span className="queda">quedan {duracion(restante!)}</span>
         </div>
       )}

@@ -3,18 +3,43 @@
 import Image from "next/image";
 import Card3D from "./Card3D";
 import AgendaFiltrable from "./AgendaFiltrable";
+import BotonNova from "./BotonNova";
 import { CIFRAS, enCurso, permanentesDe } from "@/lib/datos";
-import { diaDe, diasHastaElInicio, estadoFestival, hhmm } from "@/lib/tiempo";
+import { diaDe, diasHastaElInicio, estadoFestival } from "@/lib/tiempo";
 import { useMomento } from "./Reloj";
-import { IconoLibros, IconoPersonas } from "./Iconos";
+import {
+  IconoConferencia,
+  IconoCultural,
+  IconoLibro,
+  IconoLibros,
+  IconoPermanente,
+  IconoPersonas,
+  IconoTaller,
+} from "./Iconos";
+import { type TipoSesion } from "@/lib/tipos";
+
+const ICONO_TIPO: Record<TipoSesion, (p: { className?: string }) => React.ReactElement> = {
+  conferencia: IconoConferencia,
+  taller: IconoTaller,
+  cultural: IconoCultural,
+  libro: IconoLibro,
+  permanente: IconoPermanente,
+};
+
+const ETIQUETA_TIPO: Record<TipoSesion, { sing: string; plur: string }> = {
+  conferencia: { sing: "Conferencia", plur: "Conferencias" },
+  taller: { sing: "Taller", plur: "Talleres" },
+  cultural: { sing: "Cultural", plur: "Culturales" },
+  libro: { sing: "Libro", plur: "Libros" },
+  permanente: { sing: "Sala", plur: "Salas abiertas" },
+};
 
 /**
  * Página principal: héroe contextual + agenda filtrable.
  *
- * Antes del festival muestra la cuenta atrás y las cifras; durante, el estado
- * en vivo. En ambos casos el componente `AgendaFiltrable` va debajo, abriendo
- * en el día que toque. De este modo se elimina la pestaña «Ahora» como entidad
- * separada y todo vive en una sola pantalla.
+ * Muestra el libro 3D a la derecha en ambos estados (antes del festival con
+ * la cuenta atrás, y durante el festival con el resumen de actividades en vivo
+ * por tipo que tengan al menos una sesión activa). Incluye acceso directo a Nova.
  */
 export default function Ahora() {
   const momento = useMomento();
@@ -83,7 +108,7 @@ export default function Ahora() {
               </div>
             )}
 
-            {/* Dos únicas tarjetas de cifras: Actividades y Autores (compactas, sin textos largos) */}
+            {/* Dos únicas tarjetas de cifras: Actividades y Autores */}
             <div className="heroe-badges-literarios">
               <div className="badge-literario">
                 <span className="badge-icono-caja">
@@ -104,6 +129,9 @@ export default function Ahora() {
                   <span className="badge-cifra-tag">autores</span>
                 </div>
               </div>
+
+              {/* Acceso a Nova integrado en la fila de badges */}
+              <BotonNova />
             </div>
           </div>
 
@@ -134,43 +162,130 @@ export default function Ahora() {
 
   const conHorario = corriendo.filter((s) => !s.permanente);
   const abiertas = corriendo.filter((s) => s.permanente);
-  const lugaresAhora = new Set(conHorario.map((s) => s.lugarId)).size;
+
+  /* Solo los tipos que tienen AL MENOS una sesión activa en este momento */
+  const tiposActivos = (["conferencia", "taller", "cultural", "libro"] as TipoSesion[])
+    .map((tipo) => ({
+      tipo,
+      count: conHorario.filter((s) => s.tipo === tipo).length,
+    }))
+    .filter(({ count }) => count > 0);
 
   return (
     <div className="pagina">
-      <section className="heroe heroe-en-vivo">
-        <div className="heroe-fila">
-          <div className="heroe-vivo-izq">
-            <div className="heroe-marcas-vivo">
-              <Image
-                src="/logos/librofest.png"
-                alt="Logo Libro Fest"
-                width={36}
-                height={55}
-                className="heroe-vivo-logo"
-              />
-              <div>
-                <span className="heroe-hora">{hhmm(momento.minutos)}</span>
-                <p className="heroe-dia">{dia.nombre} de septiembre</p>
-                <p className="heroe-lugar">Campus UPEC · Tulcán · En vivo</p>
-              </div>
-            </div>
+      <section className="heroe heroe-compacto heroe-literario heroe-en-vivo">
+        <div className="heroe-contenido">
+          {/* Cabecera editorial con badge EN VIVO */}
+          <div className="heroe-editorial-header">
+            <span className="badge-en-vivo-header">
+              <span className="ping-vivo" aria-hidden>
+                <span className="ping-nucleo" />
+              </span>
+              EN VIVO
+            </span>
+            <span className="heroe-editorial-fecha">
+              {dia.nombre.toUpperCase()} DE SEPTIEMBRE · CAMPUS UPEC
+            </span>
           </div>
 
-          <div className="heroe-resumen">
-            <div className="resumen-dato" style={{ "--color-dato": "var(--t-cultural)" } as React.CSSProperties}>
-              <span className="v">{conHorario.length}</span>
-              <span className="l">en curso ahora</span>
-            </div>
-            <div className="resumen-dato">
-              <span className="v">{lugaresAhora}</span>
-              <span className="l">{lugaresAhora === 1 ? "lugar activo" : "lugares activos"}</span>
-            </div>
-            <div className="resumen-dato">
-              <span className="v">{abiertas.length}</span>
-              <span className="l">salas abiertas</span>
-            </div>
+          <div className="heroe-editorial-cuerpo">
+            <h1 className="heroe-titular-vivo">
+              <span className="txt-evento">
+                {conHorario.length > 0
+                  ? `${conHorario.length} ${conHorario.length === 1 ? "actividad en curso" : "actividades en curso"}`
+                  : "Festival en marcha"}
+              </span>
+            </h1>
           </div>
+
+          {/* Badges de resumen en vivo: SOLO tipos con count > 0 */}
+          {tiposActivos.length > 0 ? (
+            <div className="heroe-badges-literarios heroe-badges-vivo">
+              {tiposActivos.map(({ tipo, count }) => {
+                const Icono = ICONO_TIPO[tipo];
+                const etiqueta = count === 1 ? ETIQUETA_TIPO[tipo].sing : ETIQUETA_TIPO[tipo].plur;
+                return (
+                  <div
+                    key={tipo}
+                    className="badge-literario badge-tipo-vivo"
+                    style={{
+                      "--color-tipo": `var(--t-${tipo})`,
+                      "--fondo-tipo": `var(--t-${tipo}-soft)`,
+                    } as React.CSSProperties}
+                  >
+                    <span className="badge-icono-caja badge-tipo-icono">
+                      <Icono />
+                    </span>
+                    <div className="badge-texto-caja">
+                      <span className="badge-cifra-num">{count}</span>
+                      <span className="badge-cifra-tag">{etiqueta}</span>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {abiertas.length > 0 && (
+                <div
+                  className="badge-literario badge-tipo-vivo"
+                  style={{
+                    "--color-tipo": "var(--t-permanente)",
+                    "--fondo-tipo": "var(--t-permanente-soft)",
+                  } as React.CSSProperties}
+                >
+                  <span className="badge-icono-caja badge-tipo-icono">
+                    <IconoPermanente />
+                  </span>
+                  <div className="badge-texto-caja">
+                    <span className="badge-cifra-num">{abiertas.length}</span>
+                    <span className="badge-cifra-tag">salas abiertas</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Acceso a Nova integrado en la fila de badges en vivo */}
+              <BotonNova />
+            </div>
+          ) : abiertas.length > 0 ? (
+            <div className="heroe-badges-literarios heroe-badges-vivo">
+              <div
+                className="badge-literario badge-tipo-vivo"
+                style={{
+                  "--color-tipo": "var(--t-permanente)",
+                  "--fondo-tipo": "var(--t-permanente-soft)",
+                } as React.CSSProperties}
+              >
+                <span className="badge-icono-caja badge-tipo-icono">
+                  <IconoPermanente />
+                </span>
+                <div className="badge-texto-caja">
+                  <span className="badge-cifra-num">{abiertas.length}</span>
+                  <span className="badge-cifra-tag">salas abiertas todo el día</span>
+                </div>
+              </div>
+
+              {/* Acceso a Nova */}
+              <BotonNova />
+            </div>
+          ) : (
+            <div className="heroe-badges-literarios heroe-badges-vivo">
+              <BotonNova />
+            </div>
+          )}
+
+        </div>
+
+        {/* Libro en 3D a la derecha */}
+        <div className="heroe-arte-lado" aria-hidden="true">
+          <Card3D className="heroe-afiche-card-3d">
+            <Image
+              src="/logos/librofest.png"
+              alt="Afiche UPEC Libro Fest 2026"
+              width={135}
+              height={207}
+              className="heroe-afiche-3d-img"
+              priority
+            />
+          </Card3D>
         </div>
       </section>
 
@@ -178,4 +293,3 @@ export default function Ahora() {
     </div>
   );
 }
-
