@@ -1,12 +1,12 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Image from "next/image";
 import Card3D from "./Card3D";
 import AgendaFiltrable from "./AgendaFiltrable";
 import BotonNova from "./BotonNova";
 import { CIFRAS, SESIONES, enCurso, permanentesDe } from "@/lib/datos";
-import { diaDe, diasHastaElInicio, estadoFestival } from "@/lib/tiempo";
+import { diaDe, diasHastaElInicio, diaVisible, estadoFestival } from "@/lib/tiempo";
 import { useMomento } from "./Reloj";
 import {
   IconoConferencia,
@@ -17,7 +17,7 @@ import {
   IconoPersonas,
   IconoTaller,
 } from "./Iconos";
-import { type TipoSesion } from "@/lib/tipos";
+import { DIAS, type TipoSesion } from "@/lib/tipos";
 
 const ICONO_TIPO: Record<TipoSesion, (p: { className?: string }) => React.ReactElement> = {
   conferencia: IconoConferencia,
@@ -39,11 +39,21 @@ const ETIQUETA_TIPO: Record<TipoSesion, { sing: string; plur: string; cortaSing:
  * Página principal: héroe contextual + agenda filtrable.
  *
  * Muestra el libro 3D a la derecha en ambos estados (antes del festival con
- * la cuenta atrás, y durante el festival con el resumen de actividades en vivo
- * por tipo que tengan al menos una sesión activa). Incluye acceso directo a Nova.
+ * la cuenta atrás, y durante el festival con el resumen de actividades del día
+ * por tipo sincronizado con la fecha seleccionada). Incluye acceso directo a Nova.
  */
 export default function Ahora() {
   const momento = useMomento();
+  const [diaElegido, setDiaElegido] = useState<string | null>(null);
+
+  /* Leer estado inicial del día desde la URL si existe */
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    const d = p.get("dia");
+    if (d && (d === "todos" || DIAS.some((x) => x.fecha === d))) {
+      setDiaElegido(d);
+    }
+  }, []);
 
   /* --------------------------------------------------------- sin hora ---- */
 
@@ -157,17 +167,20 @@ export default function Ahora() {
           </div>
         </section>
 
-        <AgendaFiltrable />
+        <AgendaFiltrable diaElegido={diaElegido} onDiaChange={setDiaElegido} />
       </div>
     );
   }
 
   /* --------------------------------------------------------- en festival ---- */
 
-  const dia = diaDe(momento.fecha)!;
-  const delDia = SESIONES.filter((s) => s.dia === dia.fecha);
+  const diaActivoFecha = diaElegido ?? (momento ? diaVisible(momento.fecha) : DIAS[0].fecha);
+  const esTodos = diaActivoFecha === "todos";
+  const diaInfo = esTodos ? null : (DIAS.find((d) => d.fecha === diaActivoFecha) ?? DIAS[0]);
+  const encabezadoDia = esTodos ? "21 – 25 DE SEPT · UPEC" : `${diaInfo!.corto.toUpperCase()} DE SEPT · UPEC`;
+  const delDia = esTodos ? SESIONES : SESIONES.filter((s) => s.dia === diaActivoFecha);
 
-  /* Resumen de las actividades programadas para hoy por tipo */
+  /* Resumen de las actividades programadas para el día seleccionado por tipo */
   const tiposActivos = (["conferencia", "taller", "cultural", "libro"] as TipoSesion[])
     .map((tipo) => ({
       tipo,
@@ -179,15 +192,14 @@ export default function Ahora() {
     <div className="pagina">
       <section className="heroe heroe-compacto heroe-literario heroe-en-vivo">
         <div className="heroe-contenido">
-          {/* Cabecera editorial */}
+          {/* Cabecera editorial en una sola línea */}
           <div className="heroe-editorial-header">
             <span className="heroe-editorial-fecha">
-              {dia.nombre.toUpperCase()} DE SEPTIEMBRE · CAMPUS UPEC
+              {encabezadoDia}
             </span>
           </div>
 
-
-          {/* Badges de resumen en vivo + Acceso a Nova: flujo compacto que no se estira */}
+          {/* Badges de resumen por día + Acceso a Nova: 3 por fila en móvil */}
           <div className="heroe-badges-literarios heroe-badges-vivo">
             {tiposActivos.map(({ tipo, count }, index) => {
               const Icono = ICONO_TIPO[tipo];
@@ -208,14 +220,13 @@ export default function Ahora() {
                     <div className="badge-texto-caja">
                       <span className="badge-cifra-num">{count}</span>
                       <span className="badge-cifra-tag">
-                        <span className="tag-hoy-prefijo">Hoy: </span>
                         <span className="tag-desktop">{etiqueta}</span>
                         <span className="tag-mobile">{etiquetaCorta}</span>
                       </span>
                     </div>
                   </div>
 
-                  {/* Salto de línea estructurado si hay 4 tipos para que queden 3 arriba y el 4to abajo con Nova */}
+                  {/* Salto de línea estructurado si hay más de 3 tipos para que queden 3 arriba y el resto abajo con Nova */}
                   {index === 2 && tiposActivos.length > 3 && (
                     <span className="heroe-badges-salto" aria-hidden="true" />
                   )}
@@ -243,7 +254,7 @@ export default function Ahora() {
         </div>
       </section>
 
-      <AgendaFiltrable />
+      <AgendaFiltrable diaElegido={diaElegido} onDiaChange={setDiaElegido} />
     </div>
   );
 }

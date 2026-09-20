@@ -14,11 +14,21 @@ import { IconoBuscar, IconoCerrar, IconoChoque, IconoFiltros } from "./Iconos";
 
 const esTipo = (v: string): v is TipoSesion => ORDEN_TIPOS.includes(v as TipoSesion);
 
-export default function AgendaFiltrable() {
+interface AgendaFiltrableProps {
+  diaElegido?: string | null;
+  onDiaChange?: (dia: string) => void;
+}
+
+export default function AgendaFiltrable({
+  diaElegido: diaProp,
+  onDiaChange,
+}: AgendaFiltrableProps = {}) {
   const momento = useMomento();
   const { ids: guardadasIds } = useGuardadas();
 
-  const [diaElegido, setDiaElegido] = useState<string | null>(null);
+  const [diaLocal, setDiaLocal] = useState<string | null>(null);
+  const diaElegido = diaProp !== undefined ? diaProp : diaLocal;
+  const setDiaElegido = onDiaChange ?? setDiaLocal;
   const [tipos, setTipos] = useState<TipoSesion[]>([]);
   const [lugar, setLugar] = useState("");
   const [consulta, setConsulta] = useState("");
@@ -185,17 +195,30 @@ export default function AgendaFiltrable() {
 
   const gruposPasados = useMemo(() => {
     if (!esHoyVivo) return [];
-    // Un bloque-hora es "pasado" cuando su franja horaria ya terminó completa,
-    // es decir, la hora de inicio del bloque + 60 min ya pasó.
-    // Las sesiones largas (p.ej. 09:00–12:00) pueden seguir en vivo, pero
-    // el bloque-hora de las 09:00 ya es historia cuando son las 10:01.
-    return grupos.filter(([hora]) => hora + 60 <= minActual);
-  }, [grupos, esHoyVivo, minActual]);
+    // Una sesión es pasada únicamente cuando ya terminó por completo (s.fin <= minActual).
+    // Las sesiones que siguen en curso (s.fin > minActual) NUNCA se ocultan aquí.
+    const pasadas = conHorario.filter((s) => s.fin <= minActual);
+    const mapa = new Map<number, Sesion[]>();
+    for (const s of pasadas) {
+      const hora = Math.floor(s.inicio / 60) * 60;
+      if (!mapa.has(hora)) mapa.set(hora, []);
+      mapa.get(hora)!.push(s);
+    }
+    return [...mapa.entries()].sort((a, b) => a[0] - b[0]);
+  }, [conHorario, esHoyVivo, minActual]);
 
   const gruposVivosYFuturos = useMemo(() => {
     if (!esHoyVivo) return grupos;
-    return grupos.filter(([hora]) => hora + 60 > minActual);
-  }, [grupos, esHoyVivo, minActual]);
+    // Solo las sesiones que siguen en curso o que empezarán en el futuro (s.fin > minActual)
+    const vivas = conHorario.filter((s) => s.fin > minActual);
+    const mapa = new Map<number, Sesion[]>();
+    for (const s of vivas) {
+      const hora = Math.floor(s.inicio / 60) * 60;
+      if (!mapa.has(hora)) mapa.set(hora, []);
+      mapa.get(hora)!.push(s);
+    }
+    return [...mapa.entries()].sort((a, b) => a[0] - b[0]);
+  }, [conHorario, grupos, esHoyVivo, minActual]);
 
   const totalPasadas = gruposPasados.reduce((acc, [, sgs]) => acc + sgs.length, 0);
 
