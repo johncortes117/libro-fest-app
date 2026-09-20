@@ -1886,10 +1886,10 @@ button, input, select { font: inherit; color: inherit; }
 
 @media (max-width: 640px) {
   :root {
-    --libro-w: 98px;
-    --libro-h: 148px;
-    --libro-d: 17px;
-    --libro-medio-d: 8.5px;
+    --libro-w: 92px;
+    --libro-h: 138px;
+    --libro-d: 16px;
+    --libro-medio-d: 8px;
   }
   .libro-3d-escenario {
     padding: 3px 5px 8px 5px;
@@ -1910,26 +1910,26 @@ button, input, select { font: inherit; color: inherit; }
   .heroe-literario {
     flex-direction: row;
     align-items: stretch;
-    gap: 14px;
-    padding: 14px 16px;
+    gap: 12px;
+    padding: 10px 14px;
   }
   .heroe-literario .heroe-contenido {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-self: stretch;
-    gap: 12px;
-    padding: 2px 0;
+    gap: 8px;
+    padding: 0;
   }
   .heroe-editorial-header {
-    padding-bottom: 7px;
+    padding-bottom: 4px;
   }
   .heroe-editorial-fecha {
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
   }
   .contador-chevere-wrap {
-    gap: 10px;
+    gap: 8px;
   }
   .contador-placa-sello {
     min-width: 64px;
@@ -2045,61 +2045,70 @@ button, input, select { font: inherit; color: inherit; }
 
   /* Reducción de espaciados en mobile para ver la primera sesión de inmediato */
   .pagina {
-    padding: 8px 0 85px;
-    gap: 10px;
+    padding: 4px 0 85px;
+    gap: 8px;
   }
   .pagina-agenda {
-    gap: 6px;
+    gap: 5px;
   }
   .barra-filtros {
-    padding: 3px 0 5px;
-    gap: 5px;
+    padding: 2px 0 4px;
+    gap: 4px;
   }
   .fila-buscar {
     gap: 6px;
   }
   .fila-buscar .buscador input {
-    min-height: 38px;
-    font-size: 0.86rem;
-  }
-  .boton-filtros {
-    min-height: 38px;
-    padding: 0 11px;
+    min-height: 35px;
+    padding: 6px 32px 6px 34px;
     font-size: 0.82rem;
   }
+  .buscador .lupa {
+    left: 11px;
+    width: 14px;
+    height: 14px;
+  }
+  .boton-filtros {
+    min-height: 35px;
+    padding: 0 10px;
+    font-size: 0.78rem;
+    gap: 5px;
+  }
   .calendario-anillas {
-    top: -6px;
-    padding: 0 8px;
+    top: -5px;
+    padding: 0 6px;
   }
   .anilla {
-    width: 5px;
-    height: 11px;
-    border-radius: 2.5px;
+    width: 4.5px;
+    height: 9.5px;
+    border-radius: 2px;
   }
   .anilla::after {
-    width: 6.5px;
-    height: 4px;
+    width: 5.5px;
+    height: 3.5px;
     bottom: -2px;
   }
   .dia-boton {
-    min-width: 48px;
-    padding: 6px 6px 5px;
+    min-width: 42px;
+    padding: 4px 5px 4px;
+    border-radius: 7px;
   }
   .dia-boton .d {
-    font-size: 0.58rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.05em;
   }
   .dia-boton .n {
-    font-size: 1.15rem;
-    margin-top: 2px;
+    font-size: 0.98rem;
+    margin-top: 1.5px;
     padding-top: 1px;
   }
   .dia-boton-todos {
-    min-width: 60px;
-    padding: 6px 5px 5px;
+    min-width: 52px;
+    padding: 4px 5px 4px;
   }
   .dia-boton .n.n-todos {
-    font-size: 0.68rem;
-    margin-top: 2px;
+    font-size: 0.62rem;
+    margin-top: 1.5px;
     padding-top: 1px;
   }
   .bloque {
@@ -2120,10 +2129,10 @@ button, input, select { font: inherit; color: inherit; }
 
 @media (max-width: 380px) {
   :root {
-    --libro-w: 92px;
-    --libro-h: 142px;
-    --libro-d: 16px;
-    --libro-medio-d: 8px;
+    --libro-w: 86px;
+    --libro-h: 130px;
+    --libro-d: 15px;
+    --libro-medio-d: 7.5px;
   }
   .heroe-literario {
     padding: 6px 8px;
