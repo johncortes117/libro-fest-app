@@ -59,6 +59,26 @@ export const IconoAlerta = (p: Props) => (
   <svg {...base} {...p} aria-hidden><circle cx="12" cy="12" r="9" /><path d="M12 7.5v5M12 16.2v.1" /></svg>
 );
 
+
+export const IconoCafe = (p: Props) => (
+  <svg {...base} {...p} aria-hidden>
+    <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8Z" />
+    <line x1="6" y1="1" x2="6" y2="4" />
+    <line x1="10" y1="1" x2="10" y2="4" />
+    <line x1="14" y1="1" x2="14" y2="4" />
+  </svg>
+);
+
+export const IconoDescargar = (p: Props) => (
+  <svg {...base} {...p} aria-hidden>
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+    <polyline points="7 10 12 15 17 10" />
+    <line x1="12" y1="15" x2="12" y2="3" />
+  </svg>
+);
+
+
 export const IconoCalendario = (p: Props) => (
   <svg {...base} {...p} aria-hidden>
     <rect x="3.5" y="4.5" width="17" height="16" rx="2.5" />

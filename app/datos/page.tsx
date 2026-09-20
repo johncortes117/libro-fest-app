@@ -110,11 +110,30 @@ export default function Datos() {
           <div className="dato">
             <IconoInfo />
             <div>
-              <dt>Títulos cortados</dt>
+              <dt>Nombres de sala</dt>
               <dd>
-                Catorce títulos llegan truncados desde la transcripción del documento original. Se
-                muestran tal cual, marcados con <span className="cortado">[…]</span>, sin
-                completarlos por nuestra cuenta.
+                La agenda y el mapa oficial no usan los mismos nombres: donde la agenda dice
+                «Auditorio Edificio central», el mapa dice «Auditorio Edificio Principal». Mostramos
+                el nombre del mapa, que es el que está escrito en el edificio.
+              </dd>
+            </div>
+          </div>
+        </dl>
+      </section>
+
+      <section className="bloque">
+        <div className="bloque-cabecera">
+          <h2>Novedades y aclaraciones recientes</h2>
+        </div>
+
+        <dl className="datos">
+          <div className="dato">
+            <IconoInfo />
+            <div>
+              <dt>Títulos completados</dt>
+              <dd>
+                Los 14 títulos que en versiones preliminares llegaban truncados con […] fueron
+                completamente restaurados a partir de la agenda actualizada oficial.
               </dd>
             </div>
           </div>
@@ -122,11 +141,19 @@ export default function Datos() {
           <div className="dato">
             <IconoInfo />
             <div>
-              <dt>Nombres de sala</dt>
+              <dt>Ubicación de Quiz Fest</dt>
               <dd>
-                La agenda y el mapa oficial no usan los mismos nombres: donde la agenda dice
-                «Auditorio Edificio central», el mapa dice «Auditorio Edificio Principal». Mostramos
-                el nombre del mapa, que es el que está escrito en el edificio.
+                Se confirmó su espacio oficial en el Salón de Eventos del Edificio Aulas 4 (Punto 5 del mapa).
+              </dd>
+            </div>
+          </div>
+
+          <div className="dato">
+            <IconoInfo />
+            <div>
+              <dt>Muestra editorial y librerías</dt>
+              <dd>
+                Se integró el catálogo completo con las {CIFRAS.editoriales} editoriales y librerías que estarán presentes en el Centro de Convenciones durante el festival.
               </dd>
             </div>
           </div>
@@ -147,6 +174,41 @@ export default function Datos() {
             de la agenda, todo se vuelve a generar sobre ella.
           </span>
         </p>
+      </section>
+
+      <section className="bloque bloque-apoyo-datos">
+        <div className="bloque-cabecera">
+          <h2>Apoyo a este proyecto independiente</h2>
+        </div>
+        <p className="entradilla" style={{ marginTop: 0 }}>
+          Esta plataforma web fue diseñada y desarrollada de manera voluntaria e independiente por <strong>John Cortés (@johncp.dev)</strong> con el fin de brindar una experiencia en tiempo real a todos los asistentes del festival.
+        </p>
+        <div className="datos-apoyo-card">
+          <div className="datos-apoyo-qr">
+            <Image
+              src="/img/qr-deuna.png"
+              alt="Código QR Deuna de John Cortés"
+              width={160}
+              height={160}
+              className="datos-apoyo-qr-img"
+            />
+          </div>
+          <div className="datos-apoyo-info">
+            <span className="deuna-tag-mini">Deuna · Ecuador</span>
+            <h3>Invítame un café ☕</h3>
+            <p>
+              Si la aplicación te fue útil en el festival y deseas enviar un aporte de corazón, puedes escanear este código QR desde tu app <strong>Deuna</strong> o <strong>Banco Pichincha</strong>.
+            </p>
+            <a
+              href="/img/qr-deuna.png"
+              download="qr-deuna-johncp.png"
+              className="boton-descargar-qr-sm"
+              title="Guardar código QR en tus fotos para abrirlo en Deuna"
+            >
+              Guardar QR para Deuna
+            </a>
+          </div>
+        </div>
       </section>
 
       <div className="botonera">

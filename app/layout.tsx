@@ -16,6 +16,8 @@ import QrLlevar from "@/components/QrLlevar";
 import { ProveedorMomento } from "@/components/Reloj";
 import { ProveedorEntrada } from "@/components/Entrada";
 import { ProveedorBrindis } from "@/components/Brindis";
+import { ProveedorApoyo } from "@/components/ModalApoyo";
+import TarjetaApoyoFooter from "@/components/TarjetaApoyoFooter";
 import { SITIO } from "@/lib/sitio";
 
 /* Archivo para todo lo estructural: sus pesos altos dan el mismo bloque compacto
@@ -96,14 +98,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ProveedorMomento>
           <ProveedorBrindis>
             <ProveedorEntrada>
-              <a href="#principal" className="solo-lectores">
-                Saltar al contenido
-              </a>
+              <ProveedorApoyo>
+                <a href="#principal" className="solo-lectores">
+                  Saltar al contenido
+                </a>
 
-              <header className="cabecera">
-                <div className="cabecera-fila">
-                  <div className="marca-conjunto">
-                    <Link href="/" className="marca-ulif-link" aria-label="UPEC Libro Fest 2026, inicio">
+                <header className="cabecera">
+                  <div className="cabecera-fila">
+                    <div className="marca-conjunto">
+                      <Link href="/" className="marca-ulif-link" aria-label="UPEC Libro Fest 2026, inicio">
                       <Image
                         src="/logos/ulif.png"
                         alt="ULIF'26 · Academia, arte y cultura"
@@ -127,8 +130,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       <Image
                         src="/logos/upec.png"
                         alt="Universidad Politécnica Estatal del Carchi"
-                        width={92}
-                        height={36}
+                        width={96}
+                        height={37}
                         className="marca-upec-img"
                         priority
                       />
@@ -151,6 +154,109 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </main>
 
               <footer className="pie-simple contenedor">
+                {/* 1. Bloque de donación */}
+                <TarjetaApoyoFooter />
+
+                {/* 2. Datos y enlaces del creador */}
+                <div className="pie-creditos-autor">
+                  <div className="pie-autor-bloque">
+                    <span className="pie-autor-label">Desarrollado por:</span>
+                    <div className="pie-autor-tarjeta">
+                      <a
+                        href="https://www.instagram.com/johncp.dev/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="pie-autor-avatar-link"
+                        title="Instagram @johncp.dev"
+                      >
+                        <Image
+                          src="/img/johncp-avatar.png"
+                          alt="John Cortés (@johncp.dev)"
+                          width={48}
+                          height={48}
+                          className="pie-autor-avatar"
+                        />
+                      </a>
+                      <a
+                        href="https://www.instagram.com/johncp.dev/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="pie-autor-handle"
+                        title="Instagram @johncp.dev"
+                      >
+                        @johncp.dev
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="pie-autor-redes">
+                    {/* 1) LinkedIn */}
+                    <a
+                      href="https://www.linkedin.com/in/john-cortes-pozo/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pie-red-link"
+                      title="LinkedIn John Cortés Pozo"
+                      aria-label="Perfil de LinkedIn"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="pie-red-icono">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.67 1.67 0 1 0 0-3.34 1.67 1.67 0 0 0 0 3.34m1.4 9.74v-8.37H5.06v8.37h2.8z" />
+                      </svg>
+                      <span>LinkedIn</span>
+                    </a>
+
+                    {/* 2) Instagram */}
+                    <a
+                      href="https://www.instagram.com/johncp.dev/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pie-red-link"
+                      title="Instagram @johncp.dev"
+                      aria-label="Perfil de Instagram"
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="pie-red-icono">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                      </svg>
+                      <span>Instagram</span>
+                    </a>
+
+                    {/* 3) GitHub */}
+                    <a
+                      href="https://github.com/johncortes117"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pie-red-link"
+                      title="GitHub @johncortes117"
+                      aria-label="Perfil de GitHub"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="pie-red-icono">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                      </svg>
+                      <span>GitHub</span>
+                    </a>
+
+                    {/* 4) Web */}
+                    <a
+                      href="https://johncp.dev/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pie-red-link"
+                      title="Sitio web de @johncp.dev"
+                      aria-label="Sitio web personal"
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="pie-red-icono">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                        <path d="M2 12h20" />
+                      </svg>
+                      <span>Web</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* 3. Logos y Sobre esta agenda */}
                 <div className="pie-simple-fila">
                   <div className="pie-simple-marcas">
                     <a
@@ -186,84 +292,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     </a>
                   </p>
                 </div>
-
-                {/* Créditos de autor / creador */}
-                <div className="pie-creditos-autor">
-                  <div className="pie-autor-info">
-                    <span className="pie-autor-label">Desarrollado y diseñado por</span>
-                    <a
-                      href="https://johncp.dev/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="pie-autor-handle"
-                    >
-                      @johncp.dev
-                    </a>
-                  </div>
-
-                  <div className="pie-autor-redes">
-                    <a
-                      href="https://johncp.dev/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="pie-red-link"
-                      title="Sitio web de @johncp.dev"
-                      aria-label="Sitio web personal"
-                    >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="pie-red-icono">
-                        <circle cx="12" cy="12" r="10" />
-                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                        <path d="M2 12h20" />
-                      </svg>
-                      <span>johncp.dev</span>
-                    </a>
-
-                    <a
-                      href="https://github.com/johncortes117"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="pie-red-link"
-                      title="GitHub @johncortes117"
-                      aria-label="Perfil de GitHub"
-                    >
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="pie-red-icono">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                      </svg>
-                      <span>GitHub</span>
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/john-cortes-pozo/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="pie-red-link"
-                      title="LinkedIn John Cortés Pozo"
-                      aria-label="Perfil de LinkedIn"
-                    >
-                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="pie-red-icono">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.67 1.67 0 1 0 0-3.34 1.67 1.67 0 0 0 0 3.34m1.4 9.74v-8.37H5.06v8.37h2.8z" />
-                      </svg>
-                      <span>LinkedIn</span>
-                    </a>
-
-                    <a
-                      href="https://www.instagram.com/johncp.dev/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="pie-red-link"
-                      title="Instagram @johncp.dev"
-                      aria-label="Perfil de Instagram"
-                    >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="pie-red-icono">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                      </svg>
-                      <span>Instagram</span>
-                    </a>
-                  </div>
-                </div>
               </footer>
+                </ProveedorApoyo>
             </ProveedorEntrada>
           </ProveedorBrindis>
         </ProveedorMomento>
