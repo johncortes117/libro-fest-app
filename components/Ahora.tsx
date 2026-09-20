@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import Image from "next/image";
 import Card3D from "./Card3D";
 import AgendaFiltrable from "./AgendaFiltrable";
@@ -26,12 +27,12 @@ const ICONO_TIPO: Record<TipoSesion, (p: { className?: string }) => React.ReactE
   permanente: IconoPermanente,
 };
 
-const ETIQUETA_TIPO: Record<TipoSesion, { sing: string; plur: string }> = {
-  conferencia: { sing: "Conferencia", plur: "Conferencias" },
-  taller: { sing: "Taller", plur: "Talleres" },
-  cultural: { sing: "Cultural", plur: "Culturales" },
-  libro: { sing: "Libro", plur: "Libros" },
-  permanente: { sing: "Sala", plur: "Salas abiertas" },
+const ETIQUETA_TIPO: Record<TipoSesion, { sing: string; plur: string; cortaSing: string; cortaPlur: string }> = {
+  conferencia: { sing: "Conferencia", plur: "Conferencias", cortaSing: "Conf.", cortaPlur: "Conf." },
+  taller: { sing: "Taller", plur: "Talleres", cortaSing: "Taller", cortaPlur: "Talleres" },
+  cultural: { sing: "Cultural", plur: "Culturales", cortaSing: "Cultura", cortaPlur: "Cultura" },
+  libro: { sing: "Libro", plur: "Libros", cortaSing: "Libro", cortaPlur: "Libros" },
+  permanente: { sing: "Sala", plur: "Salas abiertas", cortaSing: "Sala", cortaPlur: "Salas" },
 };
 
 /**
@@ -87,9 +88,13 @@ export default function Ahora() {
               </div>
             ) : faltan > 0 ? (
               <div className="contador-chevere-wrap">
-                {/* Placa / Ficha de cuenta regresiva */}
+                {/* Placa / Ficha de cuenta regresiva con anillas de calendario */}
                 <div className="contador-placa-sello">
-                  <span className="placa-kicker">FALTAN</span>
+                  <span className="calendario-anillas" aria-hidden="true">
+                    <span className="anilla a1" />
+                    <span className="anilla a2" />
+                  </span>
+                  <span className="placa-kicker">{faltan === 1 ? "FALTA" : "FALTAN"}</span>
                   <span className="placa-cifra">{String(faltan).padStart(2, "0")}</span>
                   <span className="placa-unidad">{faltan === 1 ? "DÍA" : "DÍAS"}</span>
                 </div>
@@ -97,7 +102,7 @@ export default function Ahora() {
                 {/* Titular del evento */}
                 <div className="contador-titular-evento">
                   <span className="contador-de">para el</span>
-                  <h1 className="contador-nombre-fest">LibroFest</h1>
+                  <h1 className="contador-nombre-fest">UPEC Libro Fest 2026</h1>
                 </div>
               </div>
             ) : (
@@ -108,7 +113,7 @@ export default function Ahora() {
               </div>
             )}
 
-            {/* Dos únicas tarjetas de cifras: Actividades y Autores */}
+            {/* Cifras de actividades, autores y Nova: compactos según su texto */}
             <div className="heroe-badges-literarios">
               <div className="badge-literario">
                 <span className="badge-icono-caja">
@@ -130,7 +135,7 @@ export default function Ahora() {
                 </div>
               </div>
 
-              {/* Acceso a Nova integrado en la fila de badges */}
+              {/* Acceso a Nova compacto */}
               <BotonNova />
             </div>
           </div>
@@ -158,10 +163,7 @@ export default function Ahora() {
 
   const dia = diaDe(momento.fecha)!;
   const corriendo = enCurso(momento.fecha, momento.minutos);
-  const permanentes = permanentesDe(momento.fecha);
-
   const conHorario = corriendo.filter((s) => !s.permanente);
-  const abiertas = corriendo.filter((s) => s.permanente);
 
   /* Solo los tipos que tienen AL MENOS una sesión activa en este momento */
   const tiposActivos = (["conferencia", "taller", "cultural", "libro"] as TipoSesion[])
@@ -175,38 +177,23 @@ export default function Ahora() {
     <div className="pagina">
       <section className="heroe heroe-compacto heroe-literario heroe-en-vivo">
         <div className="heroe-contenido">
-          {/* Cabecera editorial con badge EN VIVO */}
+          {/* Cabecera editorial */}
           <div className="heroe-editorial-header">
-            <span className="badge-en-vivo-header">
-              <span className="ping-vivo" aria-hidden>
-                <span className="ping-nucleo" />
-              </span>
-              EN VIVO
-            </span>
             <span className="heroe-editorial-fecha">
               {dia.nombre.toUpperCase()} DE SEPTIEMBRE · CAMPUS UPEC
             </span>
           </div>
 
-          <div className="heroe-editorial-cuerpo">
-            <h1 className="heroe-titular-vivo">
-              <span className="txt-evento">
-                {conHorario.length > 0
-                  ? `${conHorario.length} ${conHorario.length === 1 ? "actividad en curso" : "actividades en curso"}`
-                  : "Festival en marcha"}
-              </span>
-            </h1>
-          </div>
 
-          {/* Badges de resumen en vivo: SOLO tipos con count > 0 */}
-          {tiposActivos.length > 0 ? (
-            <div className="heroe-badges-literarios heroe-badges-vivo">
-              {tiposActivos.map(({ tipo, count }) => {
-                const Icono = ICONO_TIPO[tipo];
-                const etiqueta = count === 1 ? ETIQUETA_TIPO[tipo].sing : ETIQUETA_TIPO[tipo].plur;
-                return (
+          {/* Badges de resumen en vivo + Acceso a Nova: flujo compacto que no se estira */}
+          <div className="heroe-badges-literarios heroe-badges-vivo">
+            {tiposActivos.map(({ tipo, count }, index) => {
+              const Icono = ICONO_TIPO[tipo];
+              const etiqueta = count === 1 ? ETIQUETA_TIPO[tipo].sing : ETIQUETA_TIPO[tipo].plur;
+              const etiquetaCorta = count === 1 ? ETIQUETA_TIPO[tipo].cortaSing : ETIQUETA_TIPO[tipo].cortaPlur;
+              return (
+                <Fragment key={tipo}>
                   <div
-                    key={tipo}
                     className="badge-literario badge-tipo-vivo"
                     style={{
                       "--color-tipo": `var(--t-${tipo})`,
@@ -218,60 +205,24 @@ export default function Ahora() {
                     </span>
                     <div className="badge-texto-caja">
                       <span className="badge-cifra-num">{count}</span>
-                      <span className="badge-cifra-tag">{etiqueta}</span>
+                      <span className="badge-cifra-tag">
+                        <span className="tag-desktop">{etiqueta}</span>
+                        <span className="tag-mobile">{etiquetaCorta}</span>
+                      </span>
                     </div>
                   </div>
-                );
-              })}
 
-              {abiertas.length > 0 && (
-                <div
-                  className="badge-literario badge-tipo-vivo"
-                  style={{
-                    "--color-tipo": "var(--t-permanente)",
-                    "--fondo-tipo": "var(--t-permanente-soft)",
-                  } as React.CSSProperties}
-                >
-                  <span className="badge-icono-caja badge-tipo-icono">
-                    <IconoPermanente />
-                  </span>
-                  <div className="badge-texto-caja">
-                    <span className="badge-cifra-num">{abiertas.length}</span>
-                    <span className="badge-cifra-tag">salas abiertas</span>
-                  </div>
-                </div>
-              )}
+                  {/* Salto de línea estructurado si hay 4 tipos para que queden 3 arriba y el 4to abajo con Nova */}
+                  {index === 2 && tiposActivos.length > 3 && (
+                    <span className="heroe-badges-salto" aria-hidden="true" />
+                  )}
+                </Fragment>
+              );
+            })}
 
-              {/* Acceso a Nova integrado en la fila de badges en vivo */}
-              <BotonNova />
-            </div>
-          ) : abiertas.length > 0 ? (
-            <div className="heroe-badges-literarios heroe-badges-vivo">
-              <div
-                className="badge-literario badge-tipo-vivo"
-                style={{
-                  "--color-tipo": "var(--t-permanente)",
-                  "--fondo-tipo": "var(--t-permanente-soft)",
-                } as React.CSSProperties}
-              >
-                <span className="badge-icono-caja badge-tipo-icono">
-                  <IconoPermanente />
-                </span>
-                <div className="badge-texto-caja">
-                  <span className="badge-cifra-num">{abiertas.length}</span>
-                  <span className="badge-cifra-tag">salas abiertas todo el día</span>
-                </div>
-              </div>
-
-              {/* Acceso a Nova */}
-              <BotonNova />
-            </div>
-          ) : (
-            <div className="heroe-badges-literarios heroe-badges-vivo">
-              <BotonNova />
-            </div>
-          )}
-
+            {/* Acceso directo a Nova compacto */}
+            <BotonNova />
+          </div>
         </div>
 
         {/* Libro en 3D a la derecha */}

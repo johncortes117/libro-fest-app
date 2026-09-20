@@ -49,7 +49,7 @@ export default function Navegacion() {
                   </span>
                 )}
               </span>
-              <span>{texto}</span>
+              <span className="nav-texto">{texto}</span>
             </Link>
           );
         })}

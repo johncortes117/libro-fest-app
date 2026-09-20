@@ -352,19 +352,38 @@ export default function AgendaFiltrable() {
 
       <div className="resultados" key={firmaFiltros}>
 
-        {/* Actividades pasadas: colapsadas debajo de un botón acordeón */}
+        {/* Actividades pasadas: separador sutil tipo timeline cronológico */}
         {esHoyVivo && gruposPasados.length > 0 && (
           <div className="seccion-pasadas">
-            <button
-              type="button"
-              className="btn-pasadas"
-              onClick={() => setMostrarPasadas((v) => !v)}
-              aria-expanded={mostrarPasadas}
-            >
-              {mostrarPasadas
-                ? `▲ Ocultar actividades anteriores`
-                : `▼ Ver actividades anteriores (${totalPasadas})`}
-            </button>
+            <div className="pasadas-separador-linea">
+              <button
+                type="button"
+                className="btn-pasadas-sutil"
+                onClick={() => setMostrarPasadas((v) => !v)}
+                aria-expanded={mostrarPasadas}
+                title={mostrarPasadas ? "Ocultar actividades anteriores de hoy" : `Ver ${totalPasadas} actividades anteriores finalizadas`}
+              >
+                <svg
+                  className="icono-pasadas"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="8" cy="8" r="6" />
+                  <polyline points="8 4.5 8 8 10.5 9.5" />
+                </svg>
+                <span className="texto-pasadas">
+                  {mostrarPasadas
+                    ? "Ocultar actividades anteriores"
+                    : `${totalPasadas} ${totalPasadas === 1 ? "actividad anterior" : "actividades anteriores"}`}
+                </span>
+                <span className={`chevron-pasadas ${mostrarPasadas ? "abierto" : ""}`} aria-hidden="true">▾</span>
+              </button>
+            </div>
             {mostrarPasadas &&
               gruposPasados.map(([hora, sesiones]) => (
                 <section className="bloque bloque-pasado" key={hora}>

@@ -30,6 +30,11 @@ export default function TiraDias({
             aria-pressed={dia === d.fecha}
             onClick={() => onElegir(d.fecha)}
           >
+            {/* Anillas de encuadernación de hoja de calendario */}
+            <span className="calendario-anillas" aria-hidden="true">
+              <span className="anilla a1" />
+              <span className="anilla a2" />
+            </span>
             <span className="d">{d.corto.slice(0, 3)}</span>
             <span className="n">{d.numero}</span>
             {esHoy && <span className="hoy-punto" aria-label="hoy" />}
@@ -43,6 +48,10 @@ export default function TiraDias({
         onClick={() => onElegir("todos")}
         title="Ver actividades permanentes de todos los días"
       >
+        <span className="calendario-anillas" aria-hidden="true">
+          <span className="anilla a1" />
+          <span className="anilla a2" />
+        </span>
         <span className="d">TODOS</span>
         <span className="n n-todos">LOS DÍAS</span>
       </button>

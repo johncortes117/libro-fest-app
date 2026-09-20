@@ -134,7 +134,7 @@ export default function FilaSesion({ sesion, relativo, choca, mostrarDia, index 
               <span className="ping-vivo" aria-hidden>
                 <span className="ping-nucleo" />
               </span>
-              EN VIVO
+              EN CURSO
             </span>
           )}
         </div>
