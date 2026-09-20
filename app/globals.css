@@ -2088,34 +2088,34 @@ button, input, select { font: inherit; color: inherit; }
   }
   .dia-boton,
   .tira .dia-boton {
-    min-width: 36px;
-    padding: 3px 5px 1.5px;
-    border-radius: 6px;
+    min-width: 54px;
+    padding: 6px 9px 4px;
+    border-radius: 8px;
   }
   .dia-boton .d,
   .tira .dia-boton .d {
-    font-size: 0.42rem;
-    letter-spacing: 0.03em;
+    font-size: 0.56rem;
+    letter-spacing: 0.05em;
   }
   .dia-boton .n,
   .tira .dia-boton .n {
-    font-size: 0.85rem;
-    margin-top: 1px;
-    padding-top: 1px;
-    line-height: 1;
+    font-size: 1.20rem;
+    margin-top: 2px;
+    padding-top: 1.5px;
+    line-height: 1.05;
     margin-bottom: 0;
   }
   .dia-boton-todos,
   .tira .dia-boton-todos {
-    min-width: 42px;
-    padding: 3px 5px 1.5px;
+    min-width: 66px;
+    padding: 6px 9px 4px;
   }
   .dia-boton .n.n-todos,
   .tira .dia-boton .n.n-todos {
-    font-size: 0.52rem;
-    margin-top: 1px;
-    padding-top: 1px;
-    line-height: 1;
+    font-size: 0.70rem;
+    margin-top: 2px;
+    padding-top: 1.5px;
+    line-height: 1.05;
   }
   .bloque {
     gap: 8px;
@@ -2446,11 +2446,11 @@ button, input, select { font: inherit; color: inherit; }
   flex: none;
   border: 1px solid var(--line);
   background: var(--surface);
-  border-radius: 8px;
-  padding: 5px 9px 3px;
+  border-radius: 9px;
+  padding: 7px 11px 4.5px;
   cursor: pointer;
   text-align: center;
-  min-width: 52px;
+  min-width: 58px;
   line-height: 1;
   box-shadow:
     0 2px 6px rgba(51, 32, 29, 0.05),
@@ -2466,7 +2466,7 @@ button, input, select { font: inherit; color: inherit; }
 }
 
 .dia-boton .d {
-  font-size: 0.54rem;
+  font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2478,14 +2478,14 @@ button, input, select { font: inherit; color: inherit; }
 /* Línea de perforación de hoja de calendario */
 .dia-boton .n {
   font-family: var(--display);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 900;
   letter-spacing: -0.03em;
   display: block;
   margin-top: 2px;
   padding-top: 2px;
   border-top: 1px dashed rgba(51, 32, 29, 0.12);
-  line-height: 1.02;
+  line-height: 1.04;
   margin-bottom: 0;
 }
 
