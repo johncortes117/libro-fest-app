@@ -23,9 +23,8 @@ export default function TarjetaApoyoFooter() {
         type="button"
         onClick={abrirApoyo}
         className="boton-donar-deuna"
-        title="Abrir código QR Deuna para donar voluntariamente"
+        title="Abrir código QR para donar voluntariamente"
       >
-        <span className="deuna-logo-tag" aria-hidden="true">d!</span>
         <span>Donar un café</span>
       </button>
     </div>

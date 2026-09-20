@@ -4322,42 +4322,49 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
 @media (max-width: 680px) {
   .pie-tarjeta-apoyo {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 12px;
-    padding: 14px 16px;
+    padding: 16px 18px;
   }
   .pie-tarjeta-apoyo-contenido {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 8px;
+    width: 100%;
   }
   .pie-tarjeta-apoyo-icono {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
+    margin: 0 auto;
+    align-self: center;
   }
   .pie-tarjeta-apoyo-icono svg {
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 19px;
+  }
+  .pie-tarjeta-apoyo-texto {
+    align-items: center;
+    text-align: center;
   }
   .pie-tarjeta-apoyo-titulo {
-    font-size: 0.94rem;
+    font-size: 0.95rem;
     line-height: 1.25;
     letter-spacing: -0.01em;
+    text-align: center;
   }
   .pie-tarjeta-apoyo-bajada {
-    font-size: 0.80rem;
-    line-height: 1.4;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    text-align: center;
   }
   .boton-donar-deuna {
     width: fit-content;
-    align-self: flex-start;
-    padding: 7px 14px;
-    font-size: 0.80rem;
-    gap: 7px;
-  }
-  .deuna-logo-tag {
-    font-size: 0.72rem;
-    padding: 1px 5px;
+    align-self: center;
+    margin: 2px auto 0;
+    padding: 8px 18px;
+    font-size: 0.82rem;
   }
 }
 
