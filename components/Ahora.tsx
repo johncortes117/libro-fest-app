@@ -5,7 +5,7 @@ import Image from "next/image";
 import Card3D from "./Card3D";
 import AgendaFiltrable from "./AgendaFiltrable";
 import BotonNova from "./BotonNova";
-import { CIFRAS, enCurso, permanentesDe } from "@/lib/datos";
+import { CIFRAS, SESIONES, enCurso, permanentesDe } from "@/lib/datos";
 import { diaDe, diasHastaElInicio, estadoFestival } from "@/lib/tiempo";
 import { useMomento } from "./Reloj";
 import {
@@ -135,6 +135,9 @@ export default function Ahora() {
                 </div>
               </div>
 
+              {/* Salto para dejar el botón de Nova solo en la segunda fila */}
+              <span className="heroe-badges-salto" aria-hidden="true" />
+
               {/* Acceso a Nova compacto */}
               <BotonNova />
             </div>
@@ -162,14 +165,13 @@ export default function Ahora() {
   /* --------------------------------------------------------- en festival ---- */
 
   const dia = diaDe(momento.fecha)!;
-  const corriendo = enCurso(momento.fecha, momento.minutos);
-  const conHorario = corriendo.filter((s) => !s.permanente);
+  const delDia = SESIONES.filter((s) => s.dia === dia.fecha);
 
-  /* Solo los tipos que tienen AL MENOS una sesión activa en este momento */
+  /* Resumen de las actividades programadas para hoy por tipo */
   const tiposActivos = (["conferencia", "taller", "cultural", "libro"] as TipoSesion[])
     .map((tipo) => ({
       tipo,
-      count: conHorario.filter((s) => s.tipo === tipo).length,
+      count: delDia.filter((s) => s.tipo === tipo).length,
     }))
     .filter(({ count }) => count > 0);
 
@@ -206,6 +208,7 @@ export default function Ahora() {
                     <div className="badge-texto-caja">
                       <span className="badge-cifra-num">{count}</span>
                       <span className="badge-cifra-tag">
+                        <span className="tag-hoy-prefijo">Hoy: </span>
                         <span className="tag-desktop">{etiqueta}</span>
                         <span className="tag-mobile">{etiquetaCorta}</span>
                       </span>

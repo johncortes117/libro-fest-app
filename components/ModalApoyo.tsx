@@ -5,11 +5,13 @@ import Image from "next/image";
 import { IconoCerrar, IconoCafe, IconoDescargar } from "./Iconos";
 
 interface ContextoApoyo {
+  abierto: boolean;
   abrirApoyo: () => void;
   cerrarApoyo: () => void;
 }
 
 const CtxApoyo = createContext<ContextoApoyo>({
+  abierto: false,
   abrirApoyo: () => {},
   cerrarApoyo: () => {},
 });
@@ -46,7 +48,7 @@ export function ProveedorApoyo({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <CtxApoyo.Provider value={{ abrirApoyo, cerrarApoyo }}>
+    <CtxApoyo.Provider value={{ abierto, abrirApoyo, cerrarApoyo }}>
       {children}
 
       {abierto && (
@@ -106,7 +108,7 @@ export function ProveedorApoyo({ children }: { children: React.ReactNode }) {
                 title="Guardar código QR en tus fotos"
               >
                 <IconoDescargar aria-hidden />
-                <span>Guardar QR</span>
+                <span>Descargar QR</span>
               </a>
             </div>
           </div>

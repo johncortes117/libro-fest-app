@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useGuardadas } from "@/lib/guardadas";
+import { useApoyo } from "./ModalApoyo";
 import { IconoAgenda, IconoGuardar, IconoMapa } from "./Iconos";
 
 /**
@@ -24,6 +25,9 @@ const ENLACES = [
 export default function Navegacion() {
   const ruta = usePathname();
   const { ids } = useGuardadas();
+  const { abierto: apoyoAbierto } = useApoyo();
+
+  if (apoyoAbierto) return null;
 
   return (
     <nav className="nav" aria-label="Secciones">
