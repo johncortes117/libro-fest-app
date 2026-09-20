@@ -1903,16 +1903,16 @@ button, input, select { font: inherit; color: inherit; }
   }
   .heroe-literario {
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
     gap: 12px;
     padding: 10px 14px;
   }
   .heroe-literario .heroe-contenido {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-self: stretch;
-    gap: 8px;
+    justify-content: center;
+    align-self: center;
+    gap: 7px;
     padding: 0;
   }
   .heroe-editorial-header {
@@ -2086,28 +2086,36 @@ button, input, select { font: inherit; color: inherit; }
     height: 3px;
     bottom: -1.5px;
   }
-  .dia-boton {
-    min-width: 38px;
-    padding: 3px 5px 2.5px;
+  .dia-boton,
+  .tira .dia-boton {
+    min-width: 36px;
+    padding: 3px 5px 1.5px;
     border-radius: 6px;
   }
-  .dia-boton .d {
-    font-size: 0.48rem;
-    letter-spacing: 0.04em;
+  .dia-boton .d,
+  .tira .dia-boton .d {
+    font-size: 0.42rem;
+    letter-spacing: 0.03em;
   }
-  .dia-boton .n {
-    font-size: 0.88rem;
+  .dia-boton .n,
+  .tira .dia-boton .n {
+    font-size: 0.85rem;
     margin-top: 1px;
     padding-top: 1px;
+    line-height: 1;
+    margin-bottom: 0;
   }
-  .dia-boton-todos {
-    min-width: 46px;
-    padding: 3px 5px 2.5px;
+  .dia-boton-todos,
+  .tira .dia-boton-todos {
+    min-width: 42px;
+    padding: 3px 5px 1.5px;
   }
-  .dia-boton .n.n-todos {
-    font-size: 0.58rem;
+  .dia-boton .n.n-todos,
+  .tira .dia-boton .n.n-todos {
+    font-size: 0.52rem;
     margin-top: 1px;
     padding-top: 1px;
+    line-height: 1;
   }
   .bloque {
     gap: 8px;
@@ -2438,12 +2446,12 @@ button, input, select { font: inherit; color: inherit; }
   flex: none;
   border: 1px solid var(--line);
   background: var(--surface);
-  border-radius: 9px;
-  padding: 8px 12px 7px;
+  border-radius: 8px;
+  padding: 5px 9px 3px;
   cursor: pointer;
   text-align: center;
-  min-width: 62px;
-  line-height: 1.1;
+  min-width: 52px;
+  line-height: 1;
   box-shadow:
     0 2px 6px rgba(51, 32, 29, 0.05),
     0 1px 2px rgba(0, 0, 0, 0.03);
@@ -2458,9 +2466,9 @@ button, input, select { font: inherit; color: inherit; }
 }
 
 .dia-boton .d {
-  font-size: 0.65rem;
+  font-size: 0.54rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
   display: block;
@@ -2470,14 +2478,15 @@ button, input, select { font: inherit; color: inherit; }
 /* Línea de perforación de hoja de calendario */
 .dia-boton .n {
   font-family: var(--display);
-  font-size: 1.32rem;
+  font-size: 1.15rem;
   font-weight: 900;
   letter-spacing: -0.03em;
   display: block;
-  margin-top: 3px;
+  margin-top: 2px;
   padding-top: 2px;
   border-top: 1px dashed rgba(51, 32, 29, 0.12);
-  line-height: 1.05;
+  line-height: 1.02;
+  margin-bottom: 0;
 }
 
 :root[data-theme="dark"] .dia-boton .n {
@@ -2504,16 +2513,7 @@ button, input, select { font: inherit; color: inherit; }
   border-color: var(--gold-bright);
 }
 .dia-boton .hoy-punto {
-  display: block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  margin: 3px auto 0;
-}
-.dia-boton[aria-pressed="true"] .hoy-punto {
-  background: var(--upec-amarillo);
-  box-shadow: 0 0 6px rgba(245, 158, 11, 0.8);
+  display: none !important;
 }
 
 /* Botón 'Todos los días' */
@@ -4282,26 +4282,28 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  background: #7e22ce;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--upec) 0%, #1c4d28 100%);
   color: #ffffff;
   font-family: var(--fuente-display), var(--display);
   font-weight: 700;
-  font-size: 0.88rem;
-  padding: 10px 18px;
+  font-size: 0.86rem;
+  padding: 8px 16px;
   border-radius: 999px;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(126, 34, 206, 0.35);
-  transition: background-color 0.16s ease, transform 0.16s ease;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(27, 94, 59, 0.28);
+  transition: background 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
 }
 
 .boton-donar-deuna:hover {
-  background: #6b21a8;
+  background: linear-gradient(135deg, var(--upec-claro) 0%, #235d32 100%);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(27, 94, 59, 0.38);
 }
 
 .deuna-logo-tag {
@@ -4310,9 +4312,9 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
   font-style: italic;
   background: #ffffff;
   color: #7e22ce;
-  padding: 1px 7px;
-  border-radius: 6px;
-  font-size: 0.82rem;
+  padding: 1.5px 6px;
+  border-radius: 5px;
+  font-size: 0.78rem;
   line-height: 1.1;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
@@ -4320,13 +4322,42 @@ body:has(.pantalla) #principal { max-width: none; padding: 0; }
 @media (max-width: 680px) {
   .pie-tarjeta-apoyo {
     flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
+    align-items: flex-start;
+    gap: 12px;
     padding: 14px 16px;
   }
+  .pie-tarjeta-apoyo-contenido {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .pie-tarjeta-apoyo-icono {
+    width: 36px;
+    height: 36px;
+  }
+  .pie-tarjeta-apoyo-icono svg {
+    width: 18px;
+    height: 18px;
+  }
+  .pie-tarjeta-apoyo-titulo {
+    font-size: 0.94rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .pie-tarjeta-apoyo-bajada {
+    font-size: 0.80rem;
+    line-height: 1.4;
+  }
   .boton-donar-deuna {
-    width: 100%;
-    padding: 11px 16px;
+    width: fit-content;
+    align-self: flex-start;
+    padding: 7px 14px;
+    font-size: 0.80rem;
+    gap: 7px;
+  }
+  .deuna-logo-tag {
+    font-size: 0.72rem;
+    padding: 1px 5px;
   }
 }
 

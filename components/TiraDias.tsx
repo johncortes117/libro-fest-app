@@ -37,7 +37,6 @@ export default function TiraDias({
             </span>
             <span className="d">{d.corto.slice(0, 3)}</span>
             <span className="n">{d.numero}</span>
-            {esHoy && <span className="hoy-punto" aria-label="hoy" />}
           </button>
         );
       })}
