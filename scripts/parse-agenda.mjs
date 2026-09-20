@@ -45,6 +45,7 @@ const ALIAS = {
 
   // --- actividades permanentes ---
   "centro de convenciones (salon primer piso)": "centro-convenciones",
+  "centro de convenciones (salon principal)": "centro-convenciones",
   "edificio posgrado (hall primer piso)": "posgrados",
   "edificio de aulas 3 (hall de la planta baja)": "aulas-3",
   "edificio de aulas 1 (hall de la planta baja - audiovisuales)": "aulas-1",
@@ -56,10 +57,13 @@ const ALIAS = {
   "edificio de aulas 1 (planta baja - sala graduaciones)": "aulas-1",
   "edificio de aulas 2 (primer piso)": "aulas-2",
   "edificio de aulas 4 (hall de la planta baja)": "aulas-4",
+  "edificio de aulas 4 (planta baja)": "aulas-4",
   "edificio aulas 2 (aula 115)": "aulas-2",
   "edificio de aulas 4 (planta baja - observatorio de turismo)": "aulas-4",
   "edificio de aulas 3 (planta baja - adupec)": "aulas-3",
+  "edificio de aulas 3 (primer piso - aula 108)": "aulas-3",
   "edificio de aulas 4 (planta baja - aula)": "aulas-4",
+  "edificio de aulas 2 (primer piso - aula 111)": "aulas-2",
   "parqueadero cancha sintetica": "parqueadero-julio-robles",
   "parqueaderos campus universitario": "parqueadero-antisana",
   "cancha sintetica": "cancha-sintetica",

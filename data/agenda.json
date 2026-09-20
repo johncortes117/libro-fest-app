@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-19T19:35:57.452Z",
+  "generado": "2026-09-20T05:23:23.032Z",
   "fuente": "docs/Agenda_UPEC_Libro_Fest_2026.md",
   "sesiones": [
     {
@@ -247,32 +247,6 @@
       "fin": 960
     },
     {
-      "id": "21-1500-cine-infantil",
-      "tipo": "cultural",
-      "titulo": "Cine infantil",
-      "detalle": "Cine, Cámara... ¡Hablemos!",
-      "personas": [],
-      "lugarId": "auditorio-convenciones",
-      "lugarTexto": "Centro de convenciones - Auditorio",
-      "dia": "2026-09-21",
-      "inicio": 900,
-      "fin": 960
-    },
-    {
-      "id": "21-1500-conferencia-el-ornamento-como-memoria-del-cuerpo-rec",
-      "tipo": "conferencia",
-      "titulo": "Conferencia: El ornamento como memoria del cuerpo: reconstrucción de la vestimenta ancestral del pueblo Pasto...",
-      "personas": [
-        "Mayra Cuaspud"
-      ],
-      "lugarId": "auditorio-principal",
-      "lugarTexto": "Auditorio Edificio central",
-      "dia": "2026-09-21",
-      "inicio": 900,
-      "fin": 960,
-      "truncado": true
-    },
-    {
       "id": "21-1500-entre-montanas-cafe-del-carchi-cafe-de-altura",
       "tipo": "libro",
       "titulo": "Entre montañas café del Carchi café de altura",
@@ -298,6 +272,18 @@
       ],
       "lugarId": "sala-presentaciones",
       "lugarTexto": "Sala 2",
+      "dia": "2026-09-21",
+      "inicio": 900,
+      "fin": 960
+    },
+    {
+      "id": "21-1500-inauguracion-upec-libro-fest-2026-academia-arte-y-cu",
+      "tipo": "cultural",
+      "titulo": "Inauguración UPEC LIBRO FEST 2026 “Academia, arte y cultura”",
+      "detalle": "Evento principal",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
       "dia": "2026-09-21",
       "inicio": 900,
       "fin": 960
@@ -349,33 +335,6 @@
       "personas": [],
       "lugarId": "auditorio-convenciones",
       "lugarTexto": "Centro de convenciones - Auditorio",
-      "dia": "2026-09-21",
-      "inicio": 960,
-      "fin": 1020
-    },
-    {
-      "id": "21-1600-presentacion-protocolo-biocomunitario-del-pueblo-afr",
-      "tipo": "conferencia",
-      "titulo": "Presentación: Protocolo Biocomunitario del pueblo afroecuatoriano: Saberes y sabores ancestrales",
-      "personas": [
-        "FIASA",
-        "Universidad Politécnica del Carchi"
-      ],
-      "lugarId": "auditorio-principal",
-      "lugarTexto": "Auditorio Edificio central",
-      "dia": "2026-09-21",
-      "inicio": 960,
-      "fin": 1020
-    },
-    {
-      "id": "21-1600-reconocimiento-a-la-trayectoria-y-aporte-al-patrimon",
-      "tipo": "conferencia",
-      "titulo": "Reconocimiento a la trayectoria y aporte al Patrimonio Cultural",
-      "personas": [
-        "Gerardo Sánchez"
-      ],
-      "lugarId": "universidad-narino",
-      "lugarTexto": "Auditorio Gonzalo Bravo Pérez – Universidad de Nariño",
       "dia": "2026-09-21",
       "inicio": 960,
       "fin": 1020
@@ -446,6 +405,19 @@
       "fin": 1170
     },
     {
+      "id": "22-0800-conferencia-100-anos-del-periodismo-carchense",
+      "tipo": "conferencia",
+      "titulo": "Conferencia: 100 años del periodísmo Carchense",
+      "personas": [
+        "Norberto Fuertes Morillo"
+      ],
+      "lugarId": "auditorio-principal",
+      "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-22",
+      "inicio": 480,
+      "fin": 540
+    },
+    {
       "id": "22-0900-conferencia-la-inteligencia-artificial-y-la-supercom",
       "tipo": "conferencia",
       "titulo": "Conferencia: ¿La Inteligencia Artificial y la Supercomputación vienen a reemplazar al profesional o a convertirlo en un profesional mucho más poderoso?",
@@ -498,9 +470,9 @@
       "fin": 720
     },
     {
-      "id": "22-0900-taller-ortografia",
+      "id": "22-0900-taller-cartografia",
       "tipo": "taller",
-      "titulo": "Taller: Ortografía",
+      "titulo": "Taller: Cartografía",
       "personas": [
         "Colectivo Mujeres de Asfalto"
       ],
@@ -515,7 +487,7 @@
       "tipo": "conferencia",
       "titulo": "Conferencia: Academia sin fronteras: cooperación universitaria e integración desde los territorios fronterizos",
       "personas": [
-        "Geraldo Bravo Montenegro"
+        "Gerardo Mauricio Bravo (Director Sede Regional Ipiales)"
       ],
       "lugarId": "auditorio-principal",
       "lugarTexto": "Auditorio Edificio central",
@@ -541,8 +513,8 @@
       "tipo": "libro",
       "titulo": "Manglar. Educación artística, interculturalidad y territorios",
       "personas": [
-        "Byron David Egas Villota",
-        "Johnny Alex Guerra"
+        "Mario Egas Villota",
+        "Jhon Felipe Benavides Narváez"
       ],
       "lugarId": "sala-presentaciones",
       "lugarTexto": "Sala 2",
@@ -769,18 +741,6 @@
       "fin": 960
     },
     {
-      "id": "22-1600-cine-infantil",
-      "tipo": "cultural",
-      "titulo": "Cine infantil",
-      "detalle": "Cine, Cámara... ¡Hablemos!",
-      "personas": [],
-      "lugarId": "auditorio-convenciones",
-      "lugarTexto": "Centro de convenciones - Auditorio",
-      "dia": "2026-09-22",
-      "inicio": 960,
-      "fin": 1020
-    },
-    {
       "id": "22-1600-conferencia-historia-de-la-independencia",
       "tipo": "conferencia",
       "titulo": "Conferencia: Historia de la independencia",
@@ -823,6 +783,18 @@
       "truncado": true
     },
     {
+      "id": "22-1600-obra-de-teatro",
+      "tipo": "cultural",
+      "titulo": "Obra de teatro",
+      "detalle": "Trascendencia (Dir: Adriana Figueroa)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-22",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
       "id": "22-1600-taller-escritura-creativa",
       "tipo": "taller",
       "titulo": "Taller: Escritura creativa",
@@ -841,7 +813,7 @@
       "tipo": "libro",
       "titulo": "Días de amor y desesperanza",
       "personas": [
-        "Héctor Flores Franco"
+        "Héctor Flores"
       ],
       "lugarId": "sala-presentaciones",
       "lugarTexto": "Sala 2",
@@ -891,7 +863,7 @@
       "id": "22-1800-obra-de-teatro",
       "tipo": "cultural",
       "titulo": "Obra de teatro",
-      "detalle": "Trascendencia (Dir: Adriana Figueroa)",
+      "detalle": "Silvestre en su laberinto (Dir: Rodrigo Escobar, Maloka)",
       "personas": [],
       "lugarId": "auditorio-convenciones",
       "lugarTexto": "Centro de convenciones - Auditorio",
@@ -900,11 +872,11 @@
       "fin": 1140
     },
     {
-      "id": "23-0800-conversatorio-literatura-contemporanea",
+      "id": "23-0800-conferencia-habia-una-vez-la-radio",
       "tipo": "conferencia",
-      "titulo": "Conversatorio: Literatura contemporánea",
+      "titulo": "Conferencia: Había una vez la Radio",
       "personas": [
-        "Poetas nacionales e internacionales"
+        "Norberto Fuertes Morillo"
       ],
       "lugarId": "auditorio-principal",
       "lugarTexto": "Auditorio Edificio central",
@@ -1002,6 +974,18 @@
       "dia": "2026-09-23",
       "inicio": 600,
       "fin": 660
+    },
+    {
+      "id": "23-1000-cine-foro",
+      "tipo": "cultural",
+      "titulo": "Cine foro",
+      "detalle": "El Último Vagón (Consejo de la Judicatura - Carchi)",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-23",
+      "inicio": 600,
+      "fin": 720
     },
     {
       "id": "23-1000-entre-el-discurso-y-la-practica-necesidades-educativ",
@@ -1288,6 +1272,18 @@
       "fin": 1020
     },
     {
+      "id": "23-1600-presentacion-dancistica",
+      "tipo": "cultural",
+      "titulo": "Presentación dancística",
+      "detalle": "NeuroVida Dance",
+      "personas": [],
+      "lugarId": "agora",
+      "lugarTexto": "Ágora universitaria",
+      "dia": "2026-09-23",
+      "inicio": 960,
+      "fin": 1020
+    },
+    {
       "id": "23-1700-cine-foro",
       "tipo": "cultural",
       "titulo": "Cine foro",
@@ -1458,7 +1454,7 @@
       "tipo": "taller",
       "titulo": "Taller: Poesía y escritura",
       "personas": [
-        "Héctor Flores Franco"
+        "Héctor Flores"
       ],
       "lugarId": "aulas-2",
       "lugarTexto": "Edificio aulas 2 - Aula 110",
@@ -1515,7 +1511,7 @@
         "Francisco Salvador"
       ],
       "lugarId": "sala-presentaciones",
-      "lugarTexto": "Sala",
+      "lugarTexto": "Sala 1",
       "dia": "2026-09-24",
       "inicio": 720,
       "fin": 780
@@ -1546,6 +1542,22 @@
       "dia": "2026-09-24",
       "inicio": 720,
       "fin": 780
+    },
+    {
+      "id": "24-1400-taller-mas-alla-del-aula-experiencias-aprendizajes-e",
+      "tipo": "taller",
+      "titulo": "Taller: Más alla del aula: experiencias, aprendizajes e impactos de la Licenciatura en Teología",
+      "personas": [
+        "J. del Castillo Rincón",
+        "B. Díaz Rivadeneira",
+        "L. Ruano Coral",
+        "A. Ortega Rojas"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
+      "dia": "2026-09-24",
+      "inicio": 840,
+      "fin": 900
     },
     {
       "id": "24-1430-conferencia-pedagogia-territorio-y-cultura-la-modela",
@@ -1613,7 +1625,7 @@
     {
       "id": "24-1500-la-inteligencia-artificial-generativa-como-herramien",
       "tipo": "libro",
-      "titulo": "La Inteligencia Artificial Generativa como Herramienta para la Innovación en la Educación Superior: Retos y Oportunidades...",
+      "titulo": "La Inteligencia Artificial Generativa como Herramienta para la Innovación en la Educación Superior...",
       "personas": [
         "Galo Fernando Almeida Casanova"
       ],
@@ -1774,7 +1786,7 @@
       "id": "24-1800-narracion-oral",
       "tipo": "cultural",
       "titulo": "Narración oral",
-      "detalle": "Historias para jóvenes que todavía estan buscando su propia voz",
+      "detalle": "Historias para jóvenes que todavía están buscando su propia voz",
       "personas": [],
       "lugarId": "auditorio-convenciones",
       "lugarTexto": "Centro de convenciones - Auditorio",
@@ -1851,7 +1863,8 @@
       "tipo": "taller",
       "titulo": "Taller de creación poética: Autobiografía sinestésica. Identidad , memoria y territorio",
       "personas": [
-        "Leda Quintana Rondón"
+        "Leda Quintana Rondón",
+        "Yesid Niño Arteaga"
       ],
       "lugarId": "aulas-2",
       "lugarTexto": "Edificio aulas 2 - Aula 110",
@@ -1864,7 +1877,7 @@
       "tipo": "conferencia",
       "titulo": "Charla",
       "personas": [
-        "Embajador Extraordinario y Plenipotenciario de la República de Corea ante la República del Ecuador (Jae Hyun Shim)"
+        "Embajador Extraordinario y Plenipotenciario de la República de Corea del Sur ante la República del Ecuador (Jae Hyun Shim)"
       ],
       "lugarId": "auditorio-principal",
       "lugarTexto": "Auditorio Edificio central",
@@ -1923,6 +1936,18 @@
       "fin": 660
     },
     {
+      "id": "25-1000-presentacion-musical",
+      "tipo": "cultural",
+      "titulo": "Presentación musical",
+      "detalle": "Coro juvenil y adulto - Grupo de Cámara del Centro Municipal de Artes - Ibarra",
+      "personas": [],
+      "lugarId": "auditorio-convenciones",
+      "lugarTexto": "Centro de convenciones - Auditorio",
+      "dia": "2026-09-25",
+      "inicio": 600,
+      "fin": 780
+    },
+    {
       "id": "25-1030-conferencia-etnoeducacion-y-literatura-herramientas",
       "tipo": "conferencia",
       "titulo": "Conferencia: Etnoeducación y literatura: herramientas para el desarrollo comunitario",
@@ -1979,12 +2004,26 @@
     {
       "id": "25-1130-conferencia-pueden-las-socio-bioeconomias-apoyar-la",
       "tipo": "conferencia",
-      "titulo": "Conferencia: ¿Pueden las socio bioeconomías apoyar la conservación de la agro diversidad de la papa? Experiencias con papas nativas y otros tubérculos andinos en Perú, Ecuador y Colombia",
+      "titulo": "Conferencia: ¿Pueden las socio bioeconomías apoyar la conservación de la agro diversidad de la papa? ...",
       "personas": [
         "Trent Blare"
       ],
       "lugarId": "auditorio-principal",
       "lugarTexto": "Auditorio Edificio central",
+      "dia": "2026-09-25",
+      "inicio": 690,
+      "fin": 750,
+      "truncado": true
+    },
+    {
+      "id": "25-1130-taller-descubrimos-la-vacuna-contra-la-desinformacio",
+      "tipo": "taller",
+      "titulo": "Taller: Descubrimos la vacuna contra la desinformación. ¿Quieres vacunarte?",
+      "personas": [
+        "Gary Guerrón"
+      ],
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio aulas 2 - Aula 110",
       "dia": "2026-09-25",
       "inicio": 690,
       "fin": 750
@@ -2095,9 +2134,9 @@
       "fin": 1020
     },
     {
-      "id": "25-1600-ondulaciones",
+      "id": "25-1600-ondulaciones-entre-el-amor-y-el-desamor",
       "tipo": "libro",
-      "titulo": "Ondulaciones",
+      "titulo": "Ondulaciones: Entre el amor y el desamor",
       "personas": [
         "Mireya Avellaneda Gutiérrez"
       ],
@@ -2142,7 +2181,7 @@
       "lugarTexto": "Centro de convenciones - Auditorio",
       "dia": "2026-09-25",
       "inicio": 1080,
-      "fin": 1200
+      "fin": 1170
     },
     {
       "id": "25-1930-presentacion-musical",
@@ -2166,19 +2205,6 @@
       "personas": [],
       "lugarId": "aulas-1",
       "lugarTexto": "Edificio de Aulas 1 (Planta baja - Sala graduaciones)",
-      "inicio": 510,
-      "fin": 1080,
-      "permanente": true,
-      "finSupuesto": true
-    },
-    {
-      "id": "p-botquiz-upec-exposicion-reto-de-robotica-seguidores",
-      "tipo": "permanente",
-      "titulo": "BotQuiz UPEC",
-      "detalle": "Exposición, Reto de Robótica (Seguidores de Línea), Reto de Conocimiento (“Quién Sabe, Sabe”)",
-      "personas": [],
-      "lugarId": "aulas-4",
-      "lugarTexto": "Edificio de Aulas 4 (Hall de la planta baja)",
       "inicio": 510,
       "fin": 1080,
       "permanente": true,
@@ -2256,7 +2282,7 @@
       "detalle": "Librerías y editoriales nacionales e internacionales",
       "personas": [],
       "lugarId": "centro-convenciones",
-      "lugarTexto": "Centro de convenciones (Salón Primer piso)",
+      "lugarTexto": "Centro de convenciones (Salón principal)",
       "inicio": 510,
       "fin": 1080,
       "permanente": true,
@@ -2270,6 +2296,19 @@
       "personas": [],
       "lugarId": "parqueadero-antisana",
       "lugarTexto": "Parqueaderos campus universitario",
+      "inicio": 510,
+      "fin": 1080,
+      "permanente": true,
+      "finSupuesto": true
+    },
+    {
+      "id": "p-quiz-fest-exposicion-reto-de-robotica-seguidores-de",
+      "tipo": "permanente",
+      "titulo": "Quiz Fest",
+      "detalle": "Exposición, Reto de Robótica (Seguidores de Línea), Reto de Conocimiento (“Quién Sabe, Sabe”)",
+      "personas": [],
+      "lugarId": "aulas-4",
+      "lugarTexto": "Edificio de Aulas 4 (Hall de la planta baja)",
       "inicio": 510,
       "fin": 1080,
       "permanente": true,
@@ -2321,7 +2360,7 @@
       "detalle": "“El portal de la imaginación”",
       "personas": [],
       "lugarId": "aulas-3",
-      "lugarTexto": "Edificio de Aulas 3 (Planta baja - ADUPEC)",
+      "lugarTexto": "Edificio de Aulas 3 (Primer piso - Aula 108)",
       "inicio": 510,
       "fin": 1080,
       "permanente": true,
@@ -2333,8 +2372,8 @@
       "titulo": "Sala inmersiva 2",
       "detalle": "“El portal de la imaginación”",
       "personas": [],
-      "lugarId": "aulas-4",
-      "lugarTexto": "Edificio de Aulas 4 (Planta baja - Aula)",
+      "lugarId": "aulas-2",
+      "lugarTexto": "Edificio de Aulas 2 (Primer piso - Aula 111)",
       "inicio": 510,
       "fin": 1080,
       "permanente": true,
@@ -2463,8 +2502,8 @@
       "titulo": "Salón literario",
       "detalle": "“Etnomatemática: geometría, cultura y saberes ancestrales”",
       "personas": [],
-      "lugarId": "aulas-3",
-      "lugarTexto": "Edificio de Aulas 3 (Hall de la planta baja)",
+      "lugarId": "aulas-4",
+      "lugarTexto": "Edificio de Aulas 4 (Planta baja)",
       "inicio": 510,
       "fin": 1080,
       "permanente": true,
@@ -2508,7 +2547,7 @@
     "Librería Atapuma",
     "Agencia Cultural del Banco de la República - Ipiales",
     "Editorial FLACSO",
-    "Fondo de Cultura Económica",
+    "Universidad Técnica del Norte",
     "Editorial La Caracola",
     "Librería Tolomeo",
     "Editorial de la Pontificia Universidad Católica del Ecuador (PUCE)",

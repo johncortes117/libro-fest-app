@@ -46,7 +46,7 @@ export const LUGARES: Lugar[] = [
     id: "aulas-4",
     pin: 5,
     nombre: "Edificio Aulas 4",
-    descripcion: "BotQuiz, portal de la imaginación",
+    descripcion: "Quiz Fest, portal de la imaginación",
     x: 94.03, y: 70.56,
   },
   {

@@ -120,7 +120,7 @@ export default async function FichaLugar({ params }: { params: Promise<{ id: str
             <span className="cuenta">{EDITORIALES.length}</span>
           </div>
           <p className="entradilla" style={{ marginTop: 0 }}>
-            Sellos de Ecuador, Colombia y fuera de la región, en el salón del primer piso. Abierta
+            Sellos de Ecuador, Colombia y fuera de la región, en el Salón principal. Abierta
             los cinco días desde las 08:30. Los emprendimientos están aparte, en la Plaza Roja y el
             Coliseo.
           </p>

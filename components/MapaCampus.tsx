@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { LUGARES, LUGARES_CAMPUS, LUGARES_FUERA, MAPA, PIN_13_DERECHA, porId } from "@/data/lugares";
-import { CUENTA_POR_LUGAR, enCurso, sesionesDe } from "@/lib/datos";
+import { CUENTA_POR_LUGAR, EDITORIALES, enCurso, sesionesDe } from "@/lib/datos";
 import { diaVisible, hhmm } from "@/lib/tiempo";
 import { DIAS } from "@/lib/tipos";
 import { useMomento } from "./Reloj";
@@ -19,7 +19,14 @@ export default function MapaCampus() {
   const [diaElegido, setDiaElegido] = useState<string | null>(null);
   const [nivelZoom, setNivelZoom] = useState(0);
   const [ampliado, setAmpliado] = useState(false);
+  const [filtroEditorial, setFiltroEditorial] = useState("");
   const ventana = useRef<HTMLDivElement>(null);
+
+  const editorialesVisibles = useMemo(() => {
+    if (!filtroEditorial.trim()) return EDITORIALES;
+    const q = filtroEditorial.toLowerCase().trim();
+    return EDITORIALES.filter((e) => e.toLowerCase().includes(q));
+  }, [filtroEditorial]);
 
   // El día se deriva del momento en lugar de fijarse en un efecto: así el primer
   // render ya trae el día correcto y los puntos encendidos, sin un fotograma de
@@ -265,6 +272,52 @@ export default function MapaCampus() {
             );
           })}
         </div>
+      </section>
+
+      <section className="bloque" id="editoriales">
+        <div className="bloque-cabecera">
+          <h2>Editoriales y librerías presentes</h2>
+          <span className="cuenta">{EDITORIALES.length}</span>
+        </div>
+        <p className="pistas" style={{ margin: "0 0 14px 0" }}>
+          Presentes en la muestra editorial del <strong>Centro de Convenciones</strong> (Salón principal) durante los cinco días del festival.
+        </p>
+        <div style={{ marginBottom: "14px" }}>
+          <input
+            type="search"
+            value={filtroEditorial}
+            onChange={(e) => setFiltroEditorial(e.target.value)}
+            placeholder="Buscar editorial o librería..."
+            aria-label="Buscar editorial o librería"
+            style={{
+              width: "100%",
+              padding: "10px 14px",
+              fontSize: "0.9rem",
+              borderRadius: "10px",
+              border: "1px solid var(--line)",
+              background: "var(--surface)",
+              color: "var(--ink)",
+              outline: "none",
+            }}
+          />
+        </div>
+        {editorialesVisibles.length === 0 ? (
+          <p className="vacio" style={{ margin: "16px 0", color: "var(--muted)", fontStyle: "italic" }}>
+            No se encontraron editoriales o librerías con &ldquo;{filtroEditorial}&rdquo;.
+          </p>
+        ) : (
+          <ol className="editoriales">
+            {editorialesVisibles.map((nombre) => {
+              const numOriginal = EDITORIALES.indexOf(nombre) + 1;
+              return (
+                <li key={nombre}>
+                  <span className="num" aria-hidden="true">{numOriginal}</span>
+                  <span>{nombre}</span>
+                </li>
+              );
+            })}
+          </ol>
+        )}
       </section>
 
       {hoja}

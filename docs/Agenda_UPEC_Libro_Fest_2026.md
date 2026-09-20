@@ -28,7 +28,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **2** | Auditorio Edificio Principal | Conferencias, recitales, conversatorios |
 | **3** | Plaza Roja | Emprendimientos |
 | **4** | Edificio Aulas 2 | Sala de cuentos, talleres, sala de lectura |
-| **5** | Edificio Aulas 4 | BotQuiz, portal de la imaginación |
+| **5** | Edificio Aulas 4 | Quiz Fest, portal de la imaginación |
 | **6** | Coliseo universitario 5 de Abril | Emprendimientos, moda circular y sostenible |
 | **7** | Parqueadero Av. Julio Robles | Juegos tradicionales |
 | **8** | Cancha Sintética | Zona de recreación |
@@ -47,7 +47,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 
 | Actividad | Detalles / Exposición | Lugar |
 |---|---|---|
-| **Muestra editorial** | Librerías y editoriales nacionales e internacionales | Centro de convenciones (Salón Primer piso) |
+| **Muestra editorial** | Librerías y editoriales nacionales e internacionales | Centro de convenciones (Salón principal) |
 | **Salón literario** | “Inclusión 360° Tecnología, ingenio y accesibilidad” | Edificio Posgrado (Hall primer piso) |
 | **Salón literario** | “Trazos emocionales: cuando la literatura se vuelve imagen” - Danza Grupo Raíces del dolor | Edificio Posgrado (Hall primer piso) |
 | **Sala de lectura** | Biblioteca siempre contigo | Edificio Posgrado (Hall primer piso) |
@@ -57,16 +57,16 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **Salón literario** | “Magacán y Kalimán” | Edificio de Aulas 3 (Planta baja - Laboratorio de innovación) |
 | **Salón literario** | “Cuentos silentes y pictóricos” | Edificio de Aulas 3 (Hall de la planta baja) |
 | **Salón literario** | “Detectives de la lectura” | Edificio de Aulas 1 (Planta baja - Laboratorio) |
-| **Salón literario** | “Etnomatemática: geometría, cultura y saberes ancestrales” | Edificio de Aulas 3 (Hall de la planta baja) |
+| **Salón literario** | “Etnomatemática: geometría, cultura y saberes ancestrales” | Edificio de Aulas 4 (Planta baja) |
 | **Emprendimientos** | Oferta de productos y servicios | Plaza roja y Coliseo “5 de abril” |
 | **Venta de Garage** | Moda circular y sostenible | Coliseo “5 de abril” |
 | **Arte en neón** | Guillermo Argotí | Edificio de Aulas 1 (Planta baja - Sala graduaciones) |
 | **Sala de cuentos** | “Aventuras bajo el mar” (Narración de cuentos, títeres, cuentos gigantes, juegos didácticos y mucho más) | Edificio de Aulas 2 (Primer piso) |
-| **BotQuiz UPEC** | Exposición, Reto de Robótica (Seguidores de Línea), Reto de Conocimiento (“Quién Sabe, Sabe”) | Edificio de Aulas 4 (Hall de la planta baja) |
+| **Quiz Fest** | Exposición, Reto de Robótica (Seguidores de Línea), Reto de Conocimiento (“Quién Sabe, Sabe”) | Edificio de Aulas 4 (Hall de la planta baja) |
 | **Salón** | “Languages of the World, Cultures that Inspire” (Teatro y juegos interactivos en inglés, francés y ruso) | Edificio aulas 2 (Aula 115) |
 | **Salón** | La palabra que camina: Oralidad y memorias de América Latina | Edificio de Aulas 4 (Planta baja - Observatorio de turismo) |
-| **Sala inmersiva 1** | “El portal de la imaginación” | Edificio de Aulas 3 (Planta baja - ADUPEC) |
-| **Sala inmersiva 2** | “El portal de la imaginación” | Edificio de Aulas 4 (Planta baja - Aula) |
+| **Sala inmersiva 1** | “El portal de la imaginación” | Edificio de Aulas 3 (Primer piso - Aula 108) |
+| **Sala inmersiva 2** | “El portal de la imaginación” | Edificio de Aulas 2 (Primer piso - Aula 111) |
 | **Exposición artística** | Jansen Salas | Centro de convenciones (Sala de exposiciones) |
 | **Exposición Fotográfica**| Carrera Multimedia y Producción Audiovisual | Centro de convenciones (Sala de exposiciones) |
 | **Juegos tradicionales** | Muestra y práctica de juegos tradicionales | Parqueadero cancha sintética |
@@ -88,9 +88,6 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **12:00 - 13:00** | Conferencia Virtual: Bibliotecas como garantes del acceso universal e inclusivo en la era digital | Esther Jeria | Auditorio Edificio central |
 | **14:00 - 15:00** | Conversatorio: Poesía contemporánea | Irene Romo, Poetas del Carchi, Flor María Cadena, Gloria Santacruz | Auditorio Edificio central |
 | **14:00 - 15:00** | Conferencia: Qhapaq Ñan: patrimonio cultural, memoria e identidad de los territorios andinos | Gerardo Sánchez | Auditorio Gonzalo Bravo Pérez – Universidad de Nariño |
-| **15:00 - 16:00** | Conferencia: El ornamento como memoria del cuerpo: reconstrucción de la vestimenta ancestral del pueblo Pasto... | Mayra Cuaspud | Auditorio Edificio central |
-| **16:00 - 17:00** | Presentación: Protocolo Biocomunitario del pueblo afroecuatoriano: Saberes y sabores ancestrales | FIASA, Universidad Politécnica del Carchi | Auditorio Edificio central |
-| **16:00 - 17:00** | Reconocimiento a la trayectoria y aporte al Patrimonio Cultural | Gerardo Sánchez | Auditorio Gonzalo Bravo Pérez – Universidad de Nariño |
 | **17:00 - 18:30** | Conversatorio: Proyectos que inspiran, tecnología que transforma | Brayan Oñate (Grolab) | Auditorio Edificio central |
 
 #### Talleres
@@ -106,7 +103,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 |---|---|---|---|
 | **09:00 - 12:00** <br> **15:00 - 16:00** | Presentaciones | Música, danza, percusión | Ágora universitaria |
 | **10:00 - 13:00** | Body Paint | Abigail Zapata | Centro de convenciones (Sala de exposiciones) |
-| **15:00 - 16:00** | Cine infantil | Cine, Cámara... ¡Hablemos! | Centro de convenciones - Auditorio |
+| **15:00 - 16:00** | Inauguración UPEC LIBRO FEST 2026 “Academia, arte y cultura” | Evento principal | Centro de convenciones - Auditorio |
 | **16:00 - 17:00** | Monólogo Payaso | Obra: Intermitencia (Juan Sánchez) | Centro de convenciones - Auditorio |
 | **17:00 - 18:00** | Obra de teatro | Yarazupa - enduendada (Fundación Femandi) | Centro de convenciones - Auditorio |
 | **18:00 - 19:30** | Largometraje documental histórico | Carchi más de 100 años de historia (Dir: Danny Oñate) | Centro de convenciones - Auditorio |
@@ -134,8 +131,9 @@ Porque cada página puede ser el comienzo de un encuentro.
 #### Conferencias y Conversatorios
 | Horario | Actividad | Ponente / Participantes | Lugar |
 |---|---|---|---|
+| **08:00 - 09:00** | Conferencia: 100 años del periodísmo Carchense | Norberto Fuertes Morillo | Auditorio Edificio central |
 | **09:00 - 10:00** | Conferencia: ¿La Inteligencia Artificial y la Supercomputación vienen a reemplazar al profesional o a convertirlo en un profesional mucho más poderoso? | Fabian Jiménez (CTO & Co-Founder - NF Innovations) | Auditorio Edificio central |
-| **10:00 - 11:00** | Conferencia: Academia sin fronteras: cooperación universitaria e integración desde los territorios fronterizos | Geraldo Bravo Montenegro | Auditorio Edificio central |
+| **10:00 - 11:00** | Conferencia: Academia sin fronteras: cooperación universitaria e integración desde los territorios fronterizos | Gerardo Mauricio Bravo (Director Sede Regional Ipiales) | Auditorio Edificio central |
 | **11:00 - 12:00** | Conversatorio: Mediación lectora en la Era digital | Alexander Muñoz Garzón | Auditorio Edificio central |
 | **12:00 - 13:00** | Charla: Programas académicos y oportunidades de estudios en el exterior | International Study Programs | Auditorio Edificio central |
 | **14:00 - 15:00** | Conferencia: Lectura y diversidad: inclusión a través de los libros | Alejandra Pacheco | Auditorio Edificio central |
@@ -146,7 +144,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 #### Talleres
 | Horario | Actividad | Facilitador | Lugar |
 |---|---|---|---|
-| **09:00 - 11:00** | Taller: Ortografía | Colectivo Mujeres de Asfalto | Edificio aulas 2 - Aula 110 |
+| **09:00 - 11:00** | Taller: Cartografía | Colectivo Mujeres de Asfalto | Edificio aulas 2 - Aula 110 |
 | **10:00 - 11:00** | Laboratorio: El cuerpo, el territorio y los caminos de paz | Nathalie Silva Bonilla | Cancha sintética - Campus universitario |
 | **11:00 - 12:00** | Taller: Dibujo | Fernando Pazmiño Palma | Edificio aulas 2 - Aula 110 |
 | **15:00 - 16:00** | Taller: Dramaturgia Poética: del poema a la escena | Guadalupe Lezama | Edificio aulas 2 - Aula 110 |
@@ -158,9 +156,9 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **09:00 - 12:00** <br> **15:00 - 16:00** | Presentaciones | Música, danza, percusión | Ágora universitaria |
 | **15:00 - 17:00** | Body Paint | Abigail Zapata | Centro de convenciones (Sala de exposiciones) |
 | **15:00 - 16:00** | Cine foro | A medio camino (Nantu Mantilla) | Centro de convenciones - Auditorio |
-| **16:00 - 17:00** | Cine infantil | Cine, Cámara... ¡Hablemos! | Centro de convenciones - Auditorio |
+| **16:00 - 17:00** | Obra de teatro | Trascendencia (Dir: Adriana Figueroa) | Centro de convenciones - Auditorio |
 | **17:00 - 18:00** | Narración oral | El Diablo de Quito (Javier Cevallos Perugachi) | Centro de convenciones - Auditorio |
-| **18:00 - 19:00** | Obra de teatro | Trascendencia (Dir: Adriana Figueroa) | Centro de convenciones - Auditorio |
+| **18:00 - 19:00** | Obra de teatro | Silvestre en su laberinto (Dir: Rodrigo Escobar, Maloka) | Centro de convenciones - Auditorio |
 
 #### Presentación de Libros
 | Horario | Obra | Autor(es) | Lugar |
@@ -168,7 +166,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **09:00 - 10:00** | La Metodología de investigación científica aplicación en el bachillerato... | César Armando Enríquez Montenegro | Sala 1 |
 | **09:00 - 10:00** | Políticas públicas para el desarrollo local: Análisis de casos en el Ecuador contemporáneo | Iván Bolívar Ruiz González | Sala 2 |
 | **10:00 - 11:00** | Sustentabilidad y optimización de la movilidad y logística urbanas: Un modelo de evaluación para Tulcán | D. Beltrán Del Hierro, I. Mafla Bolaños, E. Mora Chúquer, C. Morales | Sala 1 |
-| **10:00 - 11:00** | Manglar. Educación artística, interculturalidad y territorios | Byron David Egas Villota, Johnny Alex Guerra | Sala 2 |
+| **10:00 - 11:00** | Manglar. Educación artística, interculturalidad y territorios | Mario Egas Villota, Jhon Felipe Benavides Narváez | Sala 2 |
 | **11:00 - 12:00** | Economía circular en zona de frontera – (zona 1 del Ecuador)... | Gladys Primavera Urgiles Urgiles | Sala 1 |
 | **11:00 - 12:00** | La competitividad, el uso de las FinTech y el proceso de inclusión financiera en la provincia del Carchi | J. Bastidas Guerrón, G. Cárdenas Fierro, A. Mora Lucero | Sala 2 |
 | **12:00 - 13:00** | Modelos predictivos de mortalidad en UCI... | A. Rodríguez Morillo, J. Mora Quendi, B. Portilla Tirira | Sala 1 |
@@ -178,7 +176,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **16:00 - 17:00** | Ines Quecível: poesías em trés idiomas | Inês Possagnolo | Sala 1 |
 | **16:00 - 17:00** | Latidos de la marca: Un viaje a través de la experiencia del consumidor y las relaciones con la marca... | F. Paguay Chávez, G. Cuadrado Barreto, F. Villarreal Salazar | Sala 2 |
 | **17:00 - 18:00** | Huayna Capac: su corazón en Tumipamba | Aurelio Maldonado Aguilar | Sala 1 |
-| **17:00 - 18:00** | Días de amor y desesperanza | Héctor Flores Franco | Sala 2 |
+| **17:00 - 18:00** | Días de amor y desesperanza | Héctor Flores | Sala 2 |
 
 ---
 
@@ -187,7 +185,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 #### Conferencias y Conversatorios
 | Horario | Actividad | Ponente / Participantes | Lugar |
 |---|---|---|---|
-| **08:00 - 09:00** | Conversatorio: Literatura contemporánea | Poetas nacionales e internacionales | Auditorio Edificio central |
+| **08:00 - 09:00** | Conferencia: Había una vez la Radio | Norberto Fuertes Morillo | Auditorio Edificio central |
 | **08:00 - 11:00** | Conversatorio: Voces del territorio: poesía, memoria e identidad de la antigua Provincia de Obando | Poetas nacionales e internacionales | Agencia Cultural Banco de la República - Ipiales |
 | **09:00 - 11:00** | Conversatorio: Mediación lectora en los entornos con déficit bibliográfico | Alexander Muñoz Garzón | Auditorio Edificio central |
 | **10:00 - 11:00** | Charla virtual: El uso del storytelling en la obra de Andri Snær Magnason para reflexionar sobre el cambio climático y la conservación ambiental. | Julieta Muñoz | Auditorio Edificio central |
@@ -211,8 +209,10 @@ Porque cada página puede ser el comienzo de un encuentro.
 |---|---|---|---|
 | **09:00 - 12:00** <br> **15:00 - 16:00** | Presentaciones | Música, danza, percusión | Ágora universitaria |
 | **10:00 - 12:00** | Body Paint | Abigail Zapata | Centro de convenciones (Sala de exposiciones) |
+| **10:00 - 12:00** | Cine foro | El Último Vagón (Consejo de la Judicatura - Carchi) | Centro de convenciones - Auditorio |
 | **15:00 - 16:00** | Narración oral | Historias que vuelan (Fundación Ala de colibrí) | Centro de convenciones - Auditorio |
 | **16:00 - 17:00** | Narración oral | Cuentos Andinos (Javier Cevallos Perugachi) | Centro de convenciones - Auditorio |
+| **16:00 - 17:00** | Presentación dancística | NeuroVida Dance | Ágora universitaria |
 | **17:00 - 18:00** | Cine foro | El último rincón (Yaron Avitov) | Centro de convenciones - Auditorio |
 | **18:00 - 19:00** | Narración oral | Vida mía (Cristian Fraga) | Centro de convenciones - Auditorio |
 | **19:00 - 20:00** | Obra de teatro | Los desaparecidos (Dir: Germán Obando) | Centro de convenciones - Auditorio |
@@ -254,7 +254,8 @@ Porque cada página puede ser el comienzo de un encuentro.
 |---|---|---|---|
 | **09:00 - 10:00** | Taller: La poesía desde la humanización | Genoveva Ponce Naranjo | Edificio aulas 2 - Aula 110 |
 | **10:00 - 12:00** | Taller: Escribir desde el territorio: memoria e identidad | Leda Quintana Rondón | Auditorio Gonzalo Bravo Pérez – Universidad de Nariño |
-| **10:00 - 12:00** | Taller: Poesía y escritura | Héctor Flores Franco | Edificio aulas 2 - Aula 110 |
+| **10:00 - 12:00** | Taller: Poesía y escritura | Héctor Flores | Edificio aulas 2 - Aula 110 |
+| **14:00 - 15:00** | Taller: Más alla del aula: experiencias, aprendizajes e impactos de la Licenciatura en Teología | J. del Castillo Rincón, B. Díaz Rivadeneira, L. Ruano Coral, A. Ortega Rojas | Edificio aulas 2 - Aula 110 |
 | **15:00 - 17:00** | Taller: Mediaciones, las lecturas y escrituras, puentes que sujetan la frontera | Lorena Verdugo Miranda | Edificio aulas 2 - Aula 110 |
 
 #### Actividades Culturales
@@ -266,7 +267,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **15:00 - 16:00** | Cine foro | La sardina (Víctor Melo) | Centro de convenciones - Auditorio |
 | **16:00 - 17:00** | Narración oral | Cuentos viajeros (Cristian Fraga) | Centro de convenciones - Auditorio |
 | **17:00 - 18:00** | Obra de teatro | Libertarias (Dir: Rubén Darío Rodríguez) | Centro de convenciones - Auditorio |
-| **18:00 - 19:00** | Narración oral | Historias para jóvenes que todavía estan buscando su propia voz | Centro de convenciones - Auditorio |
+| **18:00 - 19:00** | Narración oral | Historias para jóvenes que todavía están buscando su propia voz | Centro de convenciones - Auditorio |
 
 #### Presentación de Libros
 | Horario | Obra | Autor(es) | Lugar |
@@ -276,10 +277,10 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **10:00 - 11:00** | Libros de texto escolar impreso y digital: realidades y perspectivas | Roberto Ramírez Bravo | Sala 2 |
 | **11:00 - 12:00** | La victoria de Patricia | Yaron Avitov | Sala 1 |
 | **11:00 - 12:00** | Estudio de Casos: Sistemas de Producción Agrícola de Unidades de Producciones Agropecuarias (UPAs) del Carchi | Segundo Ramiro Mora Quilismal, Emma Teresa Cuaical Galárraga, Martha Cecilia Ayala Lomas | Sala 2 |
-| **12:00 - 13:00** | “Bailar en los Andes” Rasgos de la danza en el Ecuador | Francisco Salvador | Sala |
+| **12:00 - 13:00** | “Bailar en los Andes” Rasgos de la danza en el Ecuador | Francisco Salvador | Sala 1 |
 | **12:00 - 13:00** | Otavalo Mágico: Historias que inspiran el turismo | Dennys Andrés Bolaños Tobar, Alisson Gualpa Moran | Sala 2 |
 | **15:00 - 16:00** | La ingeniería de prompts en la programación orientada a objetos: Fundamentos de la POO y desarrollo de software | Georgina Guadalupe Arcos Ponce | Sala 1 |
-| **15:00 - 16:00** | La Inteligencia Artificial Generativa como Herramienta para la Innovación en la Educación Superior: Retos y Oportunidades... | Galo Fernando Almeida Casanova | Sala 2 |
+| **15:00 - 16:00** | La Inteligencia Artificial Generativa como Herramienta para la Innovación en la Educación Superior... | Galo Fernando Almeida Casanova | Sala 2 |
 | **16:00 - 17:00** | Libro interactivo: Fundamentos de contabilidad | David Ordoñez, Anthony Narváez, Adrián Valverde, Jorge Miranda | Sala 1 |
 | **16:00 - 17:00** | No vendrá el armisticio | Guadalupe Lezama | Sala 2 |
 | **17:00 - 18:00** | Optimización inteligente de inventarios con árboles de decisión y redes neuronales : De la teoría a la aplicación | I. Mafla Bolaños, L. Alpala, F. Montalvo Márquez, D. Beltrán Del Hierro | Sala 1 |
@@ -294,9 +295,9 @@ Porque cada página puede ser el comienzo de un encuentro.
 |---|---|---|---|
 | **08:30 - 09:30** | Conferencia: La meditación, la mejor técnica de estudio | Valentin Marquez | Auditorio Edificio central |
 | **09:00 - 10:00** | Encuentro con jóvenes y estudiantes: Poesía para nuevas generaciones | Poetas nacionales e internacionales | Agencia Cultural Banco de la República - Ipiales |
-| **09:30 - 10:30** | Charla | Embajador Extraordinario y Plenipotenciario de la República de Corea ante la República del Ecuador (Jae Hyun Shim) | Auditorio Edificio central |
+| **09:30 - 10:30** | Charla | Embajador Extraordinario y Plenipotenciario de la República de Corea del Sur ante la República del Ecuador (Jae Hyun Shim) | Auditorio Edificio central |
 | **10:30 - 11:30** | Conferencia: Etnoeducación y literatura: herramientas para el desarrollo comunitario | Claudia Gordillo | Auditorio Edificio central |
-| **11:30 - 12:30** | Conferencia: ¿Pueden las socio bioeconomías apoyar la conservación de la agro diversidad de la papa? Experiencias con papas nativas y otros tubérculos andinos en Perú, Ecuador y Colombia | Trent Blare | Auditorio Edificio central |
+| **11:30 - 12:30** | Conferencia: ¿Pueden las socio bioeconomías apoyar la conservación de la agro diversidad de la papa? ... | Trent Blare | Auditorio Edificio central |
 | **14:00 - 15:00** | Conversatorio: Lanzamiento del fotolibro: Brisa de Memorias Negras | Claudia Gordillo | Auditorio Edificio central |
 | **15:00 - 16:00** | Conferencia: La etnoinnovación como estrategia para el desarrollo del territorio | Juan Carlos Estupiñán | Auditorio Edificio central |
 | **16:00 - 17:00** | Conferencia: Historia, genealogía y ética política “Quito, Ibarra, Tulcán” | Juan Francisco Morales | Auditorio Edificio central |
@@ -305,8 +306,9 @@ Porque cada página puede ser el comienzo de un encuentro.
 #### Talleres
 | Horario | Actividad | Facilitador | Lugar |
 |---|---|---|---|
-| **09:00 - 10:00** | Taller de creación poética: Autobiografía sinestésica. Identidad , memoria y territorio | Leda Quintana Rondón | Edificio aulas 2 - Aula 110 |
+| **09:00 - 10:00** | Taller de creación poética: Autobiografía sinestésica. Identidad , memoria y territorio | Leda Quintana Rondón, Yesid Niño Arteaga | Edificio aulas 2 - Aula 110 |
 | **10:30 - 11:30** | Taller: Escritura creativa del proyecto literario - Silencios Vivos | Arturo Aldás | Edificio aulas 2 - Aula 110 |
+| **11:30 - 12:30** | Taller: Descubrimos la vacuna contra la desinformación. ¿Quieres vacunarte? | Gary Guerrón | Edificio aulas 2 - Aula 110 |
 
 #### Actividades Culturales
 | Horario | Actividad | Detalles / Artistas | Lugar |
@@ -314,10 +316,11 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **09:00 - 12:00** | Presentaciones | Música, danza, percusión | Ágora universitaria |
 | **10:00 - 11:00** | Mediación lectora | Lecturas en voz alta (Yo Amo Leer) | Ágora universitaria |
 | **10:00 - 13:00** | Body Paint | Abigail Zapata | Centro de convenciones (Sala de exposiciones) |
+| **10:00 - 13:00** | Presentación musical | Coro juvenil y adulto - Grupo de Cámara del Centro Municipal de Artes - Ibarra | Centro de convenciones - Auditorio |
 | **15:00 - 16:00** | Cine infantil | Cine, Cámara... ¡Hablemos! | Centro de convenciones - Auditorio |
 | **15:00 - 18:00** | Batalla de freestyle | Tinta y libro | Ágora universitaria |
 | **16:00 - 18:00** | Títeres | Obra: El Sapo Aplastado (Tilintintero - Ecuador) | Centro de convenciones - Auditorio |
-| **18:00 - 20:00** | Títeres | Obra: El secreto del árbol (Pepito Ron - Perú) | Centro de convenciones - Auditorio |
+| **18:00 - 19:30** | Títeres | Obra: El secreto del árbol (Pepito Ron - Perú) | Centro de convenciones - Auditorio |
 | **19:30 - 20:00** | Presentación musical | Grupo Huaya - Nay | Centro de convenciones - Auditorio |
 
 #### Presentación de Libros
@@ -332,7 +335,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 | **12:00 - 13:00** | El límite pactado. Instauración de la línea limítrofe entre Colombia y Ecuador | Edison Duván Avalos Florez | Sala 2 |
 | **15:00 - 16:00** | Carchi intercultural: Relatos de identidad y encuentro | A. Aldás Flores, E. Benavides Torres, E. Pazmiño Palma | Sala 1 |
 | **15:00 - 16:00** | Vocación que Transforma: Formación Humanista y Acción Preventiva en Enfermería | Miriam Lucía Villacorte Méndez, Blanca Nelly Gordón Díaz | Sala 2 |
-| **16:00 - 17:00** | Ondulaciones | Mireya Avellaneda Gutiérrez | Sala 1 |
+| **16:00 - 17:00** | Ondulaciones: Entre el amor y el desamor | Mireya Avellaneda Gutiérrez | Sala 1 |
 
 ---
 
@@ -361,7 +364,7 @@ Porque cada página puede ser el comienzo de un encuentro.
 21. Librería Atapuma
 22. Agencia Cultural del Banco de la República - Ipiales
 23. Editorial FLACSO
-24. Fondo de Cultura Económica
+24. Universidad Técnica del Norte
 25. Editorial La Caracola
 26. Librería Tolomeo
 27. Editorial de la Pontificia Universidad Católica del Ecuador (PUCE)
