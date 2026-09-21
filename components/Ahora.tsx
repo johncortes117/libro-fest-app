@@ -106,12 +106,13 @@ export default function Ahora() {
                   </span>
                   <span className="placa-kicker">{faltan === 1 ? "FALTA" : "FALTAN"}</span>
                   <span className="placa-cifra">{String(faltan).padStart(2, "0")}</span>
-                  <span className="placa-unidad">{faltan === 1 ? "DÍA" : "DÍAS"}</span>
                 </div>
 
                 {/* Titular del evento */}
                 <div className="contador-titular-evento">
-                  <span className="contador-de">para el</span>
+                  <span className="contador-de">
+                    {faltan === 1 ? "día para el" : "días para el"}
+                  </span>
                   <h1 className="contador-nombre-fest">UPEC Libro Fest 2026</h1>
                 </div>
               </div>
