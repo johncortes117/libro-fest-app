@@ -1962,12 +1962,12 @@ button, input, select { font: inherit; color: inherit; }
     padding-top: 1px;
   }
   .contador-nombre-fest {
-    font-size: 1.20rem;
-    line-height: 1.1;
+    font-size: 1.08rem;
+    line-height: 1.12;
     max-width: 13ch;
   }
   .contador-de {
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     font-weight: 600;
     color: var(--ink-2);
     display: block;
