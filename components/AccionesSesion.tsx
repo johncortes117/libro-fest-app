@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { useGuardadas } from "@/lib/guardadas";
-import { descargarIcs } from "@/lib/ics";
+import { descargarIcs, enlaceGoogleCalendar } from "@/lib/ics";
 import type { Sesion } from "@/lib/tipos";
 import { useEntrada } from "./Entrada";
 import { useBrindis } from "./Brindis";
-import { IconoCalendario, IconoCompartir, IconoGuardado, IconoGuardar } from "./Iconos";
+import { IconoCalendario, IconoCompartir, IconoGoogle, IconoGuardado, IconoGuardar } from "./Iconos";
 
 export default function AccionesSesion({ sesion }: { sesion: Sesion }) {
   const { contiene, alternar } = useGuardadas();
@@ -59,14 +59,28 @@ export default function AccionesSesion({ sesion }: { sesion: Sesion }) {
       </button>
 
       {!sesion.permanente && (
-        <button
-          type="button"
-          className="boton"
-          onClick={() => descargarIcs([sesion], `librofest-${sesion.id}`)}
-        >
-          <IconoCalendario aria-hidden />
-          Añadir al calendario
-        </button>
+        <>
+          <a
+            href={enlaceGoogleCalendar(sesion)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="boton"
+            aria-label="Añadir a Google Calendar"
+          >
+            <IconoGoogle aria-hidden />
+            Google Calendar
+          </a>
+
+          <button
+            type="button"
+            className="boton"
+            onClick={() => descargarIcs([sesion], `librofest-${sesion.id}`)}
+            title="Descargar archivo .ics para Apple Calendar o Outlook"
+          >
+            <IconoCalendario aria-hidden />
+            .ics
+          </button>
+        </>
       )}
 
       <button type="button" className="boton" onClick={compartir}>

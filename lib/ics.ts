@@ -78,6 +78,39 @@ export function generarIcs(sesiones: Sesion[]): string {
   ].join("\r\n");
 }
 
+export function enlaceGoogleCalendar(s: Sesion): string {
+  const inicio = sello(aFechaReal(s.dia, s.inicio));
+  const fin = sello(aFechaReal(s.dia, s.fin));
+
+  const lugar = lugarPorId.get(s.lugarId);
+  const dondeBase = lugar
+    ? lugar.fuera
+      ? `${lugar.nombre}, ${lugar.fuera.ciudad} (${lugar.fuera.pais})`
+      : `${lugar.nombre} · punto ${lugar.pin} del mapa`
+    : s.lugarTexto;
+
+  const donde = lugar?.porConfirmar ? `${dondeBase} — sala por confirmar` : dondeBase;
+
+  const descripcion = [
+    s.detalle,
+    s.personas.length ? `Participan: ${s.personas.join(", ")}` : "",
+    s.finSupuesto ? "Hora de cierre estimada: la agenda oficial no la indica." : "",
+    "UPEC Libro Fest 2026",
+  ]
+    .filter(Boolean)
+    .join("\n\n");
+
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: s.titulo,
+    dates: `${inicio}/${fin}`,
+    details: descripcion,
+    location: donde,
+  });
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
 export function descargarIcs(sesiones: Sesion[], nombre: string) {
   const blob = new Blob([generarIcs(sesiones)], { type: "text/calendar;charset=utf-8" });
   const url = URL.createObjectURL(blob);
@@ -89,3 +122,4 @@ export function descargarIcs(sesiones: Sesion[], nombre: string) {
   document.body.removeChild(enlace);
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
+
