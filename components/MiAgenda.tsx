@@ -9,7 +9,6 @@ import { DIAS, type Sesion } from "@/lib/tipos";
 import ListaSesiones from "./ListaSesiones";
 import ListaChoques from "./ListaChoques";
 import HorarioDia from "./HorarioDia";
-import SincronizacionCalendario from "./SincronizacionCalendario";
 import { useEntrada } from "./Entrada";
 import { useBrindis } from "./Brindis";
 import {
@@ -160,8 +159,6 @@ export default function MiAgenda() {
           </span>
         </p>
       )}
-
-      <SincronizacionCalendario />
 
       {/* Antes esto abría la pantalla con un bloque rojo a pantalla completa: la
           aplicación castigaba a quien la había usado bien. Ahora es una línea que
