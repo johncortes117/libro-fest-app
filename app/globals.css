@@ -1174,13 +1174,13 @@ button, input, select { font: inherit; color: inherit; }
 
 /* Anillas de la placa de cuenta regresiva */
 .contador-placa-sello .calendario-anillas {
-  top: -7px;
-  padding: 0 16px;
+  top: -6px;
+  padding: 0 14px;
 }
 .contador-placa-sello .anilla {
-  width: 7px;
-  height: 14px;
-  border-radius: 3.5px;
+  width: 5.5px;
+  height: 10px;
+  border-radius: 2.5px;
   background: linear-gradient(
     90deg,
     #b45309 0%,
@@ -1193,21 +1193,21 @@ button, input, select { font: inherit; color: inherit; }
     inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 .contador-placa-sello .anilla::after {
-  bottom: -3px;
-  width: 9px;
-  height: 5px;
+  bottom: -2px;
+  width: 7px;
+  height: 4px;
   background: rgba(45, 28, 20, 0.3);
 }
 
 .placa-kicker {
   font-family: var(--display);
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: var(--gold);
   line-height: 1;
   text-transform: uppercase;
-  margin-top: 4px;
+  margin-top: 6px;
   margin-bottom: 2px;
 }
 
@@ -1933,21 +1933,31 @@ button, input, select { font: inherit; color: inherit; }
   }
   .contador-placa-sello {
     min-width: 58px;
-    padding: 6px 8px 5px;
+    padding: 8px 8px 5px;
     border-radius: 8px;
   }
   .contador-placa-sello .calendario-anillas {
     top: -5px;
-    padding: 0 8px;
+    padding: 0 9px;
+  }
+  .contador-placa-sello .anilla {
+    width: 4px;
+    height: 7.5px;
+    border-radius: 2px;
+  }
+  .contador-placa-sello .anilla::after {
+    width: 5px;
+    height: 2.5px;
+    bottom: -1px;
   }
   .contador-placa-sello .placa-kicker {
-    font-size: 0.50rem;
-    margin-top: 2px;
-    margin-bottom: 1px;
+    font-size: 0.48rem;
+    margin-top: 4.5px;
+    margin-bottom: 0;
     letter-spacing: 0.10em;
   }
   .placa-cifra {
-    font-size: 1.65rem;
+    font-size: 1.62rem;
     line-height: 1;
     padding-top: 1px;
   }
