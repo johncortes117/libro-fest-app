@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
    * sus etiquetas Open Graph propias cuando alguien pega el enlace en WhatsApp.
    */
   images: { unoptimized: true },
-  trailingSlash: true,
 };
 
 export default nextConfig;
